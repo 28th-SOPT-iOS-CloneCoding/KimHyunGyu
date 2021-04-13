@@ -56,15 +56,71 @@
 		F8259C5D26248A460061EC8E /* Remider-iOS-ColneCoding */ = {
 			isa = PBXGroup;
 			children = (
-				F8259C5E26248A460061EC8E /* AppDelegate.swift */,
-				F8259C6026248A460061EC8E /* SceneDelegate.swift */,
-				F8259C6226248A460061EC8E /* ViewController.swift */,
-				F8259C6426248A460061EC8E /* Main.storyboard */,
-				F8259C6726248A470061EC8E /* Assets.xcassets */,
-				F8259C6926248A470061EC8E /* LaunchScreen.storyboard */,
+				F8E8DD522625C83D007625A1 /* Resources */,
+				F8E8DD4D2625C7DE007625A1 /* Sources */,
 				F8259C6C26248A470061EC8E /* Info.plist */,
 			);
 			path = "Remider-iOS-ColneCoding";
+			sourceTree = "<group>";
+		};
+		F8E8DD4D2625C7DE007625A1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F8E8DD502625C82C007625A1 /* Classes */,
+				F8E8DD4E2625C822007625A1 /* Cells */,
+				F8E8DD4F2625C828007625A1 /* Models */,
+				F8E8DD512625C830007625A1 /* VCs */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F8E8DD4E2625C822007625A1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F8E8DD4F2625C828007625A1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F8E8DD502625C82C007625A1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F8E8DD512625C830007625A1 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				F8259C6226248A460061EC8E /* ViewController.swift */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
+		F8E8DD522625C83D007625A1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F8E8DD532625C84B007625A1 /* Stroyboards */,
+				F8259C6026248A460061EC8E /* SceneDelegate.swift */,
+				F8259C5E26248A460061EC8E /* AppDelegate.swift */,
+				F8259C6726248A470061EC8E /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F8E8DD532625C84B007625A1 /* Stroyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F8259C6926248A470061EC8E /* LaunchScreen.storyboard */,
+				F8259C6426248A460061EC8E /* Main.storyboard */,
+			);
+			path = Stroyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,7 +352,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "hyun99999.Remider-iOS-ColneCoding";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,7 +371,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "hyun99999.Remider-iOS-ColneCoding";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
