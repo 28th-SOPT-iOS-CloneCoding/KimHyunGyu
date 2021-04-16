@@ -14,9 +14,11 @@ class ViewController: UIViewController {
     
     var tableContents = ["ㅊㅊ","ㅍ","ㅊㅊ","ㅍ","ㅊㅊ","ㅍ","ㅊㅊ","ㅍ","ㅊㅊ","ㅍ"]
     let sections = ["나의 목록"]
+    var items: [UIBarButtonItem] = []
     
     //MARK: - @IBOutlet Properties
     
+    @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var tableEditBtn: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var scheduleView: UIView!
@@ -46,14 +48,16 @@ class ViewController: UIViewController {
         scheduleView.layer.cornerRadius = 13
         todayView.layer.cornerRadius = 13
         allView.layer.cornerRadius = 13
+        
+        //toolbar
 
+        
         //UIView touch event
         
 //        let concern1Gesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedconcern1(_:)))
 //        scheduleView.addGestureRecognizer(concern1Gesture)
+          
     }
-    
-//    // MARK: - Methods
 //
 //    @objc func tappedconcern1(_ gesture: UITapGestureRecognizer) {
 //            let storyboard: UIStoryboard = UIStoryboard(name: "ViewController", bundle: nil)
@@ -107,8 +111,6 @@ extension ViewController: UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
         if indexPath.section == 0 {
             cell.textLabel?.text = tableContents[indexPath.row]
-            cell.imageView?.image = UIImage(systemName: "calendar.circle.fill")
-            cell.imageView?.tintColor = UIColor.purple
             
             return cell
         } else { return UITableViewCell() }
