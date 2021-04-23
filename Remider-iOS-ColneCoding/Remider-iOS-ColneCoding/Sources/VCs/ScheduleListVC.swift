@@ -8,22 +8,42 @@
 import UIKit
 
 class ScheduleListVC: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    //MARK: - Properties
+    
+    var hasChanges: Bool {
+        return true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: - View Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.presentationController?.delegate = self
+        isModalInPresentation = true
     }
-    */
+}
 
+//MARK: - UIAdaptivePresentationControllerDelegate
+
+extension ScheduleListVC: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        print("presentationControllerDidAttemptToDismiss")
+        if true {
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let dismiss = UIAlertAction(title: "변경 사항 폐기", style: .destructive) { _ in
+                //Hide keyboard
+
+                self.resignFirstResponder()
+                self.dismiss(animated: true, completion: nil)
+            }
+            let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            alert.addAction(dismiss)
+            alert.addAction(cancel)
+            present(alert, animated: true, completion: nil)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
+    }
 }

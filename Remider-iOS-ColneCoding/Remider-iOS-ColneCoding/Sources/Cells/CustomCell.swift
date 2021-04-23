@@ -13,6 +13,7 @@ class CustomCell: UITableViewCell {
     
     //MARK: - @IBOutlet Properties
     
+    @IBOutlet weak var listTitle: UILabel!
     @IBOutlet weak var listBulletBtn: UIButton!
     @IBOutlet weak var countLabel: UILabel!
     
@@ -23,7 +24,7 @@ class CustomCell: UITableViewCell {
         listBulletBtn.backgroundColor = .systemBlue
         listBulletBtn.layer.cornerRadius = listBulletBtn.frame.height/2
         listBulletBtn.setPreferredSymbolConfiguration(.init(pointSize: 12, weight: .bold, scale: .large), forImageIn: .normal)
-        
+        listBulletBtn.isUserInteractionEnabled = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
