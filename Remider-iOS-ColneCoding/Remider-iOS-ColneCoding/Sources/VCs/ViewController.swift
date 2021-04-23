@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     
     var tableContents = ["ㅊㅊ","ㅍ","ㅊㅊ","ㅍ","ㅊㅊ","ㅍ","ㅊㅊ","ㅍ","ㅊㅊ","ㅍ"]
     let sections = ["나의 목록"]
-    var items: [UIBarButtonItem] = []
     
     //MARK: - @IBOutlet Properties
     
@@ -88,6 +87,8 @@ class ViewController: UIViewController {
             tableView.setEditing(true, animated: true)
             
             // hide label
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as! CustomCell
+//            cell.countLabel.isHidden = true
             
             
             //enable searchBar
@@ -110,7 +111,7 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
         if indexPath.section == 0 {
-            cell.textLabel?.text = tableContents[indexPath.row]
+            cell.listTitle?.text = tableContents[indexPath.row]
             
             return cell
         } else { return UITableViewCell() }
@@ -125,7 +126,7 @@ extension ViewController: UITableViewDelegate {
     //moveRowAt
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        //tableContents.remove(at: sourceIndexPath.row)
+        
     }
     
     //remove row
@@ -147,8 +148,8 @@ extension ViewController: UITableViewDelegate {
             self.present(nextVC, animated: true, completion: nil)
             
             //swipe hide
+            //reload 를 해서 부자연스럽지만 스와이프를 숨겼다.
             
-        
         }
         let delete = UIContextualAction(style: .destructive, title: "") { action, view, completion in
             self.tableContents.remove(at: indexPath.row)
@@ -159,6 +160,13 @@ extension ViewController: UITableViewDelegate {
         delete.image = UIImage(systemName: "trash.fill")
 
         return UISwipeActionsConfiguration(actions: [delete, info])
+    }
+    
+    //
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //title 가져오기
+        
     }
     
     //editingstyle 이라서 여기에 체크가 있을줄알았는데 없었다.
@@ -199,7 +207,7 @@ extension ViewController: UITableViewDelegate {
         return 30
     }
 }
-    
+
 //MARK: - UITableViewDataSource
 
 extension ViewController: UITableViewDataSource {
