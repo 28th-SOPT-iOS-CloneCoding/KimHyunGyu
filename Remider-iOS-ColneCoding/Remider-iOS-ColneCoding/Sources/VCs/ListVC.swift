@@ -10,10 +10,7 @@ import UIKit
 class ListVC: UIViewController {
 
     //MARK: - @IBOutlet Properties
-    
 
-
-    @IBOutlet weak var optionBarBtn: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -30,10 +27,6 @@ class ListVC: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
-
-    @IBAction func tochBackBtn(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
     
     //MARK: - Methods
     
@@ -52,17 +45,17 @@ class ListVC: UIViewController {
     
     func selectRemider(action: UIAction) {
         print("selectRemider")
-        
+
         //editing mode
 
         if tableView.isEditing {
-            optionBarBtn.title = ""
-            optionBarBtn.image = UIImage(systemName: "ellipsis.circle")
+            self.navigationItem.rightBarButtonItem?.title = ""
+            self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "ellipsis.circle")
             tableView.setEditing(false, animated: true)
         } else {
-            optionBarBtn.title = "완료"
+            self.navigationItem.rightBarButtonItem?.title = "완료"
             //optionBarBtn.image =
-            optionBarBtn.style = .done
+            self.navigationItem.rightBarButtonItem?.style = .done
             tableView.setEditing(true, animated: true)
         }
     }
@@ -85,7 +78,12 @@ class ListVC: UIViewController {
             UIAction(title: NSLocalizedString("완료된 항목 보기", comment: ""), image: UIImage(systemName: "eye"), handler: showRemider),
             UIAction(title: NSLocalizedString("목록 삭제", comment: ""), image: UIImage(systemName: "trash"), handler: removeList)
         ])
-        self.optionBarBtn.menu = barButtonMenu
+        self.navigationItem.rightBarButtonItem?.title = "k"
+        self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "ellipsis.circle")
+        self.navigationItem.rightBarButtonItem?.tintColor = .systemBlue
+        self.navigationItem.title = "abc"
+
+        self.navigationItem.rightBarButtonItem?.menu = barButtonMenu
     }
 
 }

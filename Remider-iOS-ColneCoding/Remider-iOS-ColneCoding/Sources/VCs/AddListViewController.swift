@@ -103,7 +103,7 @@ class AddListViewController: UIViewController {
     }
     private func setColorListBtn(_ btns: [UIButton]) {
         colorBtns.map{ $0.layer.cornerRadius = $0.frame.width / 2 }
-        colorBtns.map{ $0.addTarget(self, action: #selector(setImageColor(button: )), for: .touchUpInside)}
+        colorBtns.map{ $0.addTarget(self, action: #selector(setImageColor), for: .touchUpInside)}
     }
     
     //MARK: - @objc methods

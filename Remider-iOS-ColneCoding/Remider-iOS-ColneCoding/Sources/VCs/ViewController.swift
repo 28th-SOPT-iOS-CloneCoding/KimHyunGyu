@@ -32,10 +32,6 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        //이걸로 위에 테이블뷰 안에 테이블뷰를 넣고 거기에 커스텀 셀을 넣어볼까
-        let nibName = UINib(nibName: "FirstCustomCell", bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: "FirstCustomCell")
-        
         // UISearchControloler initialize
         
         let searchController = UISearchController(searchResultsController: nil)
@@ -48,8 +44,8 @@ class ViewController: UIViewController {
         todayView.layer.cornerRadius = 13
         allView.layer.cornerRadius = 13
         
-        //toolbar
-
+        //navigationBar
+        setBackBtn()
         
         //UIView touch event
         
@@ -99,6 +95,13 @@ class ViewController: UIViewController {
             searchController.searchBar.alpha = 0.5
             navigationItem.searchController = searchController
         }
+    }
+
+    //MARK: - Methods
+
+    func setBackBtn() {
+        let backBtn = UIBarButtonItem(title: "목록", style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem = backBtn
     }
 }
 
@@ -166,7 +169,10 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         //title 가져오기
+        let storyboard = UIStoryboard.init(name: "List", bundle: nil)
+        guard let nextVC = storyboard.instantiateViewController(withIdentifier: "List") as? ListVC else { return }
         
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     //editingstyle 이라서 여기에 체크가 있을줄알았는데 없었다.
