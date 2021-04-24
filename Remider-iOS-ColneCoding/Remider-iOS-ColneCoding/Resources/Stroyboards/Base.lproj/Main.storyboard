@@ -188,7 +188,6 @@
                                             <outlet property="countLabel" destination="0pc-VC-yRL" id="C4x-87-sdd"/>
                                             <outlet property="listBulletBtn" destination="CYk-ye-cRF" id="65W-qO-Vz5"/>
                                             <outlet property="listTitle" destination="CyS-Mn-p28" id="jJP-BC-OSE"/>
-                                            <segue destination="6bK-OU-1fp" kind="show" id="lWU-E8-yl5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -257,16 +256,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="968.11594202898561" y="95.758928571428569"/>
-        </scene>
-        <!--List-->
-        <scene sceneID="lI4-bW-djn">
-            <objects>
-                <viewControllerPlaceholder storyboardName="List" id="6bK-OU-1fp" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="zWM-wP-dXv"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3n9-Ky-sek" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1749" y="83"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wTv-90-fhJ">
