@@ -85,7 +85,7 @@ class ViewController: UIViewController {
             // hide label
 //            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as! CustomCell
 //            cell.countLabel.isHidden = true
-            
+//            
             
             //enable searchBar
             
@@ -103,6 +103,7 @@ class ViewController: UIViewController {
         let backBtn = UIBarButtonItem(title: "목록", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBtn
     }
+    
 }
 
 //MARK: - UITableViewDelegate

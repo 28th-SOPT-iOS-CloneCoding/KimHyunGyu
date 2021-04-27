@@ -15,6 +15,8 @@
 		F8259C6626248A460061EC8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8259C6426248A460061EC8E /* Main.storyboard */; };
 		F8259C6826248A470061EC8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8259C6726248A470061EC8E /* Assets.xcassets */; };
 		F8259C6B26248A470061EC8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8259C6926248A470061EC8E /* LaunchScreen.storyboard */; };
+		F8351B5D2636A6590062021F /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8351B5B2636A6590062021F /* ListCell.swift */; };
+		F8351B5E2636A6590062021F /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8351B5C2636A6590062021F /* ListCell.xib */; };
 		F8B6188426296BA2000EB766 /* ScheduleListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B6188326296BA2000EB766 /* ScheduleListVC.swift */; };
 		F8F5D5D52628A8580083DF37 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F5D5D32628A8580083DF37 /* CustomCell.swift */; };
 		F8F5D5DB2628B3BC0083DF37 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F5D5DA2628B3BC0083DF37 /* AddListViewController.swift */; };
@@ -31,6 +33,8 @@
 		F8259C6726248A470061EC8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8259C6A26248A470061EC8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8259C6C26248A470061EC8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8351B5B2636A6590062021F /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		F8351B5C2636A6590062021F /* ListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		F8B6188326296BA2000EB766 /* ScheduleListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleListVC.swift; path = "Remider-iOS-ColneCoding/Sources/VCs/ScheduleListVC.swift"; sourceTree = SOURCE_ROOT; };
 		F8F5D5D32628A8580083DF37 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCell.swift; path = "Remider-iOS-ColneCoding/Sources/Cells/CustomCell.swift"; sourceTree = SOURCE_ROOT; };
 		F8F5D5DA2628B3BC0083DF37 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 		F8E8DD4E2625C822007625A1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				F8351B5B2636A6590062021F /* ListCell.swift */,
+				F8351B5C2636A6590062021F /* ListCell.xib */,
 				F8F5D5D32628A8580083DF37 /* CustomCell.swift */,
 			);
 			path = Cells;
@@ -199,6 +205,7 @@
 				F80A69B3262C2DE400FAC540 /* List.storyboard in Resources */,
 				F8259C6826248A470061EC8E /* Assets.xcassets in Resources */,
 				F8259C6626248A460061EC8E /* Main.storyboard in Resources */,
+				F8351B5E2636A6590062021F /* ListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +221,7 @@
 				F8F5D5DB2628B3BC0083DF37 /* AddListViewController.swift in Sources */,
 				F8259C5F26248A460061EC8E /* AppDelegate.swift in Sources */,
 				F8B6188426296BA2000EB766 /* ScheduleListVC.swift in Sources */,
+				F8351B5D2636A6590062021F /* ListCell.swift in Sources */,
 				F8F5D5D52628A8580083DF37 /* CustomCell.swift in Sources */,
 				F8259C6126248A460061EC8E /* SceneDelegate.swift in Sources */,
 			);

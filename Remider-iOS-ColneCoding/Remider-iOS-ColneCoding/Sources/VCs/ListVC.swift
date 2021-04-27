@@ -9,6 +9,10 @@ import UIKit
 
 class ListVC: UIViewController {
 
+    //MARK: - Properties
+    
+    var list = ["abc","def"]
+    
     //MARK: - @IBOutlet Properties
 
     @IBOutlet weak var tableView: UITableView!
@@ -20,6 +24,16 @@ class ListVC: UIViewController {
         super.viewDidLoad()
         
         touchOptionBarBtn()
+        
+//        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationItem.hidesSearchBarWhenScrolling = true
+        
+        let nib = UINib(nibName: "ListCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "ListCell")
+        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,31 +47,32 @@ class ListVC: UIViewController {
     func editList(action: UIAction) {
         
         print("editList")
-        let storyboard = UIStoryboard.init(name: "AddListViewController", bundle: nil)
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         guard let nextVC = storyboard.instantiateViewController(identifier: "AddListViewController") as? AddListViewController else { return }
         
         self.present(nextVC, animated: true, completion: nil)
         
         //색과 리스트 타이틀 같이 보내주기
-        
-        nextVC.listTitle = navigationItem.title
+        //변수를 통해서 보내주었다.
+        nextVC.listTitle = "abc"
     }
     
     func selectRemider(action: UIAction) {
         print("selectRemider")
 
-        //editing mode
+        //editing mode 손봐야함
 
         if tableView.isEditing {
-            self.navigationItem.rightBarButtonItem?.title = ""
-            self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "ellipsis.circle")
-            tableView.setEditing(false, animated: true)
+//            touchOptionBarBtn()
+//            tableView.setEditing(false, animated: true)
         } else {
-            self.navigationItem.rightBarButtonItem?.title = "완료"
-            //optionBarBtn.image =
-            self.navigationItem.rightBarButtonItem?.style = .done
             tableView.setEditing(true, animated: true)
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(setRightBarBtn))
         }
+    }
+    @objc func setRightBarBtn() {
+        touchOptionBarBtn()
+        tableView.setEditing(false, animated: true)
     }
     
     func showRemider(action: UIAction) {
@@ -78,12 +93,35 @@ class ListVC: UIViewController {
             UIAction(title: NSLocalizedString("완료된 항목 보기", comment: ""), image: UIImage(systemName: "eye"), handler: showRemider),
             UIAction(title: NSLocalizedString("목록 삭제", comment: ""), image: UIImage(systemName: "trash"), handler: removeList)
         ])
-        self.navigationItem.rightBarButtonItem?.title = "k"
-        self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "ellipsis.circle")
-        self.navigationItem.rightBarButtonItem?.tintColor = .systemBlue
+
         self.navigationItem.title = "abc"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", image: UIImage(systemName: "ellipsis.circle"), primaryAction: nil, menu: barButtonMenu)
+//        self.navigationItem.rightBarButtonItem?.title = ""
+//        self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "ellipsis.circle")
+//        self.navigationItem.rightBarButtonItem?.tintColor = .systemBlue
 
         self.navigationItem.rightBarButtonItem?.menu = barButtonMenu
     }
+
+}
+
+extension ListVC: UITableViewDelegate {
+
+}
+
+extension ListVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return list.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard  let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier) as? ListCell else {
+            return UITableViewCell()
+        }
+        cell.testLabel.text = list[indexPath.row]
+        
+        return cell
+    }
+
 
 }
