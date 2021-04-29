@@ -11,9 +11,7 @@ class ScheduleListVC: UIViewController {
     
     //MARK: - Properties
     
-    var hasChanges: Bool {
-        return true
-    }
+    var hasChanges = false
     
     //MARK: - @IBOutlet Properties
     
@@ -30,6 +28,10 @@ class ScheduleListVC: UIViewController {
         setNavigationBar()
         registerCell()
         
+        //notificationCenter
+        setTrueNotification()
+        setFalseNotification()
+        
         self.navigationController?.presentationController?.delegate = self
         isModalInPresentation = true
     }
@@ -41,12 +43,19 @@ class ScheduleListVC: UIViewController {
     
     private func setNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "추가", style: .done, target: self, action: nil)
+        navigationItem.rightBarButtonItem?.isEnabled = false
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(touchBackBtn))
         navigationItem.title = "새로운 미리 알림"
     }
     private func registerCell() {
         let topCell = UINib(nibName: "ScheduleListTopCell", bundle: nil)
         tableView.register(topCell, forCellReuseIdentifier: ScheduleListTopCell.identifier)
+        
+        let middleCell = UINib(nibName: "DetailCell", bundle: nil)
+        tableView.register(middleCell, forCellReuseIdentifier: DetailCell.identifier)
+        
+        let bottomCell = UINib(nibName: "EditListCell", bundle: nil)
+        tableView.register(bottomCell, forCellReuseIdentifier: EditListCell.identifier)
         
     }
 
@@ -70,9 +79,43 @@ class ScheduleListVC: UIViewController {
         }
     }
     
+    //notification handler
+    
+    @objc
+    func setHasChangesTrue(notification: NSNotification) {
+        if let trueBool = notification.object as? Bool {
+            self.navigationItem.rightBarButtonItem?.isEnabled = trueBool
+            hasChanges = trueBool
+        } else { return }
+    }
+    
+    @objc
+    func setHasChangesFalse(notification: NSNotification) {
+        if let falseBool = notification.object as? Bool {
+            self.navigationItem.rightBarButtonItem?.isEnabled = falseBool
+//            hasChanges = trueBool
+        } else { return }
+    }
+    
     
 }
 
+//MARK: - NotificationCenter
+
+extension ScheduleListVC {
+    private func setTrueNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(setHasChangesTrue(notification:)),
+                                               name: NSNotification.Name("titleNotEmpty"),
+                                               object: nil)
+    }
+    private func setFalseNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(setHasChangesFalse(notification:)),
+                                               name: NSNotification.Name("titleEmpty"),
+                                               object: nil)
+    }
+}
 
 //MARK: - UIAdaptivePresentationControllerDelegate
 
@@ -106,17 +149,33 @@ extension ScheduleListVC: UITableViewDelegate {
 //MARK: - UITableViewDataSources
 
 extension ScheduleListVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") else {
+                return
+            }
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+        else if indexPath.section == 2 {
+            guard let editListVC = self.storyboard?.instantiateViewController(withIdentifier: "EditListVC") else {
+                return
+            }
+            self.navigationController?.pushViewController(editListVC, animated: true)
+        } else { return }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 200
+        } else { return 50 }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
         return 1
-        } else if section == 1 {
-            return 2
-        }
-        else { return 1 }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -124,8 +183,23 @@ extension ScheduleListVC: UITableViewDataSource {
             guard let topCell = tableView.dequeueReusableCell(withIdentifier: ScheduleListTopCell.identifier, for: indexPath) as? ScheduleListTopCell else {
                 return UITableViewCell()
             }
+            topCell.selectionStyle = .none
+    
             return topCell
+        } else if indexPath.section == 1 {
+            guard let middleCell = tableView.dequeueReusableCell(withIdentifier: DetailCell.identifier, for: indexPath) as? DetailCell else {
+                return UITableViewCell()
+            }
+            middleCell.accessoryType = .disclosureIndicator
+            
+            return middleCell
+        } else {
+            guard let bottomCell = tableView.dequeueReusableCell(withIdentifier: EditListCell.identifier, for: indexPath) as? EditListCell else {
+                return UITableViewCell()
+            }
+            bottomCell.accessoryType = .disclosureIndicator
+            
+            return bottomCell
         }
-        return UITableViewCell()
     }
 }

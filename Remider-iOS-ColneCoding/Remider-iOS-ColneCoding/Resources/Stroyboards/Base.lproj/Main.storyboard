@@ -262,8 +262,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bN3-5K-LhM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="5TL-Xn-YDW">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5TL-Xn-YDW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
@@ -289,11 +289,20 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="rkP-O0-ZUl">
                                 <rect key="frame" x="0.0" y="56" width="414" height="752"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oXu-eA-oHh">
+                                        <rect key="frame" x="20" y="49" width="374" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oXu-eA-oHh" id="zZl-tI-dyn">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jOL-sl-zhO"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rkP-O0-ZUl" firstAttribute="top" secondItem="jOL-sl-zhO" secondAttribute="top" id="EWr-y7-gKi"/>
                             <constraint firstItem="rkP-O0-ZUl" firstAttribute="leading" secondItem="jOL-sl-zhO" secondAttribute="leading" id="IH1-4T-Oky"/>
@@ -467,6 +476,51 @@
             </objects>
             <point key="canvasLocation" x="327.536231884058" y="880.58035714285711"/>
         </scene>
+        <!--DetailVC-->
+        <scene sceneID="HeU-8C-eRw">
+            <objects>
+                <viewController storyboardIdentifier="DetailVC" id="G5c-sH-v26" customClass="DetailVC" customModule="Remider_iOS_ColneCoding" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ktz-YD-FNW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="hCG-LG-VeC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IfY-JM-bMF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="328" y="1664"/>
+        </scene>
+        <!--Edit ListVC-->
+        <scene sceneID="NZM-ZD-x1j">
+            <objects>
+                <viewController storyboardIdentifier="EditListVC" id="0ou-Ei-QAr" customClass="EditListVC" customModule="Remider_iOS_ColneCoding" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VDb-8S-t9Y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hfl-zd-yZp">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <inset key="separatorInset" minX="60" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="thW-qj-WP3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="thW-qj-WP3" firstAttribute="bottom" secondItem="hfl-zd-yZp" secondAttribute="bottom" id="IQc-jJ-SYQ"/>
+                            <constraint firstItem="hfl-zd-yZp" firstAttribute="leading" secondItem="thW-qj-WP3" secondAttribute="leading" id="RHk-1Y-C5c"/>
+                            <constraint firstItem="thW-qj-WP3" firstAttribute="trailing" secondItem="hfl-zd-yZp" secondAttribute="trailing" id="hJE-W5-kGg"/>
+                            <constraint firstItem="hfl-zd-yZp" firstAttribute="top" secondItem="thW-qj-WP3" secondAttribute="top" id="kbz-G9-zlo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="hfl-zd-yZp" id="h6q-4Z-dXH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q1g-WT-KrW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1229" y="1658"/>
+        </scene>
     </scenes>
     <resources>
         <image name="calendar.circle.fill" catalog="system" width="128" height="121"/>
@@ -478,6 +532,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

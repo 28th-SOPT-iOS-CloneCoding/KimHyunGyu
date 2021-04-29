@@ -9,30 +9,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ListCell" selectionStyle="default" indentationWidth="10" rowHeight="116" id="KGk-i7-Jjw" customClass="ListCell" customModule="Remider_iOS_ColneCoding" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="350" height="116"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="DetailCell" selectionStyle="default" indentationWidth="10" rowHeight="50" id="KGk-i7-Jjw" customClass="DetailCell" customModule="Remider_iOS_ColneCoding" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="350" height="116"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylo-4Z-Nne">
-                        <rect key="frame" x="154" y="47.5" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="세부사항" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jai-QH-zhj">
+                        <rect key="frame" x="16" y="35.5" width="59" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Ylo-4Z-Nne" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="6xD-gv-Vb3"/>
-                    <constraint firstItem="Ylo-4Z-Nne" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6xr-os-lAd"/>
+                    <constraint firstItem="Jai-QH-zhj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="J3L-HF-yiY"/>
+                    <constraint firstItem="Jai-QH-zhj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="lG6-Le-PF9"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <connections>
-                <outlet property="testLabel" destination="Ylo-4Z-Nne" id="zY4-eA-OZ7"/>
-            </connections>
-            <point key="canvasLocation" x="120.28985507246378" y="127.90178571428571"/>
+            <point key="canvasLocation" x="137.68115942028987" y="125.55803571428571"/>
         </tableViewCell>
     </objects>
 </document>
