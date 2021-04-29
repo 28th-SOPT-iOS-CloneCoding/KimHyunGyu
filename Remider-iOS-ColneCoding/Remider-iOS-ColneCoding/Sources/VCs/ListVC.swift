@@ -15,7 +15,6 @@ class ListVC: UIViewController {
     
     //MARK: - @IBOutlet Properties
 
-    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -124,13 +123,4 @@ extension ListVC: UITableViewDataSource {
         return cell
     }
 }
-//
-//extension ListVC: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if let height = navigationController?.navigationBar.frame.size.height, height == 44 {
-//            topConstraint.constant = 0
-//        } else {
-//            topConstraint.constant = 44
-//        }
-//    }
-//}
+

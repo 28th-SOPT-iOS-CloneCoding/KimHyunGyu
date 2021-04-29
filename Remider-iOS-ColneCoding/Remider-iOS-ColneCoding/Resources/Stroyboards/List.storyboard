@@ -51,7 +51,6 @@
                     <navigationItem key="navigationItem" id="81T-h9-hrr"/>
                     <connections>
                         <outlet property="tableView" destination="9k5-3h-KnX" id="MIA-hC-gci"/>
-                        <outlet property="topConstraint" destination="7O8-bz-Qwk" id="wCs-z6-tmm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIY-Av-mFB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
