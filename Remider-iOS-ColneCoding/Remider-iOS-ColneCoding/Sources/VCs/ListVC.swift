@@ -23,8 +23,11 @@ class ListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        touchOptionBarBtn()
+        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.separatorStyle = .none
+        tableView.allowsMultipleSelectionDuringEditing = true
         
+        touchOptionBarBtn()
 //        navigationController?.navigationBar.prefersLargeTitles = true
         
         navigationItem.hidesSearchBarWhenScrolling = true
@@ -34,6 +37,8 @@ class ListVC: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        detailReminderNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +50,6 @@ class ListVC: UIViewController {
     //MARK: - Methods
     
     func editList(action: UIAction) {
-        
         print("editList")
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         guard let nextVC = storyboard.instantiateViewController(identifier: "AddListViewController") as? AddListViewController else { return }
@@ -63,8 +67,7 @@ class ListVC: UIViewController {
         //editing mode 손봐야함
 
         if tableView.isEditing {
-//            touchOptionBarBtn()
-//            tableView.setEditing(false, animated: true)
+
         } else {
             tableView.setEditing(true, animated: true)
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(setRightBarBtn))
@@ -96,18 +99,30 @@ class ListVC: UIViewController {
 
         self.navigationItem.title = "abc"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", image: UIImage(systemName: "ellipsis.circle"), primaryAction: nil, menu: barButtonMenu)
-//        self.navigationItem.rightBarButtonItem?.title = ""
-//        self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "ellipsis.circle")
-//        self.navigationItem.rightBarButtonItem?.tintColor = .systemBlue
+
 
         self.navigationItem.rightBarButtonItem?.menu = barButtonMenu
+    }
+    
+    @objc
+    func presentDetailReminder(notification: NSNotification) {
+        let storyboard = UIStoryboard(name: "List", bundle: nil)
+        guard let nextVC = storyboard.instantiateViewController(identifier: DetailReminderVC.identifier) as? DetailReminderVC else {
+            return
+        }
+        self.present(nextVC, animated: true, completion: nil)
+//        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
 }
 
+//MARK: - UITableViewDelegates
+
 extension ListVC: UITableViewDelegate {
 
 }
+
+//MARK: - UITableViewDataSource
 
 extension ListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -118,9 +133,55 @@ extension ListVC: UITableViewDataSource {
         guard  let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier) as? ListCell else {
             return UITableViewCell()
         }
-        cell.testLabel.text = list[indexPath.row]
-        
+        cell.selectionStyle = .blue
+
         return cell
     }
+    
+    //cell height
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    //movecell
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    }
+    
+    //swipe
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let info = UIContextualAction(style: .normal, title: "세부사항") { action, view, completion in
+            guard let nextVC = self.storyboard?.instantiateViewController(identifier: DetailReminderVC.identifier) as? DetailReminderVC else {
+                    return
+                }
+            //modally
+            
+            self.present(nextVC, animated: true, completion: nil)
+            
+            //swipe hide
+            //reload 를 해서 부자연스럽지만 스와이프를 숨겼다.
+            
+        }
+        let delete = UIContextualAction(style: .destructive, title: "삭제") { action, view, completion in
+//            self.tableContents.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+
+        return UISwipeActionsConfiguration(actions: [delete, info])
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("select")
+        print(tableView.indexPathsForSelectedRows!)
+    }
+    
+    
 }
 
+extension ListVC {
+    
+    private func detailReminderNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(presentDetailReminder(notification:)),
+                                               name: NSNotification.Name("touchInfo"),
+                                               object: nil)
+    }
+}

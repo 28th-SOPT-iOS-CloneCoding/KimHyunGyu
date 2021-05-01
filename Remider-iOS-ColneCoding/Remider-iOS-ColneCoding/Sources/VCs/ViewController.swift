@@ -29,6 +29,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.contentInsetAdjustmentBehavior = .never
+        
         tableView.delegate = self
         tableView.dataSource = self
         
