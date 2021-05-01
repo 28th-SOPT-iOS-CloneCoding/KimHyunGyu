@@ -16,6 +16,7 @@ class EditListVC: UIViewController {
                 
         setNavigationBar()
         registerCell()
+        tableView.separatorStyle = .none
         
         tableView.delegate = self
         tableView.dataSource = self

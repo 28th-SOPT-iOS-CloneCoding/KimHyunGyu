@@ -9,6 +9,7 @@ import UIKit
 
 class DetailEditListCell: UITableViewCell {
 
+    @IBOutlet weak var checkmarkBtn: UIButton!
     @IBOutlet weak var listLabel: UILabel!
     @IBOutlet weak var listBulletBtn: UIButton!
     
@@ -20,7 +21,6 @@ class DetailEditListCell: UITableViewCell {
     }
 
     func setCell() {
-        self.accessoryType = .checkmark
         listBulletBtn.backgroundColor = .systemBlue
         listBulletBtn.layer.cornerRadius = listBulletBtn.frame.height / 2
         listBulletBtn.setPreferredSymbolConfiguration(.init(pointSize: 12, weight: .bold, scale: .large), forImageIn: .normal)

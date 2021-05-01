@@ -26,6 +26,7 @@
 		F87CB8822639CF3D00F33B18 /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F87CB8802639CF3D00F33B18 /* DetailCell.xib */; };
 		F87CB8852639CF8500F33B18 /* EditListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87CB8832639CF8500F33B18 /* EditListCell.swift */; };
 		F87CB8862639CF8500F33B18 /* EditListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F87CB8842639CF8500F33B18 /* EditListCell.xib */; };
+		F880792A263D73A800018F77 /* DetailReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8807929263D73A800018F77 /* DetailReminderVC.swift */; };
 		F8B6188426296BA2000EB766 /* ScheduleListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B6188326296BA2000EB766 /* ScheduleListVC.swift */; };
 		F8C9D201263A3F46000D30C8 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C9D200263A3F46000D30C8 /* DetailVC.swift */; };
 		F8F5D5D52628A8580083DF37 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F5D5D32628A8580083DF37 /* CustomCell.swift */; };
@@ -54,6 +55,7 @@
 		F87CB8802639CF3D00F33B18 /* DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
 		F87CB8832639CF8500F33B18 /* EditListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListCell.swift; sourceTree = "<group>"; };
 		F87CB8842639CF8500F33B18 /* EditListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditListCell.xib; sourceTree = "<group>"; };
+		F8807929263D73A800018F77 /* DetailReminderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReminderVC.swift; sourceTree = "<group>"; };
 		F8B6188326296BA2000EB766 /* ScheduleListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleListVC.swift; path = "Remider-iOS-ColneCoding/Sources/VCs/ScheduleListVC.swift"; sourceTree = SOURCE_ROOT; };
 		F8C9D200263A3F46000D30C8 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		F8F5D5D32628A8580083DF37 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCell.swift; path = "Remider-iOS-ColneCoding/Sources/Cells/CustomCell.swift"; sourceTree = SOURCE_ROOT; };
@@ -157,6 +159,7 @@
 				F80A69B5262C2F1400FAC540 /* ListVC.swift */,
 				F8C9D200263A3F46000D30C8 /* DetailVC.swift */,
 				F81CD94E263A42D500451CB2 /* EditListVC.swift */,
+				F8807929263D73A800018F77 /* DetailReminderVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				F8259C6326248A460061EC8E /* ViewController.swift in Sources */,
 				F8F5D5DB2628B3BC0083DF37 /* AddListViewController.swift in Sources */,
 				F87CB8792639876900F33B18 /* ScheduleListTopCell.swift in Sources */,
+				F880792A263D73A800018F77 /* DetailReminderVC.swift in Sources */,
 				F8C9D201263A3F46000D30C8 /* DetailVC.swift in Sources */,
 				F87CB8852639CF8500F33B18 /* EditListCell.swift in Sources */,
 				F81CD94F263A42D500451CB2 /* EditListVC.swift in Sources */,

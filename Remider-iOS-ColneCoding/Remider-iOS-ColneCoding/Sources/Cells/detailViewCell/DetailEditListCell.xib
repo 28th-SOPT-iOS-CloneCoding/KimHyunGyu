@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -31,16 +32,33 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wBT-Ur-LR5">
+                        <rect key="frame" x="68" y="118.5" width="373" height="0.5"/>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="1fu-lf-eFL"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loY-bY-bW1">
+                        <rect key="frame" x="404" y="48.5" width="19" height="22"/>
+                        <state key="normal" image="checkmark" catalog="system"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="2TB-ou-Mi0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="7fX-Rd-txM"/>
+                    <constraint firstAttribute="trailing" secondItem="loY-bY-bW1" secondAttribute="trailing" constant="18" id="Eam-Wf-Q0u"/>
+                    <constraint firstItem="wBT-Ur-LR5" firstAttribute="leading" secondItem="Hl9-zQ-c9N" secondAttribute="leading" id="H24-Cy-ibw"/>
                     <constraint firstItem="Hl9-zQ-c9N" firstAttribute="leading" secondItem="2TB-ou-Mi0" secondAttribute="trailing" constant="18" id="X8y-bf-UGJ"/>
+                    <constraint firstAttribute="bottom" secondItem="wBT-Ur-LR5" secondAttribute="bottom" id="dTY-Ap-mkq"/>
                     <constraint firstItem="Hl9-zQ-c9N" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fXe-56-024"/>
                     <constraint firstItem="2TB-ou-Mi0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hDC-f3-tNS"/>
+                    <constraint firstItem="loY-bY-bW1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lfb-Es-vf8"/>
+                    <constraint firstAttribute="trailing" secondItem="wBT-Ur-LR5" secondAttribute="trailing" id="pfG-kY-Oy8"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="checkmarkBtn" destination="loY-bY-bW1" id="Bq8-bX-Nla"/>
                 <outlet property="listBulletBtn" destination="2TB-ou-Mi0" id="N6I-Ad-cGY"/>
                 <outlet property="listLabel" destination="Hl9-zQ-c9N" id="FWZ-8C-v2R"/>
             </connections>
@@ -48,6 +66,10 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
