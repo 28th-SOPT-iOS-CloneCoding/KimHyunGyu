@@ -27,6 +27,18 @@
 		F87CB8852639CF8500F33B18 /* EditListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87CB8832639CF8500F33B18 /* EditListCell.swift */; };
 		F87CB8862639CF8500F33B18 /* EditListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F87CB8842639CF8500F33B18 /* EditListCell.xib */; };
 		F880792A263D73A800018F77 /* DetailReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8807929263D73A800018F77 /* DetailReminderVC.swift */; };
+		F8862356263FD50400A53362 /* RepeatDetailReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8862354263FD50400A53362 /* RepeatDetailReminderCell.swift */; };
+		F8862357263FD50400A53362 /* RepeatDetailReminderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8862355263FD50400A53362 /* RepeatDetailReminderCell.xib */; };
+		F886235A263FD87100A53362 /* LocationDetailReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8862358263FD87100A53362 /* LocationDetailReminderCell.swift */; };
+		F886235B263FD87100A53362 /* LocationDetailReminderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8862359263FD87100A53362 /* LocationDetailReminderCell.xib */; };
+		F886235E263FE07800A53362 /* PriorityDetailReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F886235C263FE07800A53362 /* PriorityDetailReminderCell.swift */; };
+		F886235F263FE07800A53362 /* PriorityDetailReminderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F886235D263FE07800A53362 /* PriorityDetailReminderCell.xib */; };
+		F8862362263FE45B00A53362 /* ListDetailReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8862360263FE45B00A53362 /* ListDetailReminderCell.swift */; };
+		F8862363263FE45B00A53362 /* ListDetailReminderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8862361263FE45B00A53362 /* ListDetailReminderCell.xib */; };
+		F8A783A0263F20290075974A /* TitleDetailReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A7839E263F20290075974A /* TitleDetailReminderCell.swift */; };
+		F8A783A1263F20290075974A /* TitleDetailReminderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8A7839F263F20290075974A /* TitleDetailReminderCell.xib */; };
+		F8A783A4263F23450075974A /* DateDetailReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A783A2263F23450075974A /* DateDetailReminderCell.swift */; };
+		F8A783A5263F23450075974A /* DateDetailReminderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8A783A3263F23450075974A /* DateDetailReminderCell.xib */; };
 		F8B6188426296BA2000EB766 /* ScheduleListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B6188326296BA2000EB766 /* ScheduleListVC.swift */; };
 		F8C9D201263A3F46000D30C8 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C9D200263A3F46000D30C8 /* DetailVC.swift */; };
 		F8F5D5D52628A8580083DF37 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F5D5D32628A8580083DF37 /* CustomCell.swift */; };
@@ -56,6 +68,18 @@
 		F87CB8832639CF8500F33B18 /* EditListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListCell.swift; sourceTree = "<group>"; };
 		F87CB8842639CF8500F33B18 /* EditListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditListCell.xib; sourceTree = "<group>"; };
 		F8807929263D73A800018F77 /* DetailReminderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReminderVC.swift; sourceTree = "<group>"; };
+		F8862354263FD50400A53362 /* RepeatDetailReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatDetailReminderCell.swift; sourceTree = "<group>"; };
+		F8862355263FD50400A53362 /* RepeatDetailReminderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepeatDetailReminderCell.xib; sourceTree = "<group>"; };
+		F8862358263FD87100A53362 /* LocationDetailReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailReminderCell.swift; sourceTree = "<group>"; };
+		F8862359263FD87100A53362 /* LocationDetailReminderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationDetailReminderCell.xib; sourceTree = "<group>"; };
+		F886235C263FE07800A53362 /* PriorityDetailReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityDetailReminderCell.swift; sourceTree = "<group>"; };
+		F886235D263FE07800A53362 /* PriorityDetailReminderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PriorityDetailReminderCell.xib; sourceTree = "<group>"; };
+		F8862360263FE45B00A53362 /* ListDetailReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailReminderCell.swift; sourceTree = "<group>"; };
+		F8862361263FE45B00A53362 /* ListDetailReminderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListDetailReminderCell.xib; sourceTree = "<group>"; };
+		F8A7839E263F20290075974A /* TitleDetailReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDetailReminderCell.swift; sourceTree = "<group>"; };
+		F8A7839F263F20290075974A /* TitleDetailReminderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleDetailReminderCell.xib; sourceTree = "<group>"; };
+		F8A783A2263F23450075974A /* DateDetailReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDetailReminderCell.swift; sourceTree = "<group>"; };
+		F8A783A3263F23450075974A /* DateDetailReminderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateDetailReminderCell.xib; sourceTree = "<group>"; };
 		F8B6188326296BA2000EB766 /* ScheduleListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleListVC.swift; path = "Remider-iOS-ColneCoding/Sources/VCs/ScheduleListVC.swift"; sourceTree = SOURCE_ROOT; };
 		F8C9D200263A3F46000D30C8 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		F8F5D5D32628A8580083DF37 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCell.swift; path = "Remider-iOS-ColneCoding/Sources/Cells/CustomCell.swift"; sourceTree = SOURCE_ROOT; };
@@ -99,13 +123,32 @@
 			path = "Remider-iOS-ColneCoding";
 			sourceTree = "<group>";
 		};
-		F8C9D202263A40ED000D30C8 /* detailViewCell */ = {
+		F8A7839D263F1FF30075974A /* DetailReminderCell */ = {
+			isa = PBXGroup;
+			children = (
+				F8A7839E263F20290075974A /* TitleDetailReminderCell.swift */,
+				F8A7839F263F20290075974A /* TitleDetailReminderCell.xib */,
+				F8A783A2263F23450075974A /* DateDetailReminderCell.swift */,
+				F8A783A3263F23450075974A /* DateDetailReminderCell.xib */,
+				F8862354263FD50400A53362 /* RepeatDetailReminderCell.swift */,
+				F8862355263FD50400A53362 /* RepeatDetailReminderCell.xib */,
+				F8862358263FD87100A53362 /* LocationDetailReminderCell.swift */,
+				F8862359263FD87100A53362 /* LocationDetailReminderCell.xib */,
+				F886235C263FE07800A53362 /* PriorityDetailReminderCell.swift */,
+				F886235D263FE07800A53362 /* PriorityDetailReminderCell.xib */,
+				F8862360263FE45B00A53362 /* ListDetailReminderCell.swift */,
+				F8862361263FE45B00A53362 /* ListDetailReminderCell.xib */,
+			);
+			path = DetailReminderCell;
+			sourceTree = "<group>";
+		};
+		F8C9D202263A40ED000D30C8 /* DetailViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				F81CD958263A44CD00451CB2 /* DetailEditListCell.swift */,
 				F81CD959263A44CD00451CB2 /* DetailEditListCell.xib */,
 			);
-			path = detailViewCell;
+			path = DetailViewCell;
 			sourceTree = "<group>";
 		};
 		F8E8DD4D2625C7DE007625A1 /* Sources */ = {
@@ -122,7 +165,8 @@
 		F8E8DD4E2625C822007625A1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				F8C9D202263A40ED000D30C8 /* detailViewCell */,
+				F8A7839D263F1FF30075974A /* DetailReminderCell */,
+				F8C9D202263A40ED000D30C8 /* DetailViewCell */,
 				F87CB8782639876900F33B18 /* ScheduleListTopCell.xib */,
 				F87CB8772639876900F33B18 /* ScheduleListTopCell.swift */,
 				F8351B5B2636A6590062021F /* ListCell.swift */,
@@ -245,12 +289,18 @@
 				F8259C6B26248A470061EC8E /* LaunchScreen.storyboard in Resources */,
 				F81CD95B263A44CD00451CB2 /* DetailEditListCell.xib in Resources */,
 				F80A69B3262C2DE400FAC540 /* List.storyboard in Resources */,
+				F8A783A1263F20290075974A /* TitleDetailReminderCell.xib in Resources */,
+				F886235F263FE07800A53362 /* PriorityDetailReminderCell.xib in Resources */,
+				F8A783A5263F23450075974A /* DateDetailReminderCell.xib in Resources */,
+				F8862363263FE45B00A53362 /* ListDetailReminderCell.xib in Resources */,
 				F8259C6826248A470061EC8E /* Assets.xcassets in Resources */,
+				F886235B263FD87100A53362 /* LocationDetailReminderCell.xib in Resources */,
 				F87CB8862639CF8500F33B18 /* EditListCell.xib in Resources */,
 				F8259C6626248A460061EC8E /* Main.storyboard in Resources */,
 				F87CB8822639CF3D00F33B18 /* DetailCell.xib in Resources */,
 				F87CB87A2639876900F33B18 /* ScheduleListTopCell.xib in Resources */,
 				F8351B5E2636A6590062021F /* ListCell.xib in Resources */,
+				F8862357263FD50400A53362 /* RepeatDetailReminderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,18 +314,24 @@
 				F87CB8812639CF3D00F33B18 /* DetailCell.swift in Sources */,
 				F80A69B6262C2F1400FAC540 /* ListVC.swift in Sources */,
 				F8259C6326248A460061EC8E /* ViewController.swift in Sources */,
+				F886235A263FD87100A53362 /* LocationDetailReminderCell.swift in Sources */,
+				F8A783A0263F20290075974A /* TitleDetailReminderCell.swift in Sources */,
 				F8F5D5DB2628B3BC0083DF37 /* AddListViewController.swift in Sources */,
 				F87CB8792639876900F33B18 /* ScheduleListTopCell.swift in Sources */,
 				F880792A263D73A800018F77 /* DetailReminderVC.swift in Sources */,
 				F8C9D201263A3F46000D30C8 /* DetailVC.swift in Sources */,
 				F87CB8852639CF8500F33B18 /* EditListCell.swift in Sources */,
+				F8862362263FE45B00A53362 /* ListDetailReminderCell.swift in Sources */,
 				F81CD94F263A42D500451CB2 /* EditListVC.swift in Sources */,
 				F8259C5F26248A460061EC8E /* AppDelegate.swift in Sources */,
+				F886235E263FE07800A53362 /* PriorityDetailReminderCell.swift in Sources */,
 				F8B6188426296BA2000EB766 /* ScheduleListVC.swift in Sources */,
 				F81CD95A263A44CD00451CB2 /* DetailEditListCell.swift in Sources */,
 				F8351B5D2636A6590062021F /* ListCell.swift in Sources */,
 				F8F5D5D52628A8580083DF37 /* CustomCell.swift in Sources */,
+				F8862356263FD50400A53362 /* RepeatDetailReminderCell.swift in Sources */,
 				F8259C6126248A460061EC8E /* SceneDelegate.swift in Sources */,
+				F8A783A4263F23450075974A /* DateDetailReminderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

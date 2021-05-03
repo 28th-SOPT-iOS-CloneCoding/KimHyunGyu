@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="199" id="KGk-i7-Jjw" customClass="DateDetailReminderCell" customModule="Remider_iOS_ColneCoding" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="371" height="199"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="371" height="199"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFl-3z-f7p">
+                        <rect key="frame" x="18" y="18" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="34A-Gb-Xai"/>
+                            <constraint firstAttribute="height" constant="30" id="rQR-v4-Z0W"/>
+                        </constraints>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="calendar" catalog="system"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caE-WK-a8h">
+                        <rect key="frame" x="18" y="151" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="Dfg-Sh-Td8"/>
+                            <constraint firstAttribute="width" constant="30" id="KIb-Jx-7c4"/>
+                        </constraints>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="clock.fill" catalog="system"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLW-YT-hfN">
+                        <rect key="frame" x="66" y="18" width="33" height="63.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2K-Xe-RB2">
+                        <rect key="frame" x="60" y="99.5" width="311" height="0.5"/>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="RuG-io-Ycz"/>
+                        </constraints>
+                    </view>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="giv-cg-h5v">
+                        <rect key="frame" x="304" y="18" width="51" height="63.5"/>
+                    </switch>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Elr-66-FsK">
+                        <rect key="frame" x="304" y="118" width="51" height="63"/>
+                    </switch>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHs-Sb-f8U">
+                        <rect key="frame" x="66" y="138" width="33" height="23"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="E2K-Xe-RB2" firstAttribute="top" secondItem="giv-cg-h5v" secondAttribute="bottom" constant="18" id="3Z0-V5-xWf"/>
+                    <constraint firstItem="E2K-Xe-RB2" firstAttribute="top" secondItem="eLW-YT-hfN" secondAttribute="bottom" constant="18" id="7bh-yW-Maa"/>
+                    <constraint firstItem="E2K-Xe-RB2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="60" id="8NP-kZ-Wk2"/>
+                    <constraint firstItem="UFl-3z-f7p" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="8Rd-l2-yvT"/>
+                    <constraint firstAttribute="bottom" secondItem="Elr-66-FsK" secondAttribute="bottom" constant="18" id="982-9F-8Ri"/>
+                    <constraint firstAttribute="trailing" secondItem="Elr-66-FsK" secondAttribute="trailing" constant="18" id="JER-jm-cF8"/>
+                    <constraint firstAttribute="trailing" secondItem="E2K-Xe-RB2" secondAttribute="trailing" id="NfR-q4-Xkc"/>
+                    <constraint firstItem="Elr-66-FsK" firstAttribute="top" secondItem="E2K-Xe-RB2" secondAttribute="bottom" constant="18" id="Rm8-xl-UEW"/>
+                    <constraint firstItem="giv-cg-h5v" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="dsV-cV-lTA"/>
+                    <constraint firstItem="eLW-YT-hfN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="nKd-Sg-xOF"/>
+                    <constraint firstItem="E2K-Xe-RB2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ncw-yQ-fBs"/>
+                    <constraint firstItem="QHs-Sb-f8U" firstAttribute="leading" secondItem="caE-WK-a8h" secondAttribute="trailing" constant="18" id="pBE-wn-iQf"/>
+                    <constraint firstAttribute="bottom" secondItem="caE-WK-a8h" secondAttribute="bottom" constant="18" id="pcu-pU-tze"/>
+                    <constraint firstItem="QHs-Sb-f8U" firstAttribute="centerY" secondItem="Elr-66-FsK" secondAttribute="centerY" id="qmk-DY-CVK"/>
+                    <constraint firstAttribute="trailing" secondItem="giv-cg-h5v" secondAttribute="trailing" constant="18" id="t1f-JW-up0"/>
+                    <constraint firstItem="caE-WK-a8h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="wHn-9x-wYe"/>
+                    <constraint firstItem="eLW-YT-hfN" firstAttribute="leading" secondItem="UFl-3z-f7p" secondAttribute="trailing" constant="18" id="wlQ-Px-Nui"/>
+                    <constraint firstItem="UFl-3z-f7p" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="xwy-fy-Ugo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="calendarBtn" destination="UFl-3z-f7p" id="S5V-uC-fTB"/>
+                <outlet property="calendarSwitch" destination="giv-cg-h5v" id="aRf-bo-KyC"/>
+                <outlet property="clockBtn" destination="caE-WK-a8h" id="FUD-Pj-2Ry"/>
+                <outlet property="clockSwitch" destination="Elr-66-FsK" id="1Ia-5r-0rw"/>
+            </connections>
+            <point key="canvasLocation" x="55.797101449275367" y="161.71875"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="clock.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
