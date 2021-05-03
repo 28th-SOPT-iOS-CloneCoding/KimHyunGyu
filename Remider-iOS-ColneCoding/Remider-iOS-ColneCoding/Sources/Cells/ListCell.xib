@@ -17,17 +17,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="350" height="116"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utF-Xf-Zxr">
-                        <rect key="frame" x="18" y="47" width="20" height="22"/>
-                        <state key="normal" image="circle" catalog="system"/>
-                    </button>
                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eE0-GD-bB8">
-                        <rect key="frame" x="56" y="47" width="228" height="22"/>
+                        <rect key="frame" x="66" y="47" width="218" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hY3-Eg-lTg">
-                        <rect key="frame" x="56" y="115.5" width="294" height="0.5"/>
+                        <rect key="frame" x="66" y="115.5" width="284" height="0.5"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="YHI-Kc-pOl"/>
@@ -46,16 +42,23 @@
                             <action selector="touchInfoBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="D6g-9N-b1u"/>
                         </connections>
                     </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iEF-Bn-9Mq">
+                        <rect key="frame" x="18" y="43" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="DCe-e9-k1S"/>
+                            <constraint firstAttribute="height" constant="30" id="SE1-Ug-f1h"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="utF-Xf-Zxr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3ov-Td-P27"/>
+                    <constraint firstItem="iEF-Bn-9Mq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="25F-1b-SK5"/>
                     <constraint firstAttribute="bottom" secondItem="hY3-Eg-lTg" secondAttribute="bottom" id="3pJ-Sc-TVu"/>
-                    <constraint firstItem="utF-Xf-Zxr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="TXI-f0-f8i"/>
+                    <constraint firstItem="eE0-GD-bB8" firstAttribute="leading" secondItem="iEF-Bn-9Mq" secondAttribute="trailing" constant="18" id="RHH-nN-hUO"/>
                     <constraint firstAttribute="trailing" secondItem="ZxH-eh-Bkp" secondAttribute="trailing" constant="18" id="d5c-cr-O4s"/>
-                    <constraint firstItem="eE0-GD-bB8" firstAttribute="leading" secondItem="utF-Xf-Zxr" secondAttribute="trailing" constant="18" id="hkO-yA-0fY"/>
                     <constraint firstItem="hY3-Eg-lTg" firstAttribute="leading" secondItem="eE0-GD-bB8" secondAttribute="leading" id="hv5-cH-mtS"/>
                     <constraint firstItem="ZxH-eh-Bkp" firstAttribute="leading" secondItem="eE0-GD-bB8" secondAttribute="trailing" constant="18" id="jfY-NP-IYj"/>
                     <constraint firstAttribute="trailing" secondItem="hY3-Eg-lTg" secondAttribute="trailing" id="oiI-Gf-zNZ"/>
+                    <constraint firstItem="iEF-Bn-9Mq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="rn8-3j-wc8"/>
                     <constraint firstItem="ZxH-eh-Bkp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rrv-pH-qea"/>
                     <constraint firstItem="eE0-GD-bB8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zU3-hY-w8F"/>
                 </constraints>
@@ -64,12 +67,12 @@
             <connections>
                 <outlet property="infoBtn" destination="ZxH-eh-Bkp" id="fiA-uO-J28"/>
                 <outlet property="reminderField" destination="eE0-GD-bB8" id="BEF-8j-OWb"/>
+                <outlet property="selectImageView" destination="iEF-Bn-9Mq" id="bZM-9i-Xfq"/>
             </connections>
             <point key="canvasLocation" x="120.28985507246378" y="127.90178571428571"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

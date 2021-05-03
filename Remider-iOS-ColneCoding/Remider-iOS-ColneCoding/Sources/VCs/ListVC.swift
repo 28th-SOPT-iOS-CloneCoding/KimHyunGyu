@@ -27,6 +27,8 @@ class ListVC: UIViewController {
         tableView.separatorStyle = .none
         tableView.allowsMultipleSelectionDuringEditing = true
         
+        self.navigationItem.title = "abc"
+        
         touchOptionBarBtn()
 //        navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -39,6 +41,7 @@ class ListVC: UIViewController {
         tableView.dataSource = self
         
         detailReminderNotification()
+        textFieldNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,10 +76,6 @@ class ListVC: UIViewController {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(setRightBarBtn))
         }
     }
-    @objc func setRightBarBtn() {
-        touchOptionBarBtn()
-        tableView.setEditing(false, animated: true)
-    }
     
     func showRemider(action: UIAction) {
         print("showRemider")
@@ -97,21 +96,41 @@ class ListVC: UIViewController {
             UIAction(title: NSLocalizedString("목록 삭제", comment: ""), image: UIImage(systemName: "trash"), handler: removeList)
         ])
 
-        self.navigationItem.title = "abc"
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", image: UIImage(systemName: "ellipsis.circle"), primaryAction: nil, menu: barButtonMenu)
 
 
         self.navigationItem.rightBarButtonItem?.menu = barButtonMenu
     }
     
+    //MARK: - @objc Methods
+    
+    @objc
+    func setRightBarBtn() {
+        touchOptionBarBtn()
+        tableView.setEditing(false, animated: true)
+    }
+    
     @objc
     func presentDetailReminder(notification: NSNotification) {
         let storyboard = UIStoryboard(name: "List", bundle: nil)
-        guard let nextVC = storyboard.instantiateViewController(identifier: DetailReminderVC.identifier) as? DetailReminderVC else {
+        guard let nextVC = storyboard.instantiateViewController(identifier: "DetailNavigationVC") as? UINavigationController else {
             return
         }
+        
         self.present(nextVC, animated: true, completion: nil)
-//        self.navigationController?.pushViewController(nextVC, animated: true)
+
+    }
+    
+    @objc
+    func setMenuBtn() {
+        touchOptionBarBtn()
+        NotificationCenter.default.post(name: NSNotification.Name("SelectCompleteBtn"), object: nil)
+    }
+    
+    @objc
+    func setCompleteBtn() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(setMenuBtn))
     }
 
 }
@@ -176,6 +195,8 @@ extension ListVC: UITableViewDataSource {
     
 }
 
+//MARK: - Notification
+
 extension ListVC {
     
     private func detailReminderNotification() {
@@ -183,5 +204,9 @@ extension ListVC {
                                                selector: #selector(presentDetailReminder(notification:)),
                                                name: NSNotification.Name("touchInfo"),
                                                object: nil)
+    }
+    private func textFieldNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(setCompleteBtn), name: NSNotification.Name("BeginEditing"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setMenuBtn), name: NSNotification.Name("EndEditing"), object: nil)
     }
 }
