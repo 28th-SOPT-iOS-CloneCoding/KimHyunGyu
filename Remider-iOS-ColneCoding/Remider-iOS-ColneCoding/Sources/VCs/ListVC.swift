@@ -10,7 +10,8 @@ import UIKit
 class ListVC: UIViewController {
 
     //MARK: - Properties
-    
+    var reminderTitle = ""
+    var reminderColor = ""
     var list = ["abc","def"]
     
     //MARK: - @IBOutlet Properties
@@ -23,15 +24,16 @@ class ListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.contentInsetAdjustmentBehavior = .never
         tableView.separatorStyle = .none
         tableView.allowsMultipleSelectionDuringEditing = true
         
-        self.navigationItem.title = "abc"
+        self.navigationItem.title = reminderTitle
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor(hex: reminderColor)]
         
         touchOptionBarBtn()
 //        navigationController?.navigationBar.prefersLargeTitles = true
         
+        tableView.contentInsetAdjustmentBehavior = .never
         navigationItem.hidesSearchBarWhenScrolling = true
         
         let nib = UINib(nibName: "ListCell", bundle: nil)
@@ -152,6 +154,9 @@ extension ListVC: UITableViewDataSource {
         guard  let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier) as? ListCell else {
             return UITableViewCell()
         }
+        
+        cell.reminderField.text = list[indexPath.row]
+        
         cell.selectionStyle = .blue
 
         return cell
