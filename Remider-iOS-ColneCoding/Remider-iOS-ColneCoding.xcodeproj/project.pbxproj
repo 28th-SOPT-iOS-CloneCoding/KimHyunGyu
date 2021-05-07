@@ -3,21 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA20591FD8E888F7EFD0E8A1 /* Pods_Remider_iOS_ColneCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E3BC1F9887F4D52E597575 /* Pods_Remider_iOS_ColneCoding.framework */; };
 		F80A69B3262C2DE400FAC540 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F80A69B2262C2DE400FAC540 /* List.storyboard */; };
 		F80A69B6262C2F1400FAC540 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A69B5262C2F1400FAC540 /* ListVC.swift */; };
 		F81CD94F263A42D500451CB2 /* EditListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81CD94E263A42D500451CB2 /* EditListVC.swift */; };
 		F81CD95A263A44CD00451CB2 /* DetailEditListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81CD958263A44CD00451CB2 /* DetailEditListCell.swift */; };
 		F81CD95B263A44CD00451CB2 /* DetailEditListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F81CD959263A44CD00451CB2 /* DetailEditListCell.xib */; };
+		F82124842641987F0041C9AC /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82124832641987F0041C9AC /* ExtensionUIColor.swift */; };
 		F8259C5F26248A460061EC8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8259C5E26248A460061EC8E /* AppDelegate.swift */; };
 		F8259C6126248A460061EC8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8259C6026248A460061EC8E /* SceneDelegate.swift */; };
 		F8259C6326248A460061EC8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8259C6226248A460061EC8E /* ViewController.swift */; };
 		F8259C6626248A460061EC8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8259C6426248A460061EC8E /* Main.storyboard */; };
 		F8259C6826248A470061EC8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8259C6726248A470061EC8E /* Assets.xcassets */; };
 		F8259C6B26248A470061EC8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8259C6926248A470061EC8E /* LaunchScreen.storyboard */; };
+		F8283B44264119CC006A4819 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8283B43264119CC006A4819 /* ListModel.swift */; };
 		F8351B5D2636A6590062021F /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8351B5B2636A6590062021F /* ListCell.swift */; };
 		F8351B5E2636A6590062021F /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8351B5C2636A6590062021F /* ListCell.xib */; };
 		F87CB8792639876900F33B18 /* ScheduleListTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87CB8772639876900F33B18 /* ScheduleListTopCell.swift */; };
@@ -41,16 +44,21 @@
 		F8A783A5263F23450075974A /* DateDetailReminderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8A783A3263F23450075974A /* DateDetailReminderCell.xib */; };
 		F8B6188426296BA2000EB766 /* ScheduleListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B6188326296BA2000EB766 /* ScheduleListVC.swift */; };
 		F8C9D201263A3F46000D30C8 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C9D200263A3F46000D30C8 /* DetailVC.swift */; };
+		F8D59A752641148B0038E595 /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D59A742641148B0038E595 /* ReminderModel.swift */; };
 		F8F5D5D52628A8580083DF37 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F5D5D32628A8580083DF37 /* CustomCell.swift */; };
 		F8F5D5DB2628B3BC0083DF37 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F5D5DA2628B3BC0083DF37 /* AddListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		223B287889659B00CDBDB2EB /* Pods-Remider-iOS-ColneCoding.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Remider-iOS-ColneCoding.release.xcconfig"; path = "Target Support Files/Pods-Remider-iOS-ColneCoding/Pods-Remider-iOS-ColneCoding.release.xcconfig"; sourceTree = "<group>"; };
+		5A098D655E76C03DA20682FA /* Pods-Remider-iOS-ColneCoding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Remider-iOS-ColneCoding.debug.xcconfig"; path = "Target Support Files/Pods-Remider-iOS-ColneCoding/Pods-Remider-iOS-ColneCoding.debug.xcconfig"; sourceTree = "<group>"; };
+		F6E3BC1F9887F4D52E597575 /* Pods_Remider_iOS_ColneCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Remider_iOS_ColneCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F80A69B2262C2DE400FAC540 /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		F80A69B5262C2F1400FAC540 /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		F81CD94E263A42D500451CB2 /* EditListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListVC.swift; sourceTree = "<group>"; };
 		F81CD958263A44CD00451CB2 /* DetailEditListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditListCell.swift; sourceTree = "<group>"; };
 		F81CD959263A44CD00451CB2 /* DetailEditListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailEditListCell.xib; sourceTree = "<group>"; };
+		F82124832641987F0041C9AC /* ExtensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
 		F8259C5B26248A460061EC8E /* Remider-iOS-ColneCoding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Remider-iOS-ColneCoding.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8259C5E26248A460061EC8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8259C6026248A460061EC8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +67,7 @@
 		F8259C6726248A470061EC8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8259C6A26248A470061EC8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8259C6C26248A470061EC8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8283B43264119CC006A4819 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		F8351B5B2636A6590062021F /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		F8351B5C2636A6590062021F /* ListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		F87CB8772639876900F33B18 /* ScheduleListTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleListTopCell.swift; path = "Remider-iOS-ColneCoding/Sources/Cells/ScheduleListTopCell.swift"; sourceTree = SOURCE_ROOT; };
@@ -82,6 +91,7 @@
 		F8A783A3263F23450075974A /* DateDetailReminderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateDetailReminderCell.xib; sourceTree = "<group>"; };
 		F8B6188326296BA2000EB766 /* ScheduleListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleListVC.swift; path = "Remider-iOS-ColneCoding/Sources/VCs/ScheduleListVC.swift"; sourceTree = SOURCE_ROOT; };
 		F8C9D200263A3F46000D30C8 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		F8D59A742641148B0038E595 /* ReminderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
 		F8F5D5D32628A8580083DF37 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCell.swift; path = "Remider-iOS-ColneCoding/Sources/Cells/CustomCell.swift"; sourceTree = SOURCE_ROOT; };
 		F8F5D5DA2628B3BC0083DF37 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,17 +101,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA20591FD8E888F7EFD0E8A1 /* Pods_Remider_iOS_ColneCoding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55AEBA0064296EBAA9AA5414 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6E3BC1F9887F4D52E597575 /* Pods_Remider_iOS_ColneCoding.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D639ACE1B152C22B5645CA8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5A098D655E76C03DA20682FA /* Pods-Remider-iOS-ColneCoding.debug.xcconfig */,
+				223B287889659B00CDBDB2EB /* Pods-Remider-iOS-ColneCoding.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F82124822641986F0041C9AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F82124832641987F0041C9AC /* ExtensionUIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F8259C5226248A460061EC8E = {
 			isa = PBXGroup;
 			children = (
 				F8259C5D26248A460061EC8E /* Remider-iOS-ColneCoding */,
 				F8259C5C26248A460061EC8E /* Products */,
+				5D639ACE1B152C22B5645CA8 /* Pods */,
+				55AEBA0064296EBAA9AA5414 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +192,7 @@
 		F8E8DD4D2625C7DE007625A1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F82124822641986F0041C9AC /* Extensions */,
 				F8E8DD502625C82C007625A1 /* Classes */,
 				F8E8DD4E2625C822007625A1 /* Cells */,
 				F8E8DD4F2625C828007625A1 /* Models */,
@@ -183,6 +222,8 @@
 		F8E8DD4F2625C828007625A1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F8D59A742641148B0038E595 /* ReminderModel.swift */,
+				F8283B43264119CC006A4819 /* ListModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -236,9 +277,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8259C6F26248A470061EC8E /* Build configuration list for PBXNativeTarget "Remider-iOS-ColneCoding" */;
 			buildPhases = (
+				4E2090FFC63EC8A973A89AC9 /* [CP] Check Pods Manifest.lock */,
 				F8259C5726248A460061EC8E /* Sources */,
 				F8259C5826248A460061EC8E /* Frameworks */,
 				F8259C5926248A460061EC8E /* Resources */,
+				1FD0F437414861F6E09C2D3E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,12 +349,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1FD0F437414861F6E09C2D3E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Remider-iOS-ColneCoding/Pods-Remider-iOS-ColneCoding-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Remider-iOS-ColneCoding/Pods-Remider-iOS-ColneCoding-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Remider-iOS-ColneCoding/Pods-Remider-iOS-ColneCoding-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E2090FFC63EC8A973A89AC9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Remider-iOS-ColneCoding-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F8259C5726248A460061EC8E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F87CB8812639CF3D00F33B18 /* DetailCell.swift in Sources */,
+				F8D59A752641148B0038E595 /* ReminderModel.swift in Sources */,
 				F80A69B6262C2F1400FAC540 /* ListVC.swift in Sources */,
 				F8259C6326248A460061EC8E /* ViewController.swift in Sources */,
 				F886235A263FD87100A53362 /* LocationDetailReminderCell.swift in Sources */,
@@ -323,11 +409,13 @@
 				F87CB8852639CF8500F33B18 /* EditListCell.swift in Sources */,
 				F8862362263FE45B00A53362 /* ListDetailReminderCell.swift in Sources */,
 				F81CD94F263A42D500451CB2 /* EditListVC.swift in Sources */,
+				F8283B44264119CC006A4819 /* ListModel.swift in Sources */,
 				F8259C5F26248A460061EC8E /* AppDelegate.swift in Sources */,
 				F886235E263FE07800A53362 /* PriorityDetailReminderCell.swift in Sources */,
 				F8B6188426296BA2000EB766 /* ScheduleListVC.swift in Sources */,
 				F81CD95A263A44CD00451CB2 /* DetailEditListCell.swift in Sources */,
 				F8351B5D2636A6590062021F /* ListCell.swift in Sources */,
+				F82124842641987F0041C9AC /* ExtensionUIColor.swift in Sources */,
 				F8F5D5D52628A8580083DF37 /* CustomCell.swift in Sources */,
 				F8862356263FD50400A53362 /* RepeatDetailReminderCell.swift in Sources */,
 				F8259C6126248A460061EC8E /* SceneDelegate.swift in Sources */,
@@ -475,6 +563,7 @@
 		};
 		F8259C7026248A470061EC8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A098D655E76C03DA20682FA /* Pods-Remider-iOS-ColneCoding.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -494,6 +583,7 @@
 		};
 		F8259C7126248A470061EC8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 223B287889659B00CDBDB2EB /* Pods-Remider-iOS-ColneCoding.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

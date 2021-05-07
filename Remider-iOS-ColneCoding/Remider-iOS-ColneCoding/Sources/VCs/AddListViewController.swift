@@ -7,10 +7,16 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class AddListViewController: UIViewController {
     
     //MARK: - Properties
+    
+    var realm: Realm?
+    
+    var textFieldTitle = ""
+    var listBulletBtnColor = ""
     
     var colorChangeCount = 0
     var listTitle: String?
@@ -45,6 +51,8 @@ class AddListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        realm = try? Realm()
+        
         self.presentationController?.delegate = self
         
         setListBulletBtn()
@@ -57,6 +65,16 @@ class AddListViewController: UIViewController {
     }
     
     //MARK: - @IBAction Properties
+    
+    @IBAction func touchSaveBtn(_ sender: UIButton) {
+        
+        //realm update 설정
+        
+        try! realm?.write {
+            realm?.add(inputData(database: ListModel()))
+        }
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func touchCancelBtn(_ sender: UIButton) {
         if hasChanges {
@@ -75,35 +93,44 @@ class AddListViewController: UIViewController {
         }
     }
     
-    //텍스트필드 차면 버튼 활성화
-//    @IBAction func textFieldValueChanged(_ sender: UITextField) {
-//        if textField.text?.isEmpty == true {
-//            saveBtn.isEnabled = true
-//        } else {
-//            saveBtn.isEnabled = false
-//        }
-//    }
-    
     //MARK: - Methods
     
     private func setListBulletBtn() {
-        listBulletBtn.backgroundColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+        if listBulletBtnColor.isEmpty {
+            listBulletBtn.backgroundColor = .systemBlue
+            listBulletBtn.layer.shadowColor = listBulletBtn.backgroundColor?.cgColor
+        } else {
+            listBulletBtn.backgroundColor = UIColor(hex: listBulletBtnColor)
+            listBulletBtn.layer.shadowColor = UIColor(hex: listBulletBtnColor).cgColor
+        }
         listBulletBtn.layer.cornerRadius = listBulletBtn.frame.height/2
         listBulletBtn.setPreferredSymbolConfiguration(.init(pointSize: 30, weight: .bold, scale: .large), forImageIn: .normal)
         
-        listBulletBtn.layer.shadowColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
         listBulletBtn.layer.shadowOpacity = 0.7
         listBulletBtn.layer.shadowOffset = CGSize.zero
         listBulletBtn.layer.shadowRadius = 8
         listBulletBtn.isUserInteractionEnabled = false
     }
     private func setTextField() {
+        textField.text = self.textFieldTitle
         textField.borderStyle = .none
         textField.layer.cornerRadius = textField.frame.height/4
     }
     private func setColorListBtn(_ btns: [UIButton]) {
         colorBtns.map{ $0.layer.cornerRadius = $0.frame.width / 2 }
         colorBtns.map{ $0.addTarget(self, action: #selector(setImageColor), for: .touchUpInside)}
+    }
+    
+    func inputData(database: ListModel) -> ListModel {
+        if let text = textField.text {
+            database.reminderTitle = text
+        }
+        if let color = listBulletBtn.backgroundColor {
+            database.reminderColor = color.toHexString()
+            print(database.reminderColor)
+        }
+        
+        return database
     }
     
     //MARK: - @objc methods

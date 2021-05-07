@@ -6,13 +6,17 @@
 //
 
 import UIKit
-
+import RealmSwift
 
 class ViewController: UIViewController {
 
     //MARK: - Properties
     
-    var tableContents = ["ㅊㅊ","ㅍ","ㅊㅊ","ㅍ","ㅊㅊ","ㅍ","ㅊㅊ","ㅍ","ㅊㅊ","ㅍ"]
+    //Realm
+    var realm : Realm?
+    var Lists: Results<ListModel>?
+    var notificationToken: NotificationToken?
+//    var tableContents = ["ㅊㅊ","ㅍ","ㅊㅊ","ㅍ","ㅊㅊ","ㅍ","ㅊㅊ","ㅍ","ㅊㅊ","ㅍ"]
     let sections = ["나의 목록"]
     
     //MARK: - @IBOutlet Properties
@@ -26,10 +30,29 @@ class ViewController: UIViewController {
     
     //MARK: - View Life Cycle
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        notificationToken?.invalidate()
+    }
+    deinit {
+        notificationToken?.invalidate()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        realm = try? Realm()
+        Lists = realm?.objects(ListModel.self)
+
+        notificationToken = Lists?.observe { change in
+            print("change: \(change)")
+            self.tableView.reloadData()
+        }
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.contentInsetAdjustmentBehavior = .never
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -112,36 +135,10 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate {
     
-    //cell text. section 0 으로 설정한 상태
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
-        if indexPath.section == 0 {
-            cell.listTitle?.text = tableContents[indexPath.row]
-            
-            return cell
-        } else { return UITableViewCell() }
-    }
-    
     //cell height
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
-    }
-    
-    //moveRowAt
-    
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
-    }
-    
-    //remove row
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCell.EditingStyle.delete {
-            tableContents.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        }
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -150,6 +147,8 @@ extension ViewController: UITableViewDelegate {
                     return
                 }
             //modally
+            nextVC.textFieldTitle = self.Lists?[indexPath.row].reminderTitle ?? ""
+            nextVC.listBulletBtnColor = self.Lists?[indexPath.row].reminderColor ?? ""
             
             self.present(nextVC, animated: true, completion: nil)
             
@@ -158,7 +157,14 @@ extension ViewController: UITableViewDelegate {
             
         }
         let delete = UIContextualAction(style: .destructive, title: "") { action, view, completion in
-            self.tableContents.remove(at: indexPath.row)
+//            self.tableContents.remove(at: indexPath.row)
+            do {
+                try self.realm?.write {
+                    self.realm?.delete(self.Lists![indexPath.row])
+                }
+            } catch {
+                print("Error")
+            }
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
@@ -175,6 +181,11 @@ extension ViewController: UITableViewDelegate {
         let storyboard = UIStoryboard.init(name: "List", bundle: nil)
         guard let nextVC = storyboard.instantiateViewController(withIdentifier: "List") as? ListVC else { return }
         
+        nextVC.reminderTitle = Lists?[indexPath.row].reminderTitle ?? ""
+        nextVC.reminderColor = Lists?[indexPath.row].reminderColor ?? ""
+        
+        
+        
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -187,8 +198,6 @@ extension ViewController: UITableViewDelegate {
 //            return .delete
 //        }
 //    }
-    
-    //MARK: - Section func
     
     //section title
     
@@ -220,9 +229,41 @@ extension ViewController: UITableViewDelegate {
 //MARK: - UITableViewDataSource
 
 extension ViewController: UITableViewDataSource {
+    //cell text. section 0 으로 설정한 상태
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
+        
+        cell.listBulletBtn.backgroundColor = UIColor(hex: Lists?[indexPath.row].reminderColor ?? "#007aff")
+        cell.listTitle?.text = Lists?[indexPath.row].reminderTitle
+        cell.countLabel?.text = String(Lists?[indexPath.row].num ?? 0)
+        
+        return cell
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-        return tableContents.count
-        } else { return 0 }
+        return Lists?.count ?? 0
+    }
+    
+    //moveRowAt
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+    }
+    
+    //remove row
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+//            tableContents.remove(at: indexPath.row)
+            do {
+                try realm?.write {
+                    realm?.delete(Lists![indexPath.row])
+                }
+            } catch {
+                print("Error")
+            }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 }
