@@ -31,7 +31,6 @@ class ListVC: UIViewController {
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor(hex: reminderColor)]
         
         touchOptionBarBtn()
-//        navigationController?.navigationBar.prefersLargeTitles = true
         
         tableView.contentInsetAdjustmentBehavior = .never
         navigationItem.hidesSearchBarWhenScrolling = true
@@ -63,7 +62,7 @@ class ListVC: UIViewController {
         
         //색과 리스트 타이틀 같이 보내주기
         //변수를 통해서 보내주었다.
-        nextVC.listTitle = "abc"
+//        nextVC.listTitle = "abc"
     }
     
     func selectRemider(action: UIAction) {
