@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     
     //Realm
     var realm : Realm?
-    var Lists: Results<ListModel>?
+    var lists: Results<ListModel>?
+    
     var notificationToken: NotificationToken?
 //    var tableContents = ["ㅊㅊ","ㅍ","ㅊㅊ","ㅍ","ㅊㅊ","ㅍ","ㅊㅊ","ㅍ","ㅊㅊ","ㅍ"]
     let sections = ["나의 목록"]
@@ -41,9 +42,9 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         realm = try? Realm()
-        Lists = realm?.objects(ListModel.self)
+        lists = realm?.objects(ListModel.self)
 
-        notificationToken = Lists?.observe { change in
+        notificationToken = lists?.observe { change in
             print("change: \(change)")
             self.tableView.reloadData()
         }
@@ -147,8 +148,8 @@ extension ViewController: UITableViewDelegate {
                     return
                 }
             //modally
-            nextVC.textFieldTitle = self.Lists?[indexPath.row].reminderTitle ?? ""
-            nextVC.listBulletBtnColor = self.Lists?[indexPath.row].reminderColor ?? ""
+            nextVC.textFieldTitle = self.lists?[indexPath.row].reminderTitle ?? ""
+            nextVC.listBulletBtnColor = self.lists?[indexPath.row].reminderColor ?? ""
             
             self.present(nextVC, animated: true, completion: nil)
             
@@ -160,7 +161,7 @@ extension ViewController: UITableViewDelegate {
 //            self.tableContents.remove(at: indexPath.row)
             do {
                 try self.realm?.write {
-                    self.realm?.delete(self.Lists![indexPath.row])
+                    self.realm?.delete(self.lists![indexPath.row])
                 }
             } catch {
                 print("Error")
@@ -181,8 +182,8 @@ extension ViewController: UITableViewDelegate {
         let storyboard = UIStoryboard.init(name: "List", bundle: nil)
         guard let nextVC = storyboard.instantiateViewController(withIdentifier: "List") as? ListVC else { return }
         
-        nextVC.reminderTitle = Lists?[indexPath.row].reminderTitle ?? ""
-        nextVC.reminderColor = Lists?[indexPath.row].reminderColor ?? ""
+        nextVC.reminderTitle = lists?[indexPath.row].reminderTitle ?? ""
+        nextVC.reminderColor = lists?[indexPath.row].reminderColor ?? ""
         
         
         
@@ -234,15 +235,15 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
         
-        cell.listBulletBtn.backgroundColor = UIColor(hex: Lists?[indexPath.row].reminderColor ?? "#007aff")
-        cell.listTitle?.text = Lists?[indexPath.row].reminderTitle
-        cell.countLabel?.text = String(Lists?[indexPath.row].num ?? 0)
+        cell.listBulletBtn.backgroundColor = UIColor(hex: lists?[indexPath.row].reminderColor ?? "#007aff")
+        cell.listTitle?.text = lists?[indexPath.row].reminderTitle
+        cell.countLabel?.text = String(lists?[indexPath.row].num ?? 0)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Lists?.count ?? 0
+        return lists?.count ?? 0
     }
     
     //moveRowAt
@@ -258,7 +259,7 @@ extension ViewController: UITableViewDataSource {
 //            tableContents.remove(at: indexPath.row)
             do {
                 try realm?.write {
-                    realm?.delete(Lists![indexPath.row])
+                    realm?.delete(lists![indexPath.row])
                 }
             } catch {
                 print("Error")
