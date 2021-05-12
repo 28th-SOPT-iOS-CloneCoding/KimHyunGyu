@@ -23,6 +23,13 @@ struct MovieModel: Codable {
         case totalResults = "total_results"
         case totalPages = "total_pages"
     }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        page = (try? values.decode(Int.self, forKey: .page)) ?? 0
+        results = (try? values.decode([Result].self, forKey: .results)) ?? [Result]()
+        totalResults = (try? values.decode(Int.self, forKey: .totalResults)) ?? 0
+        totalPages = (try? values.decode(Int.self, forKey: .totalPages)) ?? 0
+    }
 }
 
 // MARK: - Result
@@ -33,7 +40,7 @@ struct Result: Codable {
     let genreIDS: [Int]
     let id: Int
     let originalTitle: String
-    let originalLanguage: OriginalLanguage
+    let originalLanguage: String
     let title, backdropPath: String
     let popularity: Double
     let voteCount: Int
@@ -57,9 +64,9 @@ struct Result: Codable {
     }
 }
 
-enum OriginalLanguage: String, Codable {
-    case en = "en"
-    case fr = "fr"
-    case it = "it"
-    case ja = "ja"
-}
+//enum OriginalLanguage: String, Codable {
+//    case en = "en"
+//    case fr = "fr"
+//    case it = "it"
+//    case ja = "ja"
+//}

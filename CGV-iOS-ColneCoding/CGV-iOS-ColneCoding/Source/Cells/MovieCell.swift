@@ -15,8 +15,11 @@ class MovieCell: UITableViewCell {
     
     //MARK: - @IBOutlet Properties
     
-    @IBOutlet weak var movieImage: UIImageView!
-    @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var posterImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var voteLabel: UILabel!
+    @IBOutlet weak var popularityLabel: UILabel!
+    @IBOutlet weak var releaseDateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +30,20 @@ class MovieCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setData(image: String,
+                 title: String,
+                 vote: Double,
+                 popularity: Double,
+                 releaseDate: String) {
+        if let image = UIImage(named: image + "https://image.tmdb.org/t/p/w500") {
+            posterImage.image = image
+        }
+        titleLabel.text = title
+        voteLabel.text = String(vote)
+        popularityLabel.text = String(popularity)
+        releaseDateLabel.text = releaseDate
     }
     
 }
