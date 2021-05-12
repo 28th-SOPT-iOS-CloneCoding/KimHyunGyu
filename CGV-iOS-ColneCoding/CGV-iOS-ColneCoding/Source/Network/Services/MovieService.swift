@@ -12,25 +12,31 @@ public enum MovieService {
     static let key = "4803d10b09913b29b376e511c75a63fb"
     
     case topRated
+    case getPoster(path: String)
 }
 
 extension MovieService: TargetType {
     public var baseURL: URL {
-        return URL(string: GeneralAPI.baseURL)!
+        switch self {
+        case .topRated:
+            return URL(string: GeneralAPI.baseURL)!
+        case .getPoster(_):
+            return URL(string: GeneralAPI.imageURL)!
+        }
     }
     
     public var path: String {
         switch self {
         case .topRated:
-//            return "/movie/top_rated?api_key=\(MovieService.key)&language=en-US&page=\(page)"
-//            return "/movie/top_rated?api_key=4803d10b09913b29b376e511c75a63fb&language=en-US&page=1"
             return "/movie/top_rated"
+        case .getPoster(let path):
+            return "/\(path)"
         }
     }
     
     public var method: Moya.Method {
         switch self {
-        case .topRated:
+        case .topRated, .getPoster:
             return .get
         }
     }
@@ -41,7 +47,12 @@ extension MovieService: TargetType {
     
     public var task: Task {
 //        return .requestPlain
-        return .requestParameters(parameters: ["api_key": MovieService.key,"language" : "en-US"], encoding: URLEncoding.default)
+        switch self {
+        case .topRated:
+            return .requestParameters(parameters: ["api_key": MovieService.key,"language" : "en-US"], encoding: URLEncoding.default)
+        case .getPoster(_):
+            return .requestPlain
+        }
     }
     
     public var headers: [String : String]? {

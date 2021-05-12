@@ -23,11 +23,6 @@ class MoreVC: UIViewController {
         
         setUI()
         registerCell()
-        
-//        MovieApi.shared.getTopRatedMovie { response in
-//           dump(response)
-//
-//        }
     }
     
     //MARK: - Methods
@@ -46,15 +41,28 @@ class MoreVC: UIViewController {
 
 extension MoreVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier, for: indexPath) as? MovieCell else {
             return UITableViewCell()
         }
+//        MovieApi.shared.getTopRatedMovie { response in
+//            MovieApi.shared.getMoviePoster(path: response[indexPath.row].posterPath) { data in
+//                cell.setData(image: UIImage(data: data)!, title: response[indexPath.row].originalTitle, vote: response[indexPath.row].voteAverage, popularity: response[indexPath.row].popularity, releaseDate: response[indexPath.row].releaseDate)
+//            }
+//        }
         MovieApi.shared.getTopRatedMovie { response in
-            cell.setData(image: response[indexPath.row].posterPath, title: response[indexPath.row].title, vote: response[indexPath.row].voteAverage, popularity: response[indexPath.row].popularity, releaseDate: response[indexPath.row].releaseDate)
+            cell.setData(title: response[indexPath.row].originalTitle,
+                         vote: response[indexPath.row].voteAverage,
+                         popularity: response[indexPath.row].popularity,
+                         releaseDate: response[indexPath.row].releaseDate)
+            
+            //먼저 내용부터 로딩. 사진은 비동기 처리.
+            MovieApi.shared.getMoviePoster(path: response[indexPath.row].posterPath) { data in
+                cell.setPosterImage(image: UIImage(data: data)!)
+            }
         }
         
         return cell

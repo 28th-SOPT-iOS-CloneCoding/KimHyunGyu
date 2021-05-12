@@ -7,6 +7,7 @@
 
 import Foundation
 import Moya
+import RxSwift
 
 class MovieApi {
     static let shared = MovieApi()
@@ -27,6 +28,19 @@ class MovieApi {
                 
                 print(".failure: \(err.localizedDescription)")
             }
+        }
+    }
+    
+    func getMoviePoster(path: String, completion: @escaping (Data) -> ()) {
+        MovieApi.provider.rx.request(.getPoster(path: path)).subscribe { event in
+            switch event {
+            case .success(let response):
+                completion(response.data)
+            case .error(let err):
+                print(err)
+                
+            }
+            
         }
     }
 }

@@ -32,18 +32,31 @@ class MovieCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(image: String,
-                 title: String,
+//    func setData(image: String,
+//                 title: String,
+//                 vote: Double,
+//                 popularity: Double,
+//                 releaseDate: String) {
+//        if let image = UIImage(named: image + "https://image.tmdb.org/t/p/w500") {
+//            posterImage.image = image
+//        }
+//        titleLabel.text = title
+//        voteLabel.text = String(vote)
+//        popularityLabel.text = String(popularity)
+//        releaseDateLabel.text = releaseDate
+//    }
+    func setData(title: String,
                  vote: Double,
                  popularity: Double,
                  releaseDate: String) {
-        if let image = UIImage(named: image + "https://image.tmdb.org/t/p/w500") {
-            posterImage.image = image
-        }
         titleLabel.text = title
         voteLabel.text = String(vote)
         popularityLabel.text = String(popularity)
         releaseDateLabel.text = releaseDate
+    }
+    
+    func setPosterImage(image : UIImage) {
+        posterImage.image = image
     }
     
 }
