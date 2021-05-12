@@ -6,5 +6,5 @@ target 'CGV-iOS-ColneCoding' do
   use_frameworks!
 
   # Pods for CGV-iOS-ColneCoding
-pod 'Moya', '~> 14.0'
+pod 'Moya/RxSwift', '~> 14.0'
 end
