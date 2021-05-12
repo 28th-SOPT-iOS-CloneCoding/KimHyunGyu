@@ -24,11 +24,10 @@ class MoreVC: UIViewController {
         setUI()
         registerCell()
         
-        MovieApi.getTopRatedMovie(page: 1) { movies in
-            print(movies)
-            dump(movies)
-            
-        }
+//        MovieApi.shared.getTopRatedMovie { response in
+//           dump(response)
+//
+//        }
     }
     
     //MARK: - Methods
@@ -53,6 +52,9 @@ extension MoreVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier, for: indexPath) as? MovieCell else {
             return UITableViewCell()
+        }
+        MovieApi.shared.getTopRatedMovie { response in
+            cell.setData(image: response[indexPath.row].posterPath, title: response[indexPath.row].title, vote: response[indexPath.row].voteAverage, popularity: response[indexPath.row].popularity, releaseDate: response[indexPath.row].releaseDate)
         }
         
         return cell

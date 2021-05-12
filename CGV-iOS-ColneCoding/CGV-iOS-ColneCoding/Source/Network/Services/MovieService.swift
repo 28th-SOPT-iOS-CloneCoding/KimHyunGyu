@@ -9,7 +9,9 @@ import Foundation
 import Moya
 
 public enum MovieService {
-    case topRated(page: Int)
+    static let key = "4803d10b09913b29b376e511c75a63fb"
+    
+    case topRated
 }
 
 extension MovieService: TargetType {
@@ -20,6 +22,8 @@ extension MovieService: TargetType {
     public var path: String {
         switch self {
         case .topRated:
+//            return "/movie/top_rated?api_key=\(MovieService.key)&language=en-US&page=\(page)"
+//            return "/movie/top_rated?api_key=4803d10b09913b29b376e511c75a63fb&language=en-US&page=1"
             return "/movie/top_rated"
         }
     }
@@ -36,7 +40,8 @@ extension MovieService: TargetType {
     }
     
     public var task: Task {
-        return .requestPlain
+//        return .requestPlain
+        return .requestParameters(parameters: ["api_key": MovieService.key,"language" : "en-US"], encoding: URLEncoding.default)
     }
     
     public var headers: [String : String]? {

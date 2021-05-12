@@ -20,7 +20,6 @@
 		F8D7BFBA2647DB2000C0A29C /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7BFB92647DB2000C0A29C /* MovieService.swift */; };
 		F8D7BFBD2647EE2800C0A29C /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7BFBC2647EE2800C0A29C /* MovieModel.swift */; };
 		F8D7BFBF264819F700C0A29C /* MovieApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7BFBE264819F700C0A29C /* MovieApi.swift */; };
-		F8D7BFC326481A1B00C0A29C /* MockApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7BFC226481A1B00C0A29C /* MockApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +40,6 @@
 		F8D7BFB92647DB2000C0A29C /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		F8D7BFBC2647EE2800C0A29C /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		F8D7BFBE264819F700C0A29C /* MovieApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApi.swift; sourceTree = "<group>"; };
-		F8D7BFC226481A1B00C0A29C /* MockApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +100,13 @@
 			path = "CGV-iOS-ColneCoding";
 			sourceTree = "<group>";
 		};
+		F890F9F6264BBBC6003A2800 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F8C5EAF42648FE0900D5AEF0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +137,6 @@
 			children = (
 				F8D7BFB32647D5EA00C0A29C /* Services */,
 				F8D7BFBE264819F700C0A29C /* MovieApi.swift */,
-				F8D7BFC226481A1B00C0A29C /* MockApi.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -148,6 +152,7 @@
 		F8D7BFB62647D87B00C0A29C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				F890F9F6264BBBC6003A2800 /* Extensions */,
 				F8C5EAF42648FE0900D5AEF0 /* Cells */,
 				F8D7BFBB2647DB2B00C0A29C /* Model */,
 				F856491F2646D9B1003C0EC6 /* AppDelegate.swift */,
@@ -302,7 +307,6 @@
 				F8D7BFBD2647EE2800C0A29C /* MovieModel.swift in Sources */,
 				F85649242646D9B1003C0EC6 /* MoreVC.swift in Sources */,
 				F8C5EAF72648FE2B00D5AEF0 /* MovieCell.swift in Sources */,
-				F8D7BFC326481A1B00C0A29C /* MockApi.swift in Sources */,
 				F85649202646D9B1003C0EC6 /* AppDelegate.swift in Sources */,
 				F85649222646D9B1003C0EC6 /* SceneDelegate.swift in Sources */,
 				F8D7BFBA2647DB2000C0A29C /* MovieService.swift in Sources */,

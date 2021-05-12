@@ -9,12 +9,12 @@ import Foundation
 import Moya
 
 class MovieApi {
-    static let key = "4803d10b09913b29b376e511c75a63fb"
+    static let shared = MovieApi()
     static let provider = MoyaProvider<MovieService>()
     
-    static func getTopRatedMovie(page: Int, completion: @escaping ([Result]) -> ()) {
-        provider.request(.topRated(page: page)) { response in
-            switch response{
+    func getTopRatedMovie(completion: @escaping ([Result]) -> ()) {
+        MovieApi.provider.request(.topRated) { response in
+            switch response {
             case .success(let result):
                 do {
                     let results = try JSONDecoder().decode(MovieModel.self, from: result.data)
