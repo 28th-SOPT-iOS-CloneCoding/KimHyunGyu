@@ -35,11 +35,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shr-R2-e4l">
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="92" translatesAutoresizingMaskIntoConstraints="NO" id="B09-SO-9pl">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="92" translatesAutoresizingMaskIntoConstraints="NO" id="B09-SO-9pl">
                                         <rect key="frame" x="18" y="15" width="378" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wR-n2-igs">
-                                                <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wR-n2-igs">
+                                                <rect key="frame" x="0.0" y="0.0" width="64.5" height="30"/>
                                                 <state key="normal" title="무비차트"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujw-Du-kol">
@@ -47,10 +47,18 @@
                                                 <state key="normal" title="아트하우스"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUZ-GH-3fR">
-                                                <rect key="frame" x="326" y="0.0" width="52" height="30"/>
+                                                <rect key="frame" x="313.5" y="0.0" width="64.5" height="30"/>
                                                 <state key="normal" title="개봉예정"/>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Ujw-Du-kol" firstAttribute="centerY" secondItem="B09-SO-9pl" secondAttribute="centerY" id="BvR-rH-lce"/>
+                                            <constraint firstItem="Ujw-Du-kol" firstAttribute="centerX" secondItem="B09-SO-9pl" secondAttribute="centerX" id="YbN-8P-SHz"/>
+                                            <constraint firstItem="vUZ-GH-3fR" firstAttribute="centerY" secondItem="B09-SO-9pl" secondAttribute="centerY" id="aHa-zF-z2A"/>
+                                            <constraint firstItem="9wR-n2-igs" firstAttribute="leading" secondItem="B09-SO-9pl" secondAttribute="leading" id="fWF-G7-dFk"/>
+                                            <constraint firstItem="9wR-n2-igs" firstAttribute="centerY" secondItem="B09-SO-9pl" secondAttribute="centerY" id="k5w-Z0-PQJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="vUZ-GH-3fR" secondAttribute="trailing" id="nec-Yp-nCX"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
