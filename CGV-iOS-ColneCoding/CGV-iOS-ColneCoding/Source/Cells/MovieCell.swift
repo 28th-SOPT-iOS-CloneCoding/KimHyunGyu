@@ -15,11 +15,14 @@ class MovieCell: UITableViewCell {
     
     //MARK: - @IBOutlet Properties
     
+    
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var voteLabel: UILabel!
+
     @IBOutlet weak var popularityLabel: UILabel!
+    @IBOutlet weak var voteLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
