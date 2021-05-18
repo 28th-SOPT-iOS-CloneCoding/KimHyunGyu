@@ -13,8 +13,8 @@ class MovieApi {
     static let shared = MovieApi()
     static let provider = MoyaProvider<MovieService>()
     
-    func getTopRatedMovie(completion: @escaping ([Result]) -> ()) {
-        MovieApi.provider.request(.topRated) { response in
+    func getNowPlaying(completion: @escaping ([Result]) -> ()) {
+        MovieApi.provider.request(.nowPlaying) { response in
             switch response {
             case .success(let result):
                 do {

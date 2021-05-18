@@ -16,20 +16,29 @@ import Foundation
 struct MovieModel: Codable {
     let page: Int
     let results: [Result]
-    let totalResults, totalPages: Int
+    let dates: Dates
+    let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
-        case page, results
-        case totalResults = "total_results"
+        case page, results, dates
+//        case page, results
         case totalPages = "total_pages"
+        case totalResults = "total_results"
     }
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         page = (try? values.decode(Int.self, forKey: .page)) ?? 0
         results = (try? values.decode([Result].self, forKey: .results)) ?? [Result]()
+        dates = (try? values.decode(Dates.self, forKey: .dates)) ?? Dates.init(maximum: "", minimum: "")
         totalResults = (try? values.decode(Int.self, forKey: .totalResults)) ?? 0
         totalPages = (try? values.decode(Int.self, forKey: .totalPages)) ?? 0
     }
+}
+
+// MARK: - Dates
+struct Dates: Codable {
+    let maximum, minimum: String
 }
 
 // MARK: - Result
