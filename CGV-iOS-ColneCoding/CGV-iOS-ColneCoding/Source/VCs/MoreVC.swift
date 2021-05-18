@@ -17,6 +17,47 @@ class MoreVC: UIViewController {
     private var selectedEggBtn = false
     private var selectedUpcomingBtn = false
     
+    private let bookBtn: UIButton = {
+        let bookBtn = UIButton()
+        bookBtn.setTitle("예매율순", for: .normal)
+        bookBtn.setTitleColor(.black, for: .normal)
+        bookBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        bookBtn.setImage(UIImage(systemName: "circle.fill"), for: .normal)
+        bookBtn.setPreferredSymbolConfiguration(.init(pointSize: 3, weight: .regular, scale: .default), forImageIn: .normal)
+        bookBtn.titleEdgeInsets = .init(top: .zero, left: 8, bottom: .zero, right: .zero)
+        bookBtn.tintColor = .black
+        bookBtn.addTarget(self, action: #selector(touchBookBtn), for: .touchUpInside)
+        
+        return bookBtn
+    }()
+    
+    private let eggBtn: UIButton = {
+        let eggBtn = UIButton()
+        eggBtn.setTitle("Egg지수순", for: .normal)
+        eggBtn.setTitleColor(.lightGray, for: .normal)
+        eggBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        eggBtn.setImage(UIImage(systemName: "circle.fill"), for: .normal)
+        eggBtn.setPreferredSymbolConfiguration(.init(pointSize: 3, weight: .regular, scale: .default), forImageIn: .normal)
+        eggBtn.titleEdgeInsets = .init(top: .zero, left: 8, bottom: .zero, right: .zero)
+        eggBtn.tintColor = .lightGray
+        eggBtn.addTarget(self, action: #selector(touchEggBtn), for: .touchUpInside)
+        
+        return eggBtn
+    }()
+    
+    private let upcomingCheckBtn: UIButton = {
+        let upcomingCheckBtn = UIButton()
+        upcomingCheckBtn.setTitle("현재상영작보기", for: .normal)
+        upcomingCheckBtn.setTitleColor(.lightGray, for: .normal)
+        upcomingCheckBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        upcomingCheckBtn.tintColor = .lightGray
+        upcomingCheckBtn.setImage(UIImage(systemName: "checkmark"), for: .normal)
+        upcomingCheckBtn.setPreferredSymbolConfiguration(.init(pointSize: 12, weight: .bold, scale: .default), forImageIn: .normal)
+        upcomingCheckBtn.addTarget(self, action: #selector(touchUpcomingBtn), for: .touchUpInside)
+        
+        return upcomingCheckBtn
+    }()
+    
     //MARK: - @IBOutlet Properties
     
     @IBOutlet weak var upcomingBtn: UIButton!
@@ -39,31 +80,62 @@ class MoreVC: UIViewController {
     func pullToRefresh(refresh: UIRefreshControl) {
         print("pullToRefresh()")
         refresh.endRefreshing()
+        
+        bookBtn.setTitleColor(.black, for: .normal)
+        bookBtn.tintColor = .black
+        selectedBookBtn = true
+        
+        eggBtn.setTitleColor(.lightGray, for: .normal)
+        eggBtn.tintColor = .lightGray
+        selectedEggBtn = false
+        
+        upcomingCheckBtn.setTitleColor(.lightGray, for: .normal)
+        upcomingCheckBtn.tintColor = .lightGray
+        selectedUpcomingBtn = false
+        
         tableView.reloadData()
     }
     
     @objc
     func touchBookBtn(_ sender: UIButton) {
-        if !selectedBookBtn {
-            sender.setTitleColor(.black, for: .normal)
-            sender.tintColor = .black
-        } else {
-            sender.setTitleColor(.lightGray, for: .normal)
-            sender.tintColor = .lightGray
-        }
-        selectedBookBtn = !selectedBookBtn
+//        if !selectedBookBtn {
+//            sender.setTitleColor(.black, for: .normal)
+//            sender.tintColor = .black
+//        } else {
+//            sender.setTitleColor(.lightGray, for: .normal)
+//            sender.tintColor = .lightGray
+//        }
+//        selectedBookBtn = !selectedBookBtn
+        sender.setTitleColor(.black, for: .normal)
+        sender.tintColor = .black
+        selectedBookBtn = true
+        
+        eggBtn.setTitleColor(.lightGray, for: .normal)
+        eggBtn.tintColor = .lightGray
+        selectedEggBtn = false
+        
+        tableView.reloadData()
     }
     
     @objc
     func touchEggBtn(_ sender: UIButton) {
-        if !selectedEggBtn {
-            sender.setTitleColor(.black, for: .normal)
-            sender.tintColor = .black
-        } else {
-            sender.setTitleColor(.lightGray, for: .normal)
-            sender.tintColor = .lightGray
-        }
-        selectedEggBtn = !selectedEggBtn
+//        if !selectedEggBtn {
+//            sender.setTitleColor(.black, for: .normal)
+//            sender.tintColor = .black
+//        } else {
+//            sender.setTitleColor(.lightGray, for: .normal)
+//            sender.tintColor = .lightGray
+//        }
+//        selectedEggBtn = !selectedEggBtn
+        sender.setTitleColor(.black, for: .normal)
+        sender.tintColor = .black
+        selectedEggBtn = true
+        
+        bookBtn.setTitleColor(.lightGray, for: .normal)
+        bookBtn.tintColor = .lightGray
+        selectedBookBtn = false
+        
+        tableView.reloadData()
     }
     
     @objc
@@ -77,6 +149,7 @@ class MoreVC: UIViewController {
         }
         selectedUpcomingBtn = !selectedUpcomingBtn
         
+        tableView.reloadData()
     }
     
     
@@ -101,46 +174,49 @@ class MoreVC: UIViewController {
         tableView.register(movieCell, forCellReuseIdentifier: MovieCell.identifier)
     }
     
-    private func setHeaderView() -> UIView {
+//    private func setHeaderView() -> UIView {
         //tableview header view
-        let frame = tableView.frame
         
-        let bookBtn = UIButton(frame: CGRect(x: 4, y: 0 , width: 80, height: 40)) //frame.size.width - 60
-        bookBtn.setTitle("예매율순", for: .normal)
-        bookBtn.setTitleColor(.black, for: .normal)
-        bookBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        bookBtn.setImage(UIImage(systemName: "circle.fill"), for: .normal)
-        bookBtn.setPreferredSymbolConfiguration(.init(pointSize: 3, weight: .regular, scale: .default), forImageIn: .normal)
-        bookBtn.titleEdgeInsets = .init(top: .zero, left: 8, bottom: .zero, right: .zero)
-        bookBtn.tintColor = .black
-        bookBtn.addTarget(self, action: #selector(touchBookBtn), for: .touchUpInside)
+//        let bookBtn = UIButton(frame: CGRect(x: 4, y: 0 , width: 80, height: 40)) //frame.size.width - 60
+//        let bookBtn = UIButton()
+//        bookBtn.setTitle("예매율순", for: .normal)
+//        bookBtn.setTitleColor(.black, for: .normal)
+//        bookBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+//        bookBtn.setImage(UIImage(systemName: "circle.fill"), for: .normal)
+//        bookBtn.setPreferredSymbolConfiguration(.init(pointSize: 3, weight: .regular, scale: .default), forImageIn: .normal)
+//        bookBtn.titleEdgeInsets = .init(top: .zero, left: 8, bottom: .zero, right: .zero)
+//        bookBtn.tintColor = .black
+//        bookBtn.addTarget(self, action: #selector(touchBookBtn), for: .touchUpInside)
         
-        let eggBtn = UIButton(frame: CGRect(x: 80, y: 0, width: 80, height: 40)) //frame.size.width - 60
-        eggBtn.setTitle("Egg지수순", for: .normal)
-        eggBtn.setTitleColor(.lightGray, for: .normal)
-        eggBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        eggBtn.setImage(UIImage(systemName: "circle.fill"), for: .normal)
-        eggBtn.setPreferredSymbolConfiguration(.init(pointSize: 3, weight: .regular, scale: .default), forImageIn: .normal)
-        eggBtn.titleEdgeInsets = .init(top: .zero, left: 8, bottom: .zero, right: .zero)
-        eggBtn.tintColor = .lightGray
-        eggBtn.addTarget(self, action: #selector(touchEggBtn), for: .touchUpInside)
+//        let eggBtn = UIButton(frame: CGRect(x: 80, y: 0, width: 80, height: 40)) //frame.size.width - 60
+//        let eggBtn = UIButton()
+//        eggBtn.setTitle("Egg지수순", for: .normal)
+//        eggBtn.setTitleColor(.lightGray, for: .normal)
+//        eggBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+//        eggBtn.setImage(UIImage(systemName: "circle.fill"), for: .normal)
+//        eggBtn.setPreferredSymbolConfiguration(.init(pointSize: 3, weight: .regular, scale: .default), forImageIn: .normal)
+//        eggBtn.titleEdgeInsets = .init(top: .zero, left: 8, bottom: .zero, right: .zero)
+//        eggBtn.tintColor = .lightGray
+//        eggBtn.addTarget(self, action: #selector(touchEggBtn), for: .touchUpInside)
         
-        let upcomingBtn = UIButton(frame: CGRect(x: frame.width - 100, y: 0, width: 100, height: 40))
-        upcomingBtn.setTitle("현재상영작보기", for: .normal)
-        upcomingBtn.setTitleColor(.lightGray, for: .normal)
-        upcomingBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        upcomingBtn.tintColor = .lightGray
-        upcomingBtn.setImage(UIImage(systemName: "checkmark"), for: .normal)
-        upcomingBtn.setPreferredSymbolConfiguration(.init(pointSize: 12, weight: .bold, scale: .default), forImageIn: .normal)
-        upcomingBtn.addTarget(self, action: #selector(touchUpcomingBtn), for: .touchUpInside)
+//        let upcomingBtn = UIButton(frame: CGRect(x: frame.width - 100, y: 0, width: 100, height: 40))
+//        let upcomingBtn = UIButton()
+//        upcomingBtn.setTitle("현재상영작보기", for: .normal)
+//        upcomingBtn.setTitleColor(.lightGray, for: .normal)
+//        upcomingBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+//        upcomingBtn.tintColor = .lightGray
+//        upcomingBtn.setImage(UIImage(systemName: "checkmark"), for: .normal)
+//        upcomingBtn.setPreferredSymbolConfiguration(.init(pointSize: 12, weight: .bold, scale: .default), forImageIn: .normal)
+//        upcomingBtn.addTarget(self, action: #selector(touchUpcomingBtn), for: .touchUpInside)
         
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
-        headerView.addSubview(bookBtn)
-        headerView.addSubview(eggBtn)
-        headerView.addSubview(upcomingBtn)
+//        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: 50))
+//        let headerView = UIView()
+//        headerView.addSubview(bookBtn)
+//        headerView.addSubview(eggBtn)
+//        headerView.addSubview(upcomingBtn)
         
-        return headerView
-    }
+//        return headerView
+//    }
 }
 
 //MARK: - UITableViewDataSources
@@ -155,7 +231,11 @@ extension MoreVC: UITableViewDataSource {
             return UITableViewCell()
         }
         MovieApi.shared.getNowPlaying { response in
-            self.movieData = response.sorted(by: {$0.popularity > $1.popularity})
+            if self.selectedBookBtn == true && self.selectedEggBtn == false {
+                self.movieData = response.sorted(by: {$0.popularity > $1.popularity})
+            } else {
+                self.movieData = response.sorted(by: {$0.voteAverage > $1.voteAverage})
+            }
             cell.setData(title: self.movieData[indexPath.row].title,
                          vote: self.movieData[indexPath.row].voteAverage,
                          popularity: self.movieData[indexPath.row].popularity,
@@ -176,8 +256,29 @@ extension MoreVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        bookBtn.translatesAutoresizingMaskIntoConstraints = false
+        eggBtn.translatesAutoresizingMaskIntoConstraints = false
+        upcomingCheckBtn.translatesAutoresizingMaskIntoConstraints = false
         
-        return setHeaderView()
+        headerView.addSubview(bookBtn)
+        headerView.addSubview(eggBtn)
+        headerView.addSubview(upcomingCheckBtn)
+        
+        bookBtn.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+        //        bookBtn.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
+        bookBtn.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 0).isActive = true
+        bookBtn.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        
+        eggBtn.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+        eggBtn.leftAnchor.constraint(equalTo: bookBtn.rightAnchor, constant: 0).isActive = true
+        eggBtn.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        
+        upcomingCheckBtn.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+        upcomingCheckBtn.rightAnchor.constraint(equalTo: headerView.rightAnchor, constant: 0).isActive = true
+        upcomingCheckBtn.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        return headerView
     }
     
     

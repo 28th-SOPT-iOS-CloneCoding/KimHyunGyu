@@ -38,9 +38,7 @@ class MovieApi {
                 completion(response.data)
             case .error(let err):
                 print(err)
-                
             }
-            
-        }
+        }   
     }
 }
