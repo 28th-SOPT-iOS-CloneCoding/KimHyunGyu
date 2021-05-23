@@ -15,8 +15,25 @@
 		F85649292646D9B2003C0EC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F85649282646D9B2003C0EC6 /* Assets.xcassets */; };
 		F856492C2646D9B2003C0EC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F856492A2646D9B2003C0EC6 /* LaunchScreen.storyboard */; };
 		F8B6838226540D0800E518BD /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B6838126540D0800E518BD /* MainVC.swift */; };
+		F8B6E0872657B5B90057EBD6 /* SelectTheaterTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B6E0852657B5B90057EBD6 /* SelectTheaterTVC.swift */; };
+		F8B6E0882657B5B90057EBD6 /* SelectTheaterTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8B6E0862657B5B90057EBD6 /* SelectTheaterTVC.xib */; };
+		F8B6E08B2657BA640057EBD6 /* SelectLocationTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B6E0892657BA640057EBD6 /* SelectLocationTVC.swift */; };
+		F8B6E08C2657BA640057EBD6 /* SelectLocationTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8B6E08A2657BA640057EBD6 /* SelectLocationTVC.xib */; };
+		F8B6E08F2657BDFC0057EBD6 /* SelectDateTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B6E08D2657BDFC0057EBD6 /* SelectDateTVC.swift */; };
+		F8B6E0902657BDFC0057EBD6 /* SelectDateTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8B6E08E2657BDFC0057EBD6 /* SelectDateTVC.xib */; };
 		F8C5EAF72648FE2B00D5AEF0 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C5EAF52648FE2B00D5AEF0 /* MovieCell.swift */; };
 		F8C5EAF82648FE2B00D5AEF0 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8C5EAF62648FE2B00D5AEF0 /* MovieCell.xib */; };
+		F8D68B092657026700642842 /* UIView+gradation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D68B082657026700642842 /* UIView+gradation.swift */; };
+		F8D68B0C2657454500642842 /* ReservationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D68B0B2657454500642842 /* ReservationVC.swift */; };
+		F8D68B122657620800642842 /* TheatersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D68B102657620800642842 /* TheatersCell.swift */; };
+		F8D68B132657620800642842 /* TheatersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D68B112657620800642842 /* TheatersCell.xib */; };
+		F8D68B162657621900642842 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D68B142657621900642842 /* LocationCell.swift */; };
+		F8D68B172657621900642842 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D68B152657621900642842 /* LocationCell.xib */; };
+		F8D68B2226576DAC00642842 /* LocationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D68B2126576DAC00642842 /* LocationDataModel.swift */; };
+		F8D68B2526576F9900642842 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D68B2326576F9900642842 /* DateCell.swift */; };
+		F8D68B2626576F9900642842 /* DateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D68B2426576F9900642842 /* DateCell.xib */; };
+		F8D68B2826577BE700642842 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D68B2726577BE700642842 /* LeftAlignedCollectionViewFlowLayout.swift */; };
+		F8D68B2A2657823F00642842 /* DateDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D68B292657823F00642842 /* DateDataModel.swift */; };
 		F8D7BFB22647D56D00C0A29C /* GeneralAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7BFB12647D56D00C0A29C /* GeneralAPI.swift */; };
 		F8D7BFBA2647DB2000C0A29C /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7BFB92647DB2000C0A29C /* MovieService.swift */; };
 		F8D7BFBD2647EE2800C0A29C /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7BFBC2647EE2800C0A29C /* MovieModel.swift */; };
@@ -36,8 +53,25 @@
 		F856492B2646D9B2003C0EC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F856492D2646D9B2003C0EC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8B6838126540D0800E518BD /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		F8B6E0852657B5B90057EBD6 /* SelectTheaterTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTheaterTVC.swift; sourceTree = "<group>"; };
+		F8B6E0862657B5B90057EBD6 /* SelectTheaterTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectTheaterTVC.xib; sourceTree = "<group>"; };
+		F8B6E0892657BA640057EBD6 /* SelectLocationTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationTVC.swift; sourceTree = "<group>"; };
+		F8B6E08A2657BA640057EBD6 /* SelectLocationTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectLocationTVC.xib; sourceTree = "<group>"; };
+		F8B6E08D2657BDFC0057EBD6 /* SelectDateTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateTVC.swift; sourceTree = "<group>"; };
+		F8B6E08E2657BDFC0057EBD6 /* SelectDateTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectDateTVC.xib; sourceTree = "<group>"; };
 		F8C5EAF52648FE2B00D5AEF0 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		F8C5EAF62648FE2B00D5AEF0 /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
+		F8D68B082657026700642842 /* UIView+gradation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+gradation.swift"; sourceTree = "<group>"; };
+		F8D68B0B2657454500642842 /* ReservationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationVC.swift; sourceTree = "<group>"; };
+		F8D68B102657620800642842 /* TheatersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheatersCell.swift; sourceTree = "<group>"; };
+		F8D68B112657620800642842 /* TheatersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TheatersCell.xib; sourceTree = "<group>"; };
+		F8D68B142657621900642842 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		F8D68B152657621900642842 /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
+		F8D68B2126576DAC00642842 /* LocationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataModel.swift; sourceTree = "<group>"; };
+		F8D68B2326576F9900642842 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		F8D68B2426576F9900642842 /* DateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateCell.xib; sourceTree = "<group>"; };
+		F8D68B2726577BE700642842 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		F8D68B292657823F00642842 /* DateDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDataModel.swift; sourceTree = "<group>"; };
 		F8D7BFB12647D56D00C0A29C /* GeneralAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAPI.swift; sourceTree = "<group>"; };
 		F8D7BFB92647DB2000C0A29C /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		F8D7BFBC2647EE2800C0A29C /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
@@ -105,6 +139,7 @@
 		F890F9F6264BBBC6003A2800 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F8D68B082657026700642842 /* UIView+gradation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -116,6 +151,33 @@
 				F8C5EAF62648FE2B00D5AEF0 /* MovieCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		F8D68B0F265761E200642842 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F8D68B102657620800642842 /* TheatersCell.swift */,
+				F8D68B112657620800642842 /* TheatersCell.xib */,
+				F8D68B142657621900642842 /* LocationCell.swift */,
+				F8D68B152657621900642842 /* LocationCell.xib */,
+				F8D68B2326576F9900642842 /* DateCell.swift */,
+				F8D68B2426576F9900642842 /* DateCell.xib */,
+				F8B6E0852657B5B90057EBD6 /* SelectTheaterTVC.swift */,
+				F8B6E0862657B5B90057EBD6 /* SelectTheaterTVC.xib */,
+				F8B6E0892657BA640057EBD6 /* SelectLocationTVC.swift */,
+				F8B6E08A2657BA640057EBD6 /* SelectLocationTVC.xib */,
+				F8B6E08D2657BDFC0057EBD6 /* SelectDateTVC.swift */,
+				F8B6E08E2657BDFC0057EBD6 /* SelectDateTVC.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F8D68B2026576D9500642842 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F8D68B2126576DAC00642842 /* LocationDataModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F8D7BFB02647CA0800C0A29C /* Constants */ = {
@@ -146,6 +208,7 @@
 		F8D7BFB52647D87600C0A29C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				F8D68B0F265761E200642842 /* Cells */,
 				F8D7BFB82647D8B900C0A29C /* Storyboards */,
 			);
 			path = Resource;
@@ -154,6 +217,7 @@
 		F8D7BFB62647D87B00C0A29C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				F8D68B2026576D9500642842 /* Models */,
 				F890F9F6264BBBC6003A2800 /* Extensions */,
 				F8C5EAF42648FE0900D5AEF0 /* Cells */,
 				F8D7BFBB2647DB2B00C0A29C /* Model */,
@@ -162,6 +226,7 @@
 				F8D7BFB72647D89100C0A29C /* VCs */,
 				F8D7BFB02647CA0800C0A29C /* Constants */,
 				F8D7BFB42647D87000C0A29C /* Network */,
+				F8D68B2726577BE700642842 /* LeftAlignedCollectionViewFlowLayout.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -171,6 +236,7 @@
 			children = (
 				F85649232646D9B1003C0EC6 /* MoreVC.swift */,
 				F8B6838126540D0800E518BD /* MainVC.swift */,
+				F8D68B0B2657454500642842 /* ReservationVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -188,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				F8D7BFBC2647EE2800C0A29C /* MovieModel.swift */,
+				F8D68B292657823F00642842 /* DateDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,9 +318,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8D68B172657621900642842 /* LocationCell.xib in Resources */,
+				F8D68B132657620800642842 /* TheatersCell.xib in Resources */,
 				F856492C2646D9B2003C0EC6 /* LaunchScreen.storyboard in Resources */,
+				F8D68B2626576F9900642842 /* DateCell.xib in Resources */,
+				F8B6E08C2657BA640057EBD6 /* SelectLocationTVC.xib in Resources */,
 				F85649292646D9B2003C0EC6 /* Assets.xcassets in Resources */,
+				F8B6E0902657BDFC0057EBD6 /* SelectDateTVC.xib in Resources */,
 				F8C5EAF82648FE2B00D5AEF0 /* MovieCell.xib in Resources */,
+				F8B6E0882657B5B90057EBD6 /* SelectTheaterTVC.xib in Resources */,
 				F85649272646D9B1003C0EC6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,11 +382,22 @@
 			files = (
 				F8D7BFBD2647EE2800C0A29C /* MovieModel.swift in Sources */,
 				F85649242646D9B1003C0EC6 /* MoreVC.swift in Sources */,
+				F8D68B0C2657454500642842 /* ReservationVC.swift in Sources */,
+				F8D68B2826577BE700642842 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
+				F8B6E08B2657BA640057EBD6 /* SelectLocationTVC.swift in Sources */,
 				F8C5EAF72648FE2B00D5AEF0 /* MovieCell.swift in Sources */,
+				F8D68B2226576DAC00642842 /* LocationDataModel.swift in Sources */,
+				F8B6E0872657B5B90057EBD6 /* SelectTheaterTVC.swift in Sources */,
+				F8D68B2A2657823F00642842 /* DateDataModel.swift in Sources */,
+				F8D68B092657026700642842 /* UIView+gradation.swift in Sources */,
+				F8D68B2526576F9900642842 /* DateCell.swift in Sources */,
+				F8D68B162657621900642842 /* LocationCell.swift in Sources */,
+				F8D68B122657620800642842 /* TheatersCell.swift in Sources */,
 				F85649202646D9B1003C0EC6 /* AppDelegate.swift in Sources */,
 				F85649222646D9B1003C0EC6 /* SceneDelegate.swift in Sources */,
 				F8D7BFBA2647DB2000C0A29C /* MovieService.swift in Sources */,
 				F8D7BFB22647D56D00C0A29C /* GeneralAPI.swift in Sources */,
+				F8B6E08F2657BDFC0057EBD6 /* SelectDateTVC.swift in Sources */,
 				F8D7BFBF264819F700C0A29C /* MovieApi.swift in Sources */,
 				F8B6838226540D0800E518BD /* MainVC.swift in Sources */,
 			);

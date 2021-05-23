@@ -6,21 +6,25 @@ PODS:
     - Moya/Core
     - RxSwift (~> 5.0)
   - RxSwift (5.1.2)
+  - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Moya/RxSwift (~> 14.0)
+  - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Moya
     - RxSwift
+    - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: aae101fad9e56bf940656224d132a488c67b09eb
+PODFILE CHECKSUM: 276d20b208cc1a9d0315bd6922cadeff4ba5b663
 
 COCOAPODS: 1.10.1

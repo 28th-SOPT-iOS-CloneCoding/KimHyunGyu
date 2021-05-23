@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import SnapKit
 
 class MoreVC: UIViewController {
 
     //MARK: - Properties
     private var movieData : [Result] = []
-    private let refreshControl = UIRefreshControl()
+//    private let refreshControl = UIRefreshControl()
     
     private var selectedBookBtn = true
     private var selectedEggBtn = false
@@ -58,6 +59,29 @@ class MoreVC: UIViewController {
         return upcomingCheckBtn
     }()
     
+    private let reservationBtn: UIButton = {
+        let reservationBtn = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 200, height: 70)))
+        reservationBtn.setGradient(color1: UIColor(red: 232/255, green: 99/255, blue: 109/255, alpha: 0.85), color2: UIColor(red: 218/255, green: 113/255, blue: 53/255, alpha: 0.85))
+        reservationBtn.layer.cornerRadius = reservationBtn.frame.height / 4
+        
+        reservationBtn.layer.masksToBounds = true
+        
+        reservationBtn.addTarget(self, action: #selector(presentReservation(_:)), for: .touchUpInside)
+        
+        return reservationBtn
+    }()
+    
+    private let topBtn: UIButton = {
+        let topBtn = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 50)))
+        topBtn.backgroundColor = UIColor(white: 1.0, alpha: 0.75)
+        topBtn.setImage(UIImage(systemName: "arrow.up"), for: .normal)
+        topBtn.setPreferredSymbolConfiguration(.init(pointSize: 25, weight: .thin, scale: .default), forImageIn: .normal)
+        topBtn.tintColor = UIColor.darkGray
+        topBtn.addTarget(self, action: #selector(scrollUp(_:)), for: .touchUpInside)
+
+        return topBtn
+    }()
+    
     //MARK: - @IBOutlet Properties
     
     @IBOutlet weak var upcomingBtn: UIButton!
@@ -76,6 +100,23 @@ class MoreVC: UIViewController {
     }
     
     //MARK: - @obcj Methods
+    @objc
+    func presentReservation(_ sender: UIButton) {
+        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ReservationVC") as? ReservationVC else {
+            return
+        }
+        nextVC.modalPresentationStyle = .overFullScreen
+        
+        
+        present(nextVC, animated: true, completion: nil)
+    }
+    
+    @objc
+    func scrollUp(_ sender: UIButton) {
+        let topIndex = IndexPath(row: 0, section: 0)
+        tableView.scrollToRow(at: topIndex, at: .top, animated: true)
+    }
+    
     @objc
     func pullToRefresh(refresh: UIRefreshControl) {
         print("pullToRefresh()")
@@ -98,14 +139,6 @@ class MoreVC: UIViewController {
     
     @objc
     func touchBookBtn(_ sender: UIButton) {
-//        if !selectedBookBtn {
-//            sender.setTitleColor(.black, for: .normal)
-//            sender.tintColor = .black
-//        } else {
-//            sender.setTitleColor(.lightGray, for: .normal)
-//            sender.tintColor = .lightGray
-//        }
-//        selectedBookBtn = !selectedBookBtn
         sender.setTitleColor(.black, for: .normal)
         sender.tintColor = .black
         selectedBookBtn = true
@@ -119,14 +152,6 @@ class MoreVC: UIViewController {
     
     @objc
     func touchEggBtn(_ sender: UIButton) {
-//        if !selectedEggBtn {
-//            sender.setTitleColor(.black, for: .normal)
-//            sender.tintColor = .black
-//        } else {
-//            sender.setTitleColor(.lightGray, for: .normal)
-//            sender.tintColor = .lightGray
-//        }
-//        selectedEggBtn = !selectedEggBtn
         sender.setTitleColor(.black, for: .normal)
         sender.tintColor = .black
         selectedEggBtn = true
@@ -165,58 +190,43 @@ class MoreVC: UIViewController {
         
         // 당겨서 새로고침
 //        self.refreshControl.attributedTitle = NSAttributedString(string: "당겨서 새로고침")
-        self.refreshControl.addTarget(self, action: #selector(pullToRefresh(refresh:)), for: .valueChanged)
-        tableView.refreshControl = self.refreshControl
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(pullToRefresh(refresh:)), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
+        // 지금 예매 버튼
+//        reservationBtn.translatesAutoresizingMaskIntoConstraints = false
+//        topBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(reservationBtn)
+        view.addSubview(topBtn)
+        
+        reservationBtn.snp.makeConstraints { make in
+//            make.width.equalToSuperview().multipliedBy(0.45)
+            make.width.equalTo(160)
+            make.height.equalTo(70)
+            make.trailing.equalToSuperview().inset(-30)
+            make.bottom.equalToSuperview().inset(30)
+        }
+
+        topBtn.snp.makeConstraints { make in
+            make.width.height.equalTo(50)
+            make.trailing.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview().inset(-100)
+        }
+        reservationBtn.layer.cornerRadius = reservationBtn.frame.height / 2
+        
+        topBtn.layer.cornerRadius = topBtn.frame.height / 2
+        topBtn.layer.shadowRadius = 2
+        topBtn.layer.shadowOpacity = 0.25
+        topBtn.layer.shadowColor = UIColor.black.cgColor
+        topBtn.layer.shadowOffset = CGSize(width: 2, height: 2)
     }
     
     private func registerCell() {
         let movieCell = UINib(nibName: "MovieCell", bundle: nil)
         tableView.register(movieCell, forCellReuseIdentifier: MovieCell.identifier)
     }
-    
-//    private func setHeaderView() -> UIView {
-        //tableview header view
-        
-//        let bookBtn = UIButton(frame: CGRect(x: 4, y: 0 , width: 80, height: 40)) //frame.size.width - 60
-//        let bookBtn = UIButton()
-//        bookBtn.setTitle("예매율순", for: .normal)
-//        bookBtn.setTitleColor(.black, for: .normal)
-//        bookBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-//        bookBtn.setImage(UIImage(systemName: "circle.fill"), for: .normal)
-//        bookBtn.setPreferredSymbolConfiguration(.init(pointSize: 3, weight: .regular, scale: .default), forImageIn: .normal)
-//        bookBtn.titleEdgeInsets = .init(top: .zero, left: 8, bottom: .zero, right: .zero)
-//        bookBtn.tintColor = .black
-//        bookBtn.addTarget(self, action: #selector(touchBookBtn), for: .touchUpInside)
-        
-//        let eggBtn = UIButton(frame: CGRect(x: 80, y: 0, width: 80, height: 40)) //frame.size.width - 60
-//        let eggBtn = UIButton()
-//        eggBtn.setTitle("Egg지수순", for: .normal)
-//        eggBtn.setTitleColor(.lightGray, for: .normal)
-//        eggBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-//        eggBtn.setImage(UIImage(systemName: "circle.fill"), for: .normal)
-//        eggBtn.setPreferredSymbolConfiguration(.init(pointSize: 3, weight: .regular, scale: .default), forImageIn: .normal)
-//        eggBtn.titleEdgeInsets = .init(top: .zero, left: 8, bottom: .zero, right: .zero)
-//        eggBtn.tintColor = .lightGray
-//        eggBtn.addTarget(self, action: #selector(touchEggBtn), for: .touchUpInside)
-        
-//        let upcomingBtn = UIButton(frame: CGRect(x: frame.width - 100, y: 0, width: 100, height: 40))
-//        let upcomingBtn = UIButton()
-//        upcomingBtn.setTitle("현재상영작보기", for: .normal)
-//        upcomingBtn.setTitleColor(.lightGray, for: .normal)
-//        upcomingBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-//        upcomingBtn.tintColor = .lightGray
-//        upcomingBtn.setImage(UIImage(systemName: "checkmark"), for: .normal)
-//        upcomingBtn.setPreferredSymbolConfiguration(.init(pointSize: 12, weight: .bold, scale: .default), forImageIn: .normal)
-//        upcomingBtn.addTarget(self, action: #selector(touchUpcomingBtn), for: .touchUpInside)
-        
-//        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: 50))
-//        let headerView = UIView()
-//        headerView.addSubview(bookBtn)
-//        headerView.addSubview(eggBtn)
-//        headerView.addSubview(upcomingBtn)
-        
-//        return headerView
-//    }
 }
 
 //MARK: - UITableViewDataSources
@@ -260,23 +270,37 @@ extension MoreVC: UITableViewDataSource {
         bookBtn.translatesAutoresizingMaskIntoConstraints = false
         eggBtn.translatesAutoresizingMaskIntoConstraints = false
         upcomingCheckBtn.translatesAutoresizingMaskIntoConstraints = false
-        
+
         headerView.addSubview(bookBtn)
         headerView.addSubview(eggBtn)
         headerView.addSubview(upcomingCheckBtn)
-        
+
         bookBtn.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
-        //        bookBtn.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
         bookBtn.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 0).isActive = true
         bookBtn.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        
+
         eggBtn.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
         eggBtn.leftAnchor.constraint(equalTo: bookBtn.rightAnchor, constant: 0).isActive = true
         eggBtn.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        
+
         upcomingCheckBtn.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
         upcomingCheckBtn.rightAnchor.constraint(equalTo: headerView.rightAnchor, constant: 0).isActive = true
         upcomingCheckBtn.widthAnchor.constraint(equalToConstant: 100).isActive = true
+
+//        bookBtn.snp.makeConstraints { make in
+//            make.leading.equalTo(headerView.snp.leading).inset(10)
+//            make.centerY.equalTo(headerView.snp.centerY)
+//        }
+//
+//        eggBtn.snp.makeConstraints { make in
+//            make.leading.equalTo(bookBtn.snp.trailing).inset(-10)
+//            make.centerY.equalTo(headerView.snp.centerY)
+//        }
+//
+//        upcomingCheckBtn.snp.makeConstraints { make in
+//            make.trailing.equalTo(headerView.snp.trailing).inset(10)
+//            make.centerY.equalTo(headerView.snp.centerY)
+//        }
         
         return headerView
     }
@@ -289,5 +313,35 @@ extension MoreVC: UITableViewDataSource {
 extension MoreVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 10 {
+            topBtn.isHidden = false
+            
+            topBtn.snp.updateConstraints { make in
+                make.bottom.equalToSuperview().inset(30)
+            }
+            
+            reservationBtn.snp.updateConstraints { make in
+                make.bottom.equalToSuperview().inset(45 + self.topBtn.bounds.height)
+            }
+            
+        } else {
+            topBtn.isHidden = true
+            
+            topBtn.snp.updateConstraints { make in
+                make.bottom.equalToSuperview().inset(-100)
+            }
+            
+            reservationBtn.snp.updateConstraints { make in
+                make.bottom.equalToSuperview().inset(30)
+            }
+        }
+        
+        
+        UIView.animate(withDuration: 0.8) {
+            self.view.layoutIfNeeded()
+        }
     }
 }

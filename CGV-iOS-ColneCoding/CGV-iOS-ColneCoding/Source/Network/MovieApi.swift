@@ -39,6 +39,6 @@ class MovieApi {
             case .error(let err):
                 print(err)
             }
-        }   
+        }
     }
 }

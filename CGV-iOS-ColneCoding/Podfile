@@ -7,4 +7,5 @@ target 'CGV-iOS-ColneCoding' do
 
   # Pods for CGV-iOS-ColneCoding
 pod 'Moya/RxSwift', '~> 14.0'
+pod 'SnapKit', '~> 5.0.0'
 end
