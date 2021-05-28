@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F88B5E2B265F634F002F1A90 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F88B5E29265F634F002F1A90 /* Model.xcdatamodeld */; };
 		F8BD26BB265EAECF00E6AD2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD26BA265EAECF00E6AD2F /* AppDelegate.swift */; };
 		F8BD26BD265EAECF00E6AD2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD26BC265EAECF00E6AD2F /* SceneDelegate.swift */; };
 		F8BD26BF265EAECF00E6AD2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD26BE265EAECF00E6AD2F /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F88B5E2A265F634F002F1A90 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F8BD26B7265EAECF00E6AD2F /* PenCake-iOS-CloneCoding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PenCake-iOS-CloneCoding.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BD26BA265EAECF00E6AD2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8BD26BC265EAECF00E6AD2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				F8BD26C8265EAED000E6AD2F /* Info.plist */,
 				F8BD26CF265EB9B700E6AD2F /* Source */,
 				F8BD26CE265EB9AB00E6AD2F /* Resource */,
+				F88B5E29265F634F002F1A90 /* Model.xcdatamodeld */,
 			);
 			path = "PenCake-iOS-CloneCoding";
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				F8BD26BF265EAECF00E6AD2F /* ViewController.swift in Sources */,
 				F8BD26D7265EBB6100E6AD2F /* TempExtension.swift in Sources */,
 				F8BD26BB265EAECF00E6AD2F /* AppDelegate.swift in Sources */,
+				F88B5E2B265F634F002F1A90 /* Model.xcdatamodeld in Sources */,
 				F8BD26DA265EBB6D00E6AD2F /* TempModel.swift in Sources */,
 				F8BD26BD265EAECF00E6AD2F /* SceneDelegate.swift in Sources */,
 				F8BD26D4265EB9E200E6AD2F /* TempCell.swift in Sources */,
@@ -409,6 +413,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F88B5E29265F634F002F1A90 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F88B5E2A265F634F002F1A90 /* Model.xcdatamodel */,
+			);
+			currentVersion = F88B5E2A265F634F002F1A90 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F8BD26AF265EAECF00E6AD2F /* Project object */;
 }
