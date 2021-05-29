@@ -68,9 +68,9 @@ extension ViewController {
         do {
             let story = try context.fetch(StoryModel.fetchRequest()) as! [StoryModel]
             story.forEach {
-                print($0.title)
-                print($0.detail)
-                print($0.date)
+                print($0.title!)
+                print($0.detail!)
+                print($0.date!)
             }
         } catch {
             print(error.localizedDescription)
