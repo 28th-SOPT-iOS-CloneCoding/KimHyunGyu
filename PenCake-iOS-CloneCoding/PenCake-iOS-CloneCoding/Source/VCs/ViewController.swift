@@ -11,71 +11,68 @@ import CoreData
 class ViewController: UIViewController {
 
     // MARK: - Properties
-//    var container: NSPersistentContainer!
-    
-    
-    
-    struct Story {
-        var title: String
-        var detail: String
-        var date: String
-    }
+//    var persistenceManager = PersistenceManager()
+    var storyList = [StoryModel]()
+    var refreshControl = UIRefreshControl()
     
     // MARK: - @IBOutlet Properteis
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        guard container != nil else {
-//            fatalError("This view needs a persistent container.")
-//        }
+        connectTableView()
+        fetchCoreData()
+    }
+    
+    @objc
+    func presentMoadal() {
+        let nextVC = UIStoryboard.init(name: "SetStoryModal", bundle: nil).instantiateViewController(withIdentifier: "SetStoryModalVC")
         
-        // The persistent container is available.
-//        setCoreData()
-        fetchStory()
+        nextVC.modalPresentationStyle = .overFullScreen
+        self.present(nextVC, animated: true, completion: nil)
+        refreshControl.endRefreshing()
+    }
+    
+    private func connectTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        let tableCell = UINib(nibName: "StoryTVC", bundle: nil)
+        tableView.register(tableCell, forCellReuseIdentifier: "StoryTVC")
+        
+        refreshControl.addTarget(self, action: #selector(presentMoadal), for: .valueChanged)
+        
+        tableView.refreshControl = refreshControl
+    }
+    
+    private func fetchCoreData() {
+        let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
+        let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
+        print(fetchResult)
+        storyList = fetchResult
+        print(storyList)
     }
 }
 
-extension ViewController {
-    private func setCoreData() {
-        
-        let storyOne = Story(title: "일기2", detail: "디테일2", date: "20210528")
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let entity = NSEntityDescription.entity(forEntityName: "StoryModel", in: context)
-        
-        if let entity = entity {
-            let story = NSManagedObject(entity: entity, insertInto: context)
-            story.setValue(storyOne.title, forKey: "title")
-            story.setValue(storyOne.detail, forKey: "detail")
-            story.setValue(storyOne.date, forKey: "date")
-            
-            do {
-                try context.save()
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
+extension ViewController: UITableViewDelegate {
+    
+}
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return storyList.count
     }
     
-    private func fetchStory() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        do {
-            let story = try context.fetch(StoryModel.fetchRequest()) as! [StoryModel]
-            story.forEach {
-                print($0.title!)
-                print($0.detail!)
-                print($0.date!)
-            }
-        } catch {
-            print(error.localizedDescription)
-            
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StoryTVC") as? StoryTVC else {
+            return UITableViewCell()
         }
-
+        
+        cell.setData(title: storyList[indexPath.row].title ?? "" , date: storyList[indexPath.row].date ?? "")
+        
+        return cell
     }
+    
+    
 }

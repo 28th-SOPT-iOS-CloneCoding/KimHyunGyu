@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Set Story ModalVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SetStoryModalVC" id="Y6W-OH-hqX" customClass="SetStoryModalVC" customModule="PenCake_iOS_CloneCoding" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bmi-XS-C9U">
+                                <rect key="frame" x="16" y="104" width="382" height="18.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="azz-58-x3O">
+                                <rect key="frame" x="16" y="155" width="382" height="691"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EG6-1W-4bb">
+                                <rect key="frame" x="16" y="138.5" width="382" height="0.5"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="vnt-u9-4zp"/>
+                                </constraints>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJG-m7-x5g">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem id="9JL-i5-7zq">
+                                        <barButtonItem key="leftBarButtonItem" title="취소" id="eCx-dq-VJa">
+                                            <color key="tintColor" systemColor="systemGray2Color"/>
+                                            <connections>
+                                                <action selector="dismissButtonClicked:" destination="Y6W-OH-hqX" id="drQ-uK-vlr"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="완료" id="MLJ-ZC-CfG">
+                                            <connections>
+                                                <action selector="completeButtonClicked:" destination="Y6W-OH-hqX" id="S5P-Mi-UxD"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="azz-58-x3O" firstAttribute="top" secondItem="EG6-1W-4bb" secondAttribute="bottom" constant="16" id="4jC-a5-s9h"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Bmi-XS-C9U" secondAttribute="trailing" constant="16" id="9dl-6q-tTz"/>
+                            <constraint firstItem="yJG-m7-x5g" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="AmQ-WQ-HMN"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="azz-58-x3O" secondAttribute="bottom" constant="16" id="FSd-1l-VYR"/>
+                            <constraint firstItem="Bmi-XS-C9U" firstAttribute="top" secondItem="yJG-m7-x5g" secondAttribute="bottom" constant="16" id="PEQ-su-1Tb"/>
+                            <constraint firstItem="yJG-m7-x5g" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="PKX-Or-EfU"/>
+                            <constraint firstItem="EG6-1W-4bb" firstAttribute="top" secondItem="Bmi-XS-C9U" secondAttribute="bottom" constant="16" id="Sef-xQ-DLF"/>
+                            <constraint firstItem="yJG-m7-x5g" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="TXv-K6-3jr"/>
+                            <constraint firstItem="EG6-1W-4bb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="eAT-NS-96z"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="azz-58-x3O" secondAttribute="trailing" constant="16" id="hB0-R0-XJ2"/>
+                            <constraint firstItem="Bmi-XS-C9U" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="hcE-hX-S9d"/>
+                            <constraint firstItem="azz-58-x3O" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="skm-4G-WXa"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="EG6-1W-4bb" secondAttribute="trailing" constant="16" id="uTv-hx-SrM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailTextView" destination="azz-58-x3O" id="7Hw-yu-FSX"/>
+                        <outlet property="dismissToMain" destination="eCx-dq-VJa" id="1tJ-0a-Q02"/>
+                        <outlet property="navigationBar" destination="yJG-m7-x5g" id="vi1-dG-9YK"/>
+                        <outlet property="titleTextField" destination="Bmi-XS-C9U" id="Iob-jf-adI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="104.46428571428571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
