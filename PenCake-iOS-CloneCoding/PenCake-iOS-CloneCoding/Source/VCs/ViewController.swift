@@ -74,5 +74,10 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nextVC = UIStoryboard.init(name: "StoryCellDetail", bundle: nil).instantiateViewController(withIdentifier: "StoryCellDetailVC")
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
     
 }

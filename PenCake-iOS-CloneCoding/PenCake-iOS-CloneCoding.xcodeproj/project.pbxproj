@@ -13,6 +13,8 @@
 		F8ABFFD926638EA100237666 /* StoryTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8ABFFD726638EA100237666 /* StoryTVC.xib */; };
 		F8ABFFDB2663925400237666 /* SetStoryModal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8ABFFDA2663925400237666 /* SetStoryModal.storyboard */; };
 		F8ABFFDD2663927600237666 /* SetStoryModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABFFDC2663927600237666 /* SetStoryModalVC.swift */; };
+		F8ABFFDF2663B55000237666 /* StoryCellDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABFFDE2663B55000237666 /* StoryCellDetailVC.swift */; };
+		F8ABFFE12663B56400237666 /* StoryCellDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8ABFFE02663B56400237666 /* StoryCellDetail.storyboard */; };
 		F8BD26BB265EAECF00E6AD2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD26BA265EAECF00E6AD2F /* AppDelegate.swift */; };
 		F8BD26BD265EAECF00E6AD2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD26BC265EAECF00E6AD2F /* SceneDelegate.swift */; };
 		F8BD26BF265EAECF00E6AD2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD26BE265EAECF00E6AD2F /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 		F8ABFFD726638EA100237666 /* StoryTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryTVC.xib; sourceTree = "<group>"; };
 		F8ABFFDA2663925400237666 /* SetStoryModal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetStoryModal.storyboard; sourceTree = "<group>"; };
 		F8ABFFDC2663927600237666 /* SetStoryModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetStoryModalVC.swift; sourceTree = "<group>"; };
+		F8ABFFDE2663B55000237666 /* StoryCellDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCellDetailVC.swift; sourceTree = "<group>"; };
+		F8ABFFE02663B56400237666 /* StoryCellDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryCellDetail.storyboard; sourceTree = "<group>"; };
 		F8BD26B7265EAECF00E6AD2F /* PenCake-iOS-CloneCoding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PenCake-iOS-CloneCoding.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BD26BA265EAECF00E6AD2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8BD26BC265EAECF00E6AD2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 			children = (
 				F8BD26BE265EAECF00E6AD2F /* ViewController.swift */,
 				F8ABFFDC2663927600237666 /* SetStoryModalVC.swift */,
+				F8ABFFDE2663B55000237666 /* StoryCellDetailVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 				F8BD26C0265EAECF00E6AD2F /* Main.storyboard */,
 				F8BD26C5265EAED000E6AD2F /* LaunchScreen.storyboard */,
 				F8ABFFDA2663925400237666 /* SetStoryModal.storyboard */,
+				F8ABFFE02663B56400237666 /* StoryCellDetail.storyboard */,
 			);
 			path = Stroyboards;
 			sourceTree = "<group>";
@@ -207,6 +213,7 @@
 				F8ABFFDB2663925400237666 /* SetStoryModal.storyboard in Resources */,
 				F8BD26C7265EAED000E6AD2F /* LaunchScreen.storyboard in Resources */,
 				F8BD26C4265EAED000E6AD2F /* Assets.xcassets in Resources */,
+				F8ABFFE12663B56400237666 /* StoryCellDetail.storyboard in Resources */,
 				F8BD26C2265EAECF00E6AD2F /* Main.storyboard in Resources */,
 				F8ABFFD926638EA100237666 /* StoryTVC.xib in Resources */,
 			);
@@ -220,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8BD26BF265EAECF00E6AD2F /* ViewController.swift in Sources */,
+				F8ABFFDF2663B55000237666 /* StoryCellDetailVC.swift in Sources */,
 				F8ABFFDD2663927600237666 /* SetStoryModalVC.swift in Sources */,
 				F8ABFFD326635C6100237666 /* PersistenceManager.swift in Sources */,
 				F8BD26D7265EBB6100E6AD2F /* TempExtension.swift in Sources */,
