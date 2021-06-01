@@ -16,22 +16,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCk-a4-Jeb">
-                                <rect key="frame" x="44" y="65" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="no8-Iy-M1i">
+                                <rect key="frame" x="32" y="76" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="eidtButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xoQ-bI-LOR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3m-ww-tA1">
+                                <rect key="frame" x="32" y="122" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3A6-DR-aFV">
+                                <rect key="frame" x="32" y="159" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8c-7C-zvh">
+                                <rect key="frame" x="363" y="824" width="19" height="22"/>
+                                <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="ellipsis" catalog="system"/>
+                                <connections>
+                                    <action selector="popupButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5mz-cq-4U6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="w3m-ww-tA1" firstAttribute="top" secondItem="no8-Iy-M1i" secondAttribute="bottom" constant="16" id="1w9-9T-Kof"/>
+                            <constraint firstItem="no8-Iy-M1i" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="3RD-CF-9CL"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="o8c-7C-zvh" secondAttribute="trailing" constant="32" id="4Oo-uL-ciD"/>
+                            <constraint firstItem="3A6-DR-aFV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="9Er-gf-9aA"/>
+                            <constraint firstItem="w3m-ww-tA1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="B1S-J6-Xcu"/>
+                            <constraint firstItem="no8-Iy-M1i" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="JVT-UK-Dlp"/>
+                            <constraint firstItem="3A6-DR-aFV" firstAttribute="top" secondItem="w3m-ww-tA1" secondAttribute="bottom" constant="16" id="QFf-zn-MWH"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="o8c-7C-zvh" secondAttribute="bottom" constant="16" id="S4w-mL-zkW"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="w3m-ww-tA1" id="pc0-ih-gRH"/>
+                        <outlet property="detailLabel" destination="3A6-DR-aFV" id="NOP-35-ndN"/>
+                        <outlet property="titleButton" destination="no8-Iy-M1i" id="cFx-KS-hlm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="72"/>
+            <point key="canvasLocation" x="131.8840579710145" y="71.651785714285708"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
