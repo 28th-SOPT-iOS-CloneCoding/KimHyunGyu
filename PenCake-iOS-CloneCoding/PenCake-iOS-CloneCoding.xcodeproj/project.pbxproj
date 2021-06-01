@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F8584EBE26660CAA00DB690C /* MainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8584EBD26660CAA00DB690C /* MainPageVC.swift */; };
+		F8584EC026660D3100DB690C /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8584EBF26660D3100DB690C /* AddVC.swift */; };
 		F88B5E2B265F634F002F1A90 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F88B5E29265F634F002F1A90 /* Model.xcdatamodeld */; };
 		F8ABFFD326635C6100237666 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABFFD226635C6100237666 /* PersistenceManager.swift */; };
 		F8ABFFD826638EA100237666 /* StoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABFFD626638EA100237666 /* StoryTVC.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F8584EBD26660CAA00DB690C /* MainPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageVC.swift; sourceTree = "<group>"; };
+		F8584EBF26660D3100DB690C /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
 		F88B5E2A265F634F002F1A90 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F8ABFFD226635C6100237666 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		F8ABFFD626638EA100237666 /* StoryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTVC.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				F8BD26BE265EAECF00E6AD2F /* ViewController.swift */,
 				F8ABFFDC2663927600237666 /* SetStoryModalVC.swift */,
 				F8ABFFDE2663B55000237666 /* StoryCellDetailVC.swift */,
+				F8584EBD26660CAA00DB690C /* MainPageVC.swift */,
+				F8584EBF26660D3100DB690C /* AddVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -226,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8584EC026660D3100DB690C /* AddVC.swift in Sources */,
 				F8BD26BF265EAECF00E6AD2F /* ViewController.swift in Sources */,
 				F8ABFFDF2663B55000237666 /* StoryCellDetailVC.swift in Sources */,
 				F8ABFFDD2663927600237666 /* SetStoryModalVC.swift in Sources */,
@@ -234,6 +241,7 @@
 				F8BD26BB265EAECF00E6AD2F /* AppDelegate.swift in Sources */,
 				F8ABFFD826638EA100237666 /* StoryTVC.swift in Sources */,
 				F88B5E2B265F634F002F1A90 /* Model.xcdatamodeld in Sources */,
+				F8584EBE26660CAA00DB690C /* MainPageVC.swift in Sources */,
 				F8BD26DA265EBB6D00E6AD2F /* Story.swift in Sources */,
 				F8BD26BD265EAECF00E6AD2F /* SceneDelegate.swift in Sources */,
 			);
