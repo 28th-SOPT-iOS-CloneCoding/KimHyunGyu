@@ -28,14 +28,22 @@ class StoryCellDetailVC: UIViewController {
         setUI()
         
     }
+
+    private func deleteStory() {
+        let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
+        let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
+        PersistenceManager.shared.delete(object: fetchResult[self.indexPath])
+        self.navigationController?.popViewController(animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name("ReloadData"), object: nil)
+    }
     
     //MARK: - Properties
-    func setUI() {
+    private func setUI() {
         titleButton.setTitleColor(.black, for: .normal)
-        titleButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        titleButton.titleLabel?.font = UIFont.init(name: "NanumMyeongjoBold", size: 22)
         dateLabel.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        dateLabel.font = UIFont.systemFont(ofSize: 14)
-        detailLabel.font = UIFont.systemFont(ofSize: 15)
+        dateLabel.font = UIFont.init(name: "NanumMyeongjo", size: 14)
+        detailLabel.font = UIFont.init(name: "NanumMyeongjo", size: 15)
         
         let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
         let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
@@ -69,11 +77,9 @@ class StoryCellDetailVC: UIViewController {
         }
         let dismiss = UIAlertAction(title: "글 삭제", style: .destructive) {
             _ in
-            let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
-            let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
-            PersistenceManager.shared.delete(object: fetchResult[self.indexPath])
-            self.navigationController?.popViewController(animated: true)
-            NotificationCenter.default.post(name: NSNotification.Name("ReloadData"), object: nil)
+            self.makeRequestAlert(title: "", message: "정말 삭제하시겠습니까?", okAction: {_ in
+                self.deleteStory()
+            }, completion: nil)
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         

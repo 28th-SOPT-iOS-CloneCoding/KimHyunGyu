@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Set Story Title ModalVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SetStoryTitleModalVC" id="Y6W-OH-hqX" customClass="SetStoryTitleModalVC" customModule="PenCake_iOS_CloneCoding" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D39-90-obA">
+                                <rect key="frame" x="205" y="264" width="4" height="18.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vuR-0z-ULK">
+                                <rect key="frame" x="205" y="302.5" width="4" height="18.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pyJ-YV-mU4">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem id="UvG-vY-E2A">
+                                        <barButtonItem key="leftBarButtonItem" title="취소" id="hY0-cS-Dk8">
+                                            <color key="tintColor" systemColor="systemGray2Color"/>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="완료" id="Sw4-Df-pca"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pyJ-YV-mU4" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="0l1-dQ-IGq"/>
+                            <constraint firstItem="pyJ-YV-mU4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2In-7Z-wlF"/>
+                            <constraint firstItem="vuR-0z-ULK" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Ngz-aQ-260"/>
+                            <constraint firstItem="D39-90-obA" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Q1X-wc-Jvm"/>
+                            <constraint firstItem="D39-90-obA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="220" id="bDV-aG-NFU"/>
+                            <constraint firstItem="pyJ-YV-mU4" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="wZu-YS-MlJ"/>
+                            <constraint firstItem="vuR-0z-ULK" firstAttribute="top" secondItem="D39-90-obA" secondAttribute="bottom" constant="20" id="yqK-Ee-Qfv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="subtitleTextField" destination="vuR-0z-ULK" id="GZO-Aj-Rf5"/>
+                        <outlet property="titleTextField" destination="D39-90-obA" id="mLj-0g-yBw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="26" y="79"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

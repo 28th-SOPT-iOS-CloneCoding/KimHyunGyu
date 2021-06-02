@@ -21,7 +21,8 @@ class AddVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        addButton.setPreferredSymbolConfiguration(.init(pointSize: 90, weight: .thin, scale: .default), forImageIn: .normal)
+        addButton.setPreferredSymbolConfiguration(.init(pointSize: 70, weight: .thin, scale: .default), forImageIn: .normal)
+        textLabel.font = UIFont.init(name: "NanumMyeongjo", size: 14)
         textLabel.text = "+를 눌러서 새 이야기를 시작하세요"
         textLabel.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
