@@ -76,7 +76,7 @@
                     <connections>
                         <outlet property="detailTextView" destination="azz-58-x3O" id="7Hw-yu-FSX"/>
                         <outlet property="dismissToMain" destination="eCx-dq-VJa" id="1tJ-0a-Q02"/>
-                        <outlet property="navigationBar" destination="yJG-m7-x5g" id="vi1-dG-9YK"/>
+                        <outlet property="navigationBar" destination="yJG-m7-x5g" id="8zx-bD-PfE"/>
                         <outlet property="titleTextField" destination="Bmi-XS-C9U" id="Iob-jf-adI"/>
                     </connections>
                 </viewController>

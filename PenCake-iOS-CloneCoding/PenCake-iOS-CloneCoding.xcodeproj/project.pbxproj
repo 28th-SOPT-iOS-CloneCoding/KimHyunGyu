@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		F8584EBE26660CAA00DB690C /* MainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8584EBD26660CAA00DB690C /* MainPageVC.swift */; };
 		F8584EC026660D3100DB690C /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8584EBF26660D3100DB690C /* AddVC.swift */; };
+		F8584EC2266691A000DB690C /* UIViewController+makeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8584EC1266691A000DB690C /* UIViewController+makeAlert.swift */; };
+		F8584ECD2667203B00DB690C /* NanumMyeongjo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8584ECA2667203A00DB690C /* NanumMyeongjo-ExtraBold.ttf */; };
+		F8584ECE2667203B00DB690C /* NanumMyeongjo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8584ECB2667203B00DB690C /* NanumMyeongjo-Bold.ttf */; };
+		F8584ED5266724AB00DB690C /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8584ED4266724AB00DB690C /* UIFont.swift */; };
+		F8584ED7266725C800DB690C /* NanumMyeongjo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8584ED6266725C800DB690C /* NanumMyeongjo-Regular.ttf */; };
+		F8584EDA26677A1C00DB690C /* SetStoryTitleModal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8584ED926677A1C00DB690C /* SetStoryTitleModal.storyboard */; };
+		F8584EDC26677B1400DB690C /* SetStoryTitleModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8584EDB26677B1300DB690C /* SetStoryTitleModalVC.swift */; };
 		F88B5E2B265F634F002F1A90 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F88B5E29265F634F002F1A90 /* Model.xcdatamodeld */; };
 		F8ABFFD326635C6100237666 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABFFD226635C6100237666 /* PersistenceManager.swift */; };
 		F8ABFFD826638EA100237666 /* StoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABFFD626638EA100237666 /* StoryTVC.swift */; };
@@ -23,13 +30,19 @@
 		F8BD26C2265EAECF00E6AD2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BD26C0265EAECF00E6AD2F /* Main.storyboard */; };
 		F8BD26C4265EAED000E6AD2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8BD26C3265EAED000E6AD2F /* Assets.xcassets */; };
 		F8BD26C7265EAED000E6AD2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BD26C5265EAED000E6AD2F /* LaunchScreen.storyboard */; };
-		F8BD26D7265EBB6100E6AD2F /* TempExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD26D6265EBB6100E6AD2F /* TempExtension.swift */; };
 		F8BD26DA265EBB6D00E6AD2F /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD26D9265EBB6D00E6AD2F /* Story.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F8584EBD26660CAA00DB690C /* MainPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageVC.swift; sourceTree = "<group>"; };
 		F8584EBF26660D3100DB690C /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
+		F8584EC1266691A000DB690C /* UIViewController+makeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+makeAlert.swift"; sourceTree = "<group>"; };
+		F8584ECA2667203A00DB690C /* NanumMyeongjo-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NanumMyeongjo-ExtraBold.ttf"; sourceTree = "<group>"; };
+		F8584ECB2667203B00DB690C /* NanumMyeongjo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NanumMyeongjo-Bold.ttf"; sourceTree = "<group>"; };
+		F8584ED4266724AB00DB690C /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		F8584ED6266725C800DB690C /* NanumMyeongjo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NanumMyeongjo-Regular.ttf"; sourceTree = "<group>"; };
+		F8584ED926677A1C00DB690C /* SetStoryTitleModal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetStoryTitleModal.storyboard; sourceTree = "<group>"; };
+		F8584EDB26677B1300DB690C /* SetStoryTitleModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetStoryTitleModalVC.swift; sourceTree = "<group>"; };
 		F88B5E2A265F634F002F1A90 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F8ABFFD226635C6100237666 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		F8ABFFD626638EA100237666 /* StoryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTVC.swift; sourceTree = "<group>"; };
@@ -46,7 +59,6 @@
 		F8BD26C3265EAED000E6AD2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8BD26C6265EAED000E6AD2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8BD26C8265EAED000E6AD2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8BD26D6265EBB6100E6AD2F /* TempExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempExtension.swift; sourceTree = "<group>"; };
 		F8BD26D9265EBB6D00E6AD2F /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +73,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F8584EC326671F8A00DB690C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F8584ED8266774CB00DB690C /* NanumMyeongjo */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F8584ED8266774CB00DB690C /* NanumMyeongjo */ = {
+			isa = PBXGroup;
+			children = (
+				F8584ED6266725C800DB690C /* NanumMyeongjo-Regular.ttf */,
+				F8584ECB2667203B00DB690C /* NanumMyeongjo-Bold.ttf */,
+				F8584ECA2667203A00DB690C /* NanumMyeongjo-ExtraBold.ttf */,
+			);
+			path = NanumMyeongjo;
+			sourceTree = "<group>";
+		};
 		F8BD26AE265EAECF00E6AD2F = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +121,7 @@
 		F8BD26CE265EB9AB00E6AD2F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				F8584EC326671F8A00DB690C /* Fonts */,
 				F8BD26C3265EAED000E6AD2F /* Assets.xcassets */,
 				F8BD26D1265EB9C600E6AD2F /* Stroyboards */,
 			);
@@ -119,6 +150,7 @@
 				F8ABFFDE2663B55000237666 /* StoryCellDetailVC.swift */,
 				F8584EBD26660CAA00DB690C /* MainPageVC.swift */,
 				F8584EBF26660D3100DB690C /* AddVC.swift */,
+				F8584EDB26677B1300DB690C /* SetStoryTitleModalVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -130,6 +162,7 @@
 				F8BD26C5265EAED000E6AD2F /* LaunchScreen.storyboard */,
 				F8ABFFDA2663925400237666 /* SetStoryModal.storyboard */,
 				F8ABFFE02663B56400237666 /* StoryCellDetail.storyboard */,
+				F8584ED926677A1C00DB690C /* SetStoryTitleModal.storyboard */,
 			);
 			path = Stroyboards;
 			sourceTree = "<group>";
@@ -146,7 +179,8 @@
 		F8BD26D5265EBB5000E6AD2F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				F8BD26D6265EBB6100E6AD2F /* TempExtension.swift */,
+				F8584EC1266691A000DB690C /* UIViewController+makeAlert.swift */,
+				F8584ED4266724AB00DB690C /* UIFont.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -216,12 +250,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8584ECD2667203B00DB690C /* NanumMyeongjo-ExtraBold.ttf in Resources */,
 				F8ABFFDB2663925400237666 /* SetStoryModal.storyboard in Resources */,
 				F8BD26C7265EAED000E6AD2F /* LaunchScreen.storyboard in Resources */,
 				F8BD26C4265EAED000E6AD2F /* Assets.xcassets in Resources */,
+				F8584EDA26677A1C00DB690C /* SetStoryTitleModal.storyboard in Resources */,
 				F8ABFFE12663B56400237666 /* StoryCellDetail.storyboard in Resources */,
 				F8BD26C2265EAECF00E6AD2F /* Main.storyboard in Resources */,
 				F8ABFFD926638EA100237666 /* StoryTVC.xib in Resources */,
+				F8584ED7266725C800DB690C /* NanumMyeongjo-Regular.ttf in Resources */,
+				F8584ECE2667203B00DB690C /* NanumMyeongjo-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,10 +272,12 @@
 			files = (
 				F8584EC026660D3100DB690C /* AddVC.swift in Sources */,
 				F8BD26BF265EAECF00E6AD2F /* ViewController.swift in Sources */,
+				F8584EDC26677B1400DB690C /* SetStoryTitleModalVC.swift in Sources */,
+				F8584ED5266724AB00DB690C /* UIFont.swift in Sources */,
 				F8ABFFDF2663B55000237666 /* StoryCellDetailVC.swift in Sources */,
+				F8584EC2266691A000DB690C /* UIViewController+makeAlert.swift in Sources */,
 				F8ABFFDD2663927600237666 /* SetStoryModalVC.swift in Sources */,
 				F8ABFFD326635C6100237666 /* PersistenceManager.swift in Sources */,
-				F8BD26D7265EBB6100E6AD2F /* TempExtension.swift in Sources */,
 				F8BD26BB265EAECF00E6AD2F /* AppDelegate.swift in Sources */,
 				F8ABFFD826638EA100237666 /* StoryTVC.swift in Sources */,
 				F88B5E2B265F634F002F1A90 /* Model.xcdatamodeld in Sources */,
