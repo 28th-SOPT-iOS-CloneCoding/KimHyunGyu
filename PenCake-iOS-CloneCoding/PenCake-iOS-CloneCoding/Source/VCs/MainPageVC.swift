@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainPageVC: UIPageViewController {
+class MainPageVC: UIPageViewController, UIGestureRecognizerDelegate {
 
     // MARK: - Properties
     private var currentIndex = 0
@@ -34,6 +34,8 @@ class MainPageVC: UIPageViewController {
         if let firstVC = vcArray.first {
             setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
         }
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
 }
 
@@ -68,5 +70,7 @@ extension MainPageVC: UIPageViewControllerDataSource {
 
 // MARK: - UIPageViewControllerDelegate
 extension MainPageVC: UIPageViewControllerDelegate {
-    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+            return true
+        }
 }

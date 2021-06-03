@@ -49,6 +49,9 @@
                                 <state key="normal" image="chevron.left" catalog="system">
                                     <color key="titleColor" systemColor="systemGray5Color"/>
                                 </state>
+                                <connections>
+                                    <action selector="popToMain:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="TZv-Qz-WHH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>

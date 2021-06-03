@@ -14,10 +14,10 @@ class SetStoryModalVC: UIViewController {
     var indexPath : Int = -1
     
     //MARK: - @IBOutlet Properties
-    @IBOutlet weak var dismissToMain: UIBarButtonItem!
-    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var detailTextView: UITextView!
+    @IBOutlet weak var completeButton: UIButton!
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -36,9 +36,16 @@ class SetStoryModalVC: UIViewController {
     }
 
     private func setUI() {
-//        navigationBar.backgroundColor = UIColor.white
-        titleTextField.font = UIFont.init(name: "NanumMyeongjoBold", size: 14)
-        detailTextView.font = UIFont.init(name: "NanumMyeongjo", size: 14)
+        dismissButton.setTitle("취소", for: .normal)
+        dismissButton.titleLabel?.font = UIFont.init(name: "NanumMyeongjo", size: 15)
+        dismissButton.tintColor = .systemGray3
+        
+        completeButton.setTitle("완료", for: .normal)
+        completeButton.titleLabel?.font = UIFont.init(name: "NanumMyeongjo", size: 15)
+        completeButton.tintColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        
+        titleTextField.font = UIFont.init(name: "NanumMyeongjoBold", size: 20)
+        detailTextView.font = UIFont.init(name: "NanumMyeongjo", size: 15)
         //텍필뷰 선택하면 네비타이틀로 제목이 올라감.
         detailTextView.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }

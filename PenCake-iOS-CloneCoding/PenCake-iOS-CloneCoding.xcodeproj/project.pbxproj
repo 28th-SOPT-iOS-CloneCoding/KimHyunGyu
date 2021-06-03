@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		127F5C64B1D80282E2E0E150 /* Pods_PenCake_iOS_CloneCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A51BA0607C960AF9C16281 /* Pods_PenCake_iOS_CloneCoding.framework */; };
 		F8584EBE26660CAA00DB690C /* MainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8584EBD26660CAA00DB690C /* MainPageVC.swift */; };
 		F8584EC026660D3100DB690C /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8584EBF26660D3100DB690C /* AddVC.swift */; };
 		F8584EC2266691A000DB690C /* UIViewController+makeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8584EC1266691A000DB690C /* UIViewController+makeAlert.swift */; };
@@ -34,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3300109E04CE394234F89AF1 /* Pods-PenCake-iOS-CloneCoding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenCake-iOS-CloneCoding.debug.xcconfig"; path = "Target Support Files/Pods-PenCake-iOS-CloneCoding/Pods-PenCake-iOS-CloneCoding.debug.xcconfig"; sourceTree = "<group>"; };
+		3B3954835DB2E121942F9598 /* Pods-PenCake-iOS-CloneCoding.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenCake-iOS-CloneCoding.release.xcconfig"; path = "Target Support Files/Pods-PenCake-iOS-CloneCoding/Pods-PenCake-iOS-CloneCoding.release.xcconfig"; sourceTree = "<group>"; };
+		E4A51BA0607C960AF9C16281 /* Pods_PenCake_iOS_CloneCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PenCake_iOS_CloneCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8584EBD26660CAA00DB690C /* MainPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageVC.swift; sourceTree = "<group>"; };
 		F8584EBF26660D3100DB690C /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
 		F8584EC1266691A000DB690C /* UIViewController+makeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+makeAlert.swift"; sourceTree = "<group>"; };
@@ -67,12 +71,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				127F5C64B1D80282E2E0E150 /* Pods_PenCake_iOS_CloneCoding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4AAAFF64F534C884F8006F06 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4A51BA0607C960AF9C16281 /* Pods_PenCake_iOS_CloneCoding.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2230BB4F32F74AACB8035FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3300109E04CE394234F89AF1 /* Pods-PenCake-iOS-CloneCoding.debug.xcconfig */,
+				3B3954835DB2E121942F9598 /* Pods-PenCake-iOS-CloneCoding.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F8584EC326671F8A00DB690C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +118,8 @@
 			children = (
 				F8BD26B9265EAECF00E6AD2F /* PenCake-iOS-CloneCoding */,
 				F8BD26B8265EAECF00E6AD2F /* Products */,
+				E2230BB4F32F74AACB8035FE /* Pods */,
+				4AAAFF64F534C884F8006F06 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,7 +137,6 @@
 				F8BD26C8265EAED000E6AD2F /* Info.plist */,
 				F8BD26CF265EB9B700E6AD2F /* Source */,
 				F8BD26CE265EB9AB00E6AD2F /* Resource */,
-				F88B5E29265F634F002F1A90 /* Model.xcdatamodeld */,
 			);
 			path = "PenCake-iOS-CloneCoding";
 			sourceTree = "<group>";
@@ -188,6 +211,7 @@
 		F8BD26D8265EBB6500E6AD2F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F88B5E29265F634F002F1A90 /* Model.xcdatamodeld */,
 				F8BD26D9265EBB6D00E6AD2F /* Story.swift */,
 			);
 			path = Models;
@@ -200,9 +224,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8BD26CB265EAED000E6AD2F /* Build configuration list for PBXNativeTarget "PenCake-iOS-CloneCoding" */;
 			buildPhases = (
+				C36E6EE05B1284A279FC54AD /* [CP] Check Pods Manifest.lock */,
 				F8BD26B3265EAECF00E6AD2F /* Sources */,
 				F8BD26B4265EAECF00E6AD2F /* Frameworks */,
 				F8BD26B5265EAECF00E6AD2F /* Resources */,
+				93D682B5E528EF36D295CB6E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,6 +290,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93D682B5E528EF36D295CB6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PenCake-iOS-CloneCoding/Pods-PenCake-iOS-CloneCoding-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PenCake-iOS-CloneCoding/Pods-PenCake-iOS-CloneCoding-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PenCake-iOS-CloneCoding/Pods-PenCake-iOS-CloneCoding-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C36E6EE05B1284A279FC54AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PenCake-iOS-CloneCoding-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F8BD26B3265EAECF00E6AD2F /* Sources */ = {
@@ -427,6 +495,7 @@
 		};
 		F8BD26CC265EAED000E6AD2F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3300109E04CE394234F89AF1 /* Pods-PenCake-iOS-CloneCoding.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -446,6 +515,7 @@
 		};
 		F8BD26CD265EAED000E6AD2F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B3954835DB2E121942F9598 /* Pods-PenCake-iOS-CloneCoding.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

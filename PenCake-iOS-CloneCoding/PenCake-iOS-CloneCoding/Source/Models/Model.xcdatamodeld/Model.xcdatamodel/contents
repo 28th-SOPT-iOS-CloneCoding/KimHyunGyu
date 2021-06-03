@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="StoryList" representedClassName="StoryList" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="storyDetail" optional="YES" attributeType="String"/>
+        <attribute name="storyName" optional="YES" attributeType="String"/>
+        <relationship name="storyModel" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StoryModel" inverseName="storyList" inverseEntity="StoryModel"/>
+    </entity>
+    <entity name="StoryModel" representedClassName="StoryModel" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="detail" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="storyList" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StoryList" inverseName="storyModel" inverseEntity="StoryList"/>
+    </entity>
+    <elements>
+        <element name="StoryModel" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="StoryList" positionX="102.37109375" positionY="-13.4921875" width="128" height="103"/>
+    </elements>
+</model>
