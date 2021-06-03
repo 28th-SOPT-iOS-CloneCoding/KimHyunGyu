@@ -30,7 +30,6 @@ class ViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(storyTitleButtonClicked), for: .touchDown)
         button.titleLabel?.font = UIFont.init(name: "NanumMyeongjoBold", size: 20)
-        button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
     }()
@@ -41,7 +40,6 @@ class ViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(storyTitleButtonClicked), for: .touchDown)
         button.titleLabel?.font = UIFont.init(name: "NanumMyeongjo", size: 14)
-        button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
     }()
@@ -49,7 +47,6 @@ class ViewController: UIViewController {
     var customNavigationBar: UIView = {
         let navigationBar = UIView()
         navigationBar.backgroundColor = .white
-        navigationBar.translatesAutoresizingMaskIntoConstraints = false
         navigationBar.clipsToBounds = true
         
         return navigationBar
@@ -58,7 +55,6 @@ class ViewController: UIViewController {
     var separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.systemGray4
-        view.translatesAutoresizingMaskIntoConstraints = false
 
         return view
     }()
@@ -100,9 +96,10 @@ class ViewController: UIViewController {
         if storyList.count == 0 {
             //label 추가
             view.addSubview(infoLabel)
-            infoLabel.translatesAutoresizingMaskIntoConstraints = false
-            infoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            infoLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100).isActive = true
+            infoLabel.snp.makeConstraints({ make in
+                make.centerX.equalTo(self.view)
+                make.centerY.equalTo(self.view).offset(-100)
+            })
         } else {
             let subInfoLabel = self.view.viewWithTag(1)
             subInfoLabel?.removeFromSuperview()
@@ -134,34 +131,38 @@ class ViewController: UIViewController {
         customNavigationBar.addSubview(storySubtitleButton)
         customNavigationBar.addSubview(separatorView)
         
-        customNavigationBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        customNavigationBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        customNavigationBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-//        customNavigationBar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 2/7).isActive = true
-//        customNavigationBar.heightAnchor.constraint(equalToConstant: 220).isActive = true
-        customNavigationBar.snp.makeConstraints({
-            make in
+        customNavigationBar.snp.makeConstraints({ make in
             make.height.equalTo(220)
+            make.top.equalTo(self.view)
+            make.left.equalTo(self.view)
+            make.right.equalTo(self.view)
         })
         
-        storyTitleButton.centerXAnchor.constraint(equalTo: customNavigationBar.centerXAnchor).isActive = true
-        storyTitleButton.centerYAnchor.constraint(equalTo: customNavigationBar.centerYAnchor, constant: 20).isActive = true
+        storyTitleButton.snp.makeConstraints({ make in
+            make.centerX.equalTo(self.customNavigationBar)
+            make.centerY.equalTo(self.customNavigationBar).offset(20)
+        })
         
-        storySubtitleButton.centerXAnchor.constraint(equalTo: customNavigationBar.centerXAnchor).isActive = true
-        storySubtitleButton.topAnchor.constraint(equalTo: storyTitleButton.bottomAnchor, constant: 20).isActive = true
+        storySubtitleButton.snp.makeConstraints({ make in
+            make.centerX.equalTo(self.customNavigationBar)
+            make.top.equalTo(self.storyTitleButton.snp.bottom).offset(20)
+        })
+
         
-        separatorView.leftAnchor.constraint(equalTo: customNavigationBar.leftAnchor, constant: 15).isActive = true
-        separatorView.rightAnchor.constraint(equalTo: customNavigationBar.rightAnchor, constant: 15).isActive = true
-        separatorView.bottomAnchor.constraint(equalTo: customNavigationBar.bottomAnchor).isActive = true
-        separatorView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
-        
+        separatorView.snp.makeConstraints({ make in
+            make.height.equalTo(0.5)
+            make.left.right.equalTo(self.customNavigationBar).inset(15)
+            make.bottom.equalTo(self.customNavigationBar.snp.bottom)
+        })
         
         if storyList.count == 0 {
             //label 추가
             view.addSubview(infoLabel)
-            infoLabel.translatesAutoresizingMaskIntoConstraints = false
-            infoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            infoLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100).isActive = true
+
+            infoLabel.snp.makeConstraints({ make in
+                make.centerX.equalTo(self.view)
+                make.centerY.equalTo(self.view).offset(-100)
+            })
         }
     }
     
@@ -209,9 +210,6 @@ extension ViewController: UITableViewDataSource {
         }
         cell.titleLabel?.font = UIFont.init(name: "NanumMyeongjo", size: 17)
         cell.dateLabel.font = UIFont.init(name: "NanumMyeongjo", size: 12)
-//        let backgroundCell = UIView()
-//        backgroundCell.backgroundColor = .white
-//        cell.selectedBackgroundView = backgroundCell
         cell.selectionStyle = .none
 
         cell.setData(title: storyList[indexPath.row].title ?? "" , date: storyList[indexPath.row].date ?? "")
@@ -229,24 +227,6 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-//extension ViewController {
-//    override func updateViewConstraints() {
-//        let contenOffsetY = UIScrollView.contentoff
-//        let customViewHeight = self.view.frame.height*(2/7)
-//        if contenOffsetY > 0 {
-//            if (customViewHeight - CGFloat(contenOffsetY)) > customViewHeight * (3/7) {
-//                customNavigationBar.heightAnchor.constraint(equalToConstant: customViewHeight - CGFloat(contenOffsetY)).isActive = true
-//            } else if contenOffsetY == 0 {
-//                customNavigationBar.heightAnchor.constraint(equalToConstant: customViewHeight).isActive = true
-//            }
-//            else {
-//                customNavigationBar.heightAnchor.constraint(equalToConstant: customViewHeight * (3/7)).isActive = true
-//            }
-//        }
-//        super.updateViewConstraints()
-//    }
-//}
-
 extension ViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -255,7 +235,6 @@ extension ViewController: UIScrollViewDelegate {
 
         if contenOffsetY > 0 {
             if (customViewHeight - Int(contenOffsetY)) > 80 {
-//                customNavigationBar.heightAnchor.constraint(equalToConstant: CGFloat(customViewHeight) - contenOffsetY).isActive = true
                 if (customViewHeight - Int(contenOffsetY)) > 110 {
                     storyTitleButton.titleLabel?.font = UIFont(name: "NanumMyeongjo", size: 20)
                 } else {
@@ -265,7 +244,6 @@ extension ViewController: UIScrollViewDelegate {
                     make.height.equalTo(CGFloat(customViewHeight) - contenOffsetY)
                 })
             } else {
-//                customNavigationBar.heightAnchor.constraint(equalToConstant: 100).isActive = true
                 customNavigationBar.snp.updateConstraints({ make in
                     make.height.equalTo(80)
                 })
