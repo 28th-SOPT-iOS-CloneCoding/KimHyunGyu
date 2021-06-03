@@ -26,7 +26,6 @@ class StoryCellDetailVC: UIViewController {
 
         // Do any additional setup after loading the view.
         setUI()
-        
     }
 
     private func deleteStory() {
@@ -61,6 +60,9 @@ class StoryCellDetailVC: UIViewController {
         nextVC.modalPresentationStyle = .overFullScreen
         nextVC.indexPath = indexPath
         self.present(nextVC, animated: true, completion: nil)
+    }
+    @IBAction func popToMain(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     @IBAction func popupButtonClicked(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

@@ -7,17 +7,18 @@
 
 import UIKit
 import CoreData
+import SnapKit
 
 class ViewController: UIViewController {
 
     // MARK: - Properties
-//    var persistenceManager = PersistenceManager()
     var storyList = [StoryModel]()
     var refreshControl = UIRefreshControl()
     lazy var infoLabel: UILabel = {
         let infoLabel = UILabel()
         infoLabel.text = "여기를 아래로 당기면 글을 쓸 수 있어요"
         infoLabel.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        infoLabel.font = UIFont(name: "NanumMyeongjo", size: 14)
         infoLabel.tag = 1
         
         return infoLabel
@@ -49,14 +50,14 @@ class ViewController: UIViewController {
         let navigationBar = UIView()
         navigationBar.backgroundColor = .white
         navigationBar.translatesAutoresizingMaskIntoConstraints = false
-        //높이 설정하고 뷰디드로드에서 여기안에 버튼 두개 넣어주기.
+        navigationBar.clipsToBounds = true
         
         return navigationBar
     }()
     
     var separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.separator
+        view.backgroundColor = UIColor.systemGray4
         view.translatesAutoresizingMaskIntoConstraints = false
 
         return view
@@ -73,8 +74,6 @@ class ViewController: UIViewController {
         setUI()
         connectTableView()
         setNotificationCenter()
-        
-        
     }
     
     // MARK: - @objc Methods
@@ -103,7 +102,7 @@ class ViewController: UIViewController {
             view.addSubview(infoLabel)
             infoLabel.translatesAutoresizingMaskIntoConstraints = false
             infoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            infoLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+            infoLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100).isActive = true
         } else {
             let subInfoLabel = self.view.viewWithTag(1)
             subInfoLabel?.removeFromSuperview()
@@ -139,16 +138,20 @@ class ViewController: UIViewController {
         customNavigationBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         customNavigationBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
 //        customNavigationBar.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 2/7).isActive = true
-        customNavigationBar.heightAnchor.constraint(equalToConstant: 200).isActive = true
+//        customNavigationBar.heightAnchor.constraint(equalToConstant: 220).isActive = true
+        customNavigationBar.snp.makeConstraints({
+            make in
+            make.height.equalTo(220)
+        })
         
         storyTitleButton.centerXAnchor.constraint(equalTo: customNavigationBar.centerXAnchor).isActive = true
-        storyTitleButton.centerYAnchor.constraint(equalTo: customNavigationBar.centerYAnchor, constant: 0).isActive = true
+        storyTitleButton.centerYAnchor.constraint(equalTo: customNavigationBar.centerYAnchor, constant: 20).isActive = true
         
         storySubtitleButton.centerXAnchor.constraint(equalTo: customNavigationBar.centerXAnchor).isActive = true
         storySubtitleButton.topAnchor.constraint(equalTo: storyTitleButton.bottomAnchor, constant: 20).isActive = true
         
         separatorView.leftAnchor.constraint(equalTo: customNavigationBar.leftAnchor, constant: 15).isActive = true
-        separatorView.rightAnchor.constraint(equalTo: customNavigationBar.rightAnchor, constant: -15).isActive = true
+        separatorView.rightAnchor.constraint(equalTo: customNavigationBar.rightAnchor, constant: 15).isActive = true
         separatorView.bottomAnchor.constraint(equalTo: customNavigationBar.bottomAnchor).isActive = true
         separatorView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         
@@ -158,7 +161,7 @@ class ViewController: UIViewController {
             view.addSubview(infoLabel)
             infoLabel.translatesAutoresizingMaskIntoConstraints = false
             infoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            infoLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+            infoLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100).isActive = true
         }
     }
     
@@ -184,11 +187,12 @@ class ViewController: UIViewController {
 // MARK: - UITableViewDelegate
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 60
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return self.view.frame.height*(2/7) - 44
+//        return self.view.frame.height*(2/7) - 44
+        return 200
     }
     
 }
@@ -225,22 +229,53 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
+//extension ViewController {
+//    override func updateViewConstraints() {
+//        let contenOffsetY = UIScrollView.contentoff
+//        let customViewHeight = self.view.frame.height*(2/7)
+//        if contenOffsetY > 0 {
+//            if (customViewHeight - CGFloat(contenOffsetY)) > customViewHeight * (3/7) {
+//                customNavigationBar.heightAnchor.constraint(equalToConstant: customViewHeight - CGFloat(contenOffsetY)).isActive = true
+//            } else if contenOffsetY == 0 {
+//                customNavigationBar.heightAnchor.constraint(equalToConstant: customViewHeight).isActive = true
+//            }
+//            else {
+//                customNavigationBar.heightAnchor.constraint(equalToConstant: customViewHeight * (3/7)).isActive = true
+//            }
+//        }
+//        super.updateViewConstraints()
+//    }
+//}
+
 extension ViewController: UIScrollViewDelegate {
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("scroll")
         let contenOffsetY = scrollView.contentOffset.y
-        print(contenOffsetY)
-//        let viewHeight = self.view.frame.height*(2/7)
+        let customViewHeight = 220
+
         if contenOffsetY > 0 {
-            customNavigationBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-            customNavigationBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-            customNavigationBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            customNavigationBar.heightAnchor.constraint(equalToConstant: 200 - contenOffsetY).isActive = true
-        } else {
-            customNavigationBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-            customNavigationBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-            customNavigationBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            customNavigationBar.heightAnchor.constraint(equalToConstant: 200 - contenOffsetY).isActive = true
+            if (customViewHeight - Int(contenOffsetY)) > 80 {
+//                customNavigationBar.heightAnchor.constraint(equalToConstant: CGFloat(customViewHeight) - contenOffsetY).isActive = true
+                if (customViewHeight - Int(contenOffsetY)) > 110 {
+                    storyTitleButton.titleLabel?.font = UIFont(name: "NanumMyeongjo", size: 20)
+                } else {
+                    storyTitleButton.titleLabel?.font = UIFont(name: "NanumMyeongjo", size: 19.7)
+                }
+                customNavigationBar.snp.updateConstraints({ make in
+                    make.height.equalTo(CGFloat(customViewHeight) - contenOffsetY)
+                })
+            } else {
+//                customNavigationBar.heightAnchor.constraint(equalToConstant: 100).isActive = true
+                customNavigationBar.snp.updateConstraints({ make in
+                    make.height.equalTo(80)
+                })
+                storyTitleButton.titleLabel?.font = UIFont(name: "NanumMyeongjo", size: 19.5)
+            }
         }
+    }
+}
+extension ViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
