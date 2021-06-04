@@ -28,7 +28,9 @@ class AddVC: UIViewController {
     }
     
     @IBAction func addButtonClicked(_ sender: Any) {
-    //새로운 페이지뷰컨생성
+        let nextVC = UIStoryboard(name: "AddStoryTitleModal", bundle: nil).instantiateViewController(withIdentifier: "AddStoryTitleVC")
+        nextVC.modalPresentationStyle = .overFullScreen
+        self.present(nextVC, animated: true, completion: nil)
     }
     
 

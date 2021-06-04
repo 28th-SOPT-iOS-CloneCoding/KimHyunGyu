@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		127F5C64B1D80282E2E0E150 /* Pods_PenCake_iOS_CloneCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A51BA0607C960AF9C16281 /* Pods_PenCake_iOS_CloneCoding.framework */; };
+		F83CF2A7266A0381004538F0 /* AddStoryTitleModal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83CF2A6266A0381004538F0 /* AddStoryTitleModal.storyboard */; };
+		F83CF2A9266A0394004538F0 /* AddStoryTitleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83CF2A8266A0394004538F0 /* AddStoryTitleVC.swift */; };
+		F83CF2AB266A0729004538F0 /* AddStorySubtitleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83CF2AA266A0729004538F0 /* AddStorySubtitleVC.swift */; };
+		F83CF2AD266A0797004538F0 /* AddStorySubtitleModal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83CF2AC266A0797004538F0 /* AddStorySubtitleModal.storyboard */; };
 		F8584EBE26660CAA00DB690C /* MainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8584EBD26660CAA00DB690C /* MainPageVC.swift */; };
 		F8584EC026660D3100DB690C /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8584EBF26660D3100DB690C /* AddVC.swift */; };
 		F8584EC2266691A000DB690C /* UIViewController+makeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8584EC1266691A000DB690C /* UIViewController+makeAlert.swift */; };
@@ -38,6 +42,10 @@
 		3300109E04CE394234F89AF1 /* Pods-PenCake-iOS-CloneCoding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenCake-iOS-CloneCoding.debug.xcconfig"; path = "Target Support Files/Pods-PenCake-iOS-CloneCoding/Pods-PenCake-iOS-CloneCoding.debug.xcconfig"; sourceTree = "<group>"; };
 		3B3954835DB2E121942F9598 /* Pods-PenCake-iOS-CloneCoding.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenCake-iOS-CloneCoding.release.xcconfig"; path = "Target Support Files/Pods-PenCake-iOS-CloneCoding/Pods-PenCake-iOS-CloneCoding.release.xcconfig"; sourceTree = "<group>"; };
 		E4A51BA0607C960AF9C16281 /* Pods_PenCake_iOS_CloneCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PenCake_iOS_CloneCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F83CF2A6266A0381004538F0 /* AddStoryTitleModal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddStoryTitleModal.storyboard; sourceTree = "<group>"; };
+		F83CF2A8266A0394004538F0 /* AddStoryTitleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoryTitleVC.swift; sourceTree = "<group>"; };
+		F83CF2AA266A0729004538F0 /* AddStorySubtitleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStorySubtitleVC.swift; sourceTree = "<group>"; };
+		F83CF2AC266A0797004538F0 /* AddStorySubtitleModal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddStorySubtitleModal.storyboard; sourceTree = "<group>"; };
 		F8584EBD26660CAA00DB690C /* MainPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageVC.swift; sourceTree = "<group>"; };
 		F8584EBF26660D3100DB690C /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
 		F8584EC1266691A000DB690C /* UIViewController+makeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+makeAlert.swift"; sourceTree = "<group>"; };
@@ -174,6 +182,8 @@
 				F8584EBD26660CAA00DB690C /* MainPageVC.swift */,
 				F8584EBF26660D3100DB690C /* AddVC.swift */,
 				F8584EDB26677B1300DB690C /* SetStoryTitleModalVC.swift */,
+				F83CF2A8266A0394004538F0 /* AddStoryTitleVC.swift */,
+				F83CF2AA266A0729004538F0 /* AddStorySubtitleVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -186,6 +196,8 @@
 				F8ABFFDA2663925400237666 /* SetStoryModal.storyboard */,
 				F8ABFFE02663B56400237666 /* StoryCellDetail.storyboard */,
 				F8584ED926677A1C00DB690C /* SetStoryTitleModal.storyboard */,
+				F83CF2A6266A0381004538F0 /* AddStoryTitleModal.storyboard */,
+				F83CF2AC266A0797004538F0 /* AddStorySubtitleModal.storyboard */,
 			);
 			path = Stroyboards;
 			sourceTree = "<group>";
@@ -278,11 +290,13 @@
 			files = (
 				F8584ECD2667203B00DB690C /* NanumMyeongjo-ExtraBold.ttf in Resources */,
 				F8ABFFDB2663925400237666 /* SetStoryModal.storyboard in Resources */,
+				F83CF2A7266A0381004538F0 /* AddStoryTitleModal.storyboard in Resources */,
 				F8BD26C7265EAED000E6AD2F /* LaunchScreen.storyboard in Resources */,
 				F8BD26C4265EAED000E6AD2F /* Assets.xcassets in Resources */,
 				F8584EDA26677A1C00DB690C /* SetStoryTitleModal.storyboard in Resources */,
 				F8ABFFE12663B56400237666 /* StoryCellDetail.storyboard in Resources */,
 				F8BD26C2265EAECF00E6AD2F /* Main.storyboard in Resources */,
+				F83CF2AD266A0797004538F0 /* AddStorySubtitleModal.storyboard in Resources */,
 				F8ABFFD926638EA100237666 /* StoryTVC.xib in Resources */,
 				F8584ED7266725C800DB690C /* NanumMyeongjo-Regular.ttf in Resources */,
 				F8584ECE2667203B00DB690C /* NanumMyeongjo-Bold.ttf in Resources */,
@@ -339,6 +353,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8584EC026660D3100DB690C /* AddVC.swift in Sources */,
+				F83CF2A9266A0394004538F0 /* AddStoryTitleVC.swift in Sources */,
+				F83CF2AB266A0729004538F0 /* AddStorySubtitleVC.swift in Sources */,
 				F8BD26BF265EAECF00E6AD2F /* ViewController.swift in Sources */,
 				F8584EDC26677B1400DB690C /* SetStoryTitleModalVC.swift in Sources */,
 				F8584ED5266724AB00DB690C /* UIFont.swift in Sources */,

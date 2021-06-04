@@ -36,6 +36,7 @@ class MainPageVC: UIPageViewController, UIGestureRecognizerDelegate {
         }
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
     }
 }
 
