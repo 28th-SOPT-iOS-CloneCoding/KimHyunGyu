@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumMyeongjo-Regular.ttf">
+            <string>NanumMyeongjo</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Add Story SubtitleVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AddStorySubtitleVC" id="Y6W-OH-hqX" customClass="AddStorySubtitleVC" customModule="PenCake_iOS_CloneCoding" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q76-DC-w9o">
+                                <rect key="frame" x="93.5" y="264" width="227" height="55.5"/>
+                                <string key="text">이야기의 소제목을 입력해주세요.
+
+다짐말을 써도 좋아요.</string>
+                                <fontDescription key="fontDescription" name="NanumMyeongjo" family="NanumMyeongjo" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKS-Ts-Inn">
+                                <rect key="frame" x="364" y="44" width="30" height="30"/>
+                                <fontDescription key="fontDescription" name="NanumMyeongjo" family="NanumMyeongjo" pointSize="15"/>
+                                <state key="normal" title="완료"/>
+                                <connections>
+                                    <action selector="dismissToMain:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2tW-2a-Vev"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpO-3h-ffx">
+                                <rect key="frame" x="60" y="369.5" width="294" height="0.5"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="Uuw-on-cnm"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Np8-YF-Q6q">
+                                <rect key="frame" x="20" y="44" width="13" height="22"/>
+                                <color key="tintColor" systemColor="systemGray4Color"/>
+                                <state key="normal" image="chevron.left" catalog="system">
+                                    <color key="titleColor" systemColor="systemGray4Color"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissToTitle:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Rv3-gR-xis"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="예) 오늘도 수고했어!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X6b-FS-89D">
+                                <rect key="frame" x="60" y="339.5" width="294" height="20"/>
+                                <fontDescription key="fontDescription" name="NanumMyeongjo" family="NanumMyeongjo" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X6b-FS-89D" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="2ae-nJ-9zj"/>
+                            <constraint firstItem="NKS-Ts-Inn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="7bU-FZ-bbp"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="X6b-FS-89D" secondAttribute="trailing" constant="60" id="8hd-QX-GSQ"/>
+                            <constraint firstItem="VpO-3h-ffx" firstAttribute="leading" secondItem="X6b-FS-89D" secondAttribute="leading" id="KDc-mG-8i9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NKS-Ts-Inn" secondAttribute="trailing" constant="20" id="N2w-1e-NJx"/>
+                            <constraint firstItem="X6b-FS-89D" firstAttribute="top" secondItem="q76-DC-w9o" secondAttribute="bottom" constant="20" id="PhA-SY-V8h"/>
+                            <constraint firstItem="Np8-YF-Q6q" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="TRE-xd-Lbq"/>
+                            <constraint firstItem="q76-DC-w9o" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="220" id="bLP-UU-guL"/>
+                            <constraint firstItem="X6b-FS-89D" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="cmZ-iU-Bh5"/>
+                            <constraint firstItem="VpO-3h-ffx" firstAttribute="trailing" secondItem="X6b-FS-89D" secondAttribute="trailing" id="pnZ-HY-fLp"/>
+                            <constraint firstItem="Np8-YF-Q6q" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="pti-bs-Cx2"/>
+                            <constraint firstItem="q76-DC-w9o" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="rVX-zJ-u71"/>
+                            <constraint firstItem="VpO-3h-ffx" firstAttribute="top" secondItem="X6b-FS-89D" secondAttribute="bottom" constant="10" id="wxP-dj-Yx8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="subtitleTextField" destination="X6b-FS-89D" id="Wcf-Y4-2qr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="94" y="94"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
