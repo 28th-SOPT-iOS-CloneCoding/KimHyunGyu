@@ -31,12 +31,17 @@ class AddStoryTitleVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func pushToSubtitle(_ sender: Any) {
-        guard let nextVC = UIStoryboard(name: "AddStorySubtitleModal", bundle: nil).instantiateViewController(withIdentifier: "AddStorySubtitleVC") as? AddStorySubtitleVC else {
-            return
+        if titleTextField.text?.isEmpty == false {
+            guard let nextVC = UIStoryboard(name: "AddStorySubtitleModal", bundle: nil).instantiateViewController(withIdentifier: "AddStorySubtitleVC") as? AddStorySubtitleVC else {
+                return
+            }
+            
+            nextVC.titleText =
+                titleTextField.text
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        } else {
+            makeAlert(title: "", message: "제목을 입력해주세요")
         }
-        nextVC.titleText =
-            titleTextField.text
-        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
 }

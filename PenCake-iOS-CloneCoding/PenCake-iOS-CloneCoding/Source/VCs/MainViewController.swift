@@ -9,9 +9,10 @@ import UIKit
 import CoreData
 import SnapKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     // MARK: - Properties
+    var list = [StoryList]()
     var storyList = [StoryModel]()
     var refreshControl = UIRefreshControl()
     lazy var infoLabel: UILabel = {
@@ -179,6 +180,11 @@ class ViewController: UIViewController {
     }
     
     private func fetchCoreData() {
+        let listRequest: NSFetchRequest<StoryList> = StoryList.fetchRequest()
+        let fetchListResult = StoryListPersistenceManager.shared.fetch(reqeust: listRequest)
+        list = fetchListResult
+        print(list)
+        
         let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
         let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
         storyList = fetchResult
@@ -186,7 +192,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - UITableViewDelegate
-extension ViewController: UITableViewDelegate {
+extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
@@ -199,7 +205,7 @@ extension ViewController: UITableViewDelegate {
 }
 
 // MARK: - UITableViewDataSource
-extension ViewController: UITableViewDataSource {
+extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return storyList.count
     }
@@ -227,7 +233,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: UIScrollViewDelegate {
+extension MainViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contenOffsetY = scrollView.contentOffset.y
