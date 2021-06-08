@@ -55,15 +55,25 @@ class SetStoryModalVC: UIViewController {
         NotificationCenter.default.post(name: NSNotification.Name("ReloadData"), object: nil)
     }
     @IBAction func completeButtonClicked(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
         let text: String
         if titleTextField.text?.isEmpty == true {
             text = "_"
         } else {
             text = titleTextField.text!
         }
-        let storyOne = Story(title: text, detail: detailTextView.text ?? "", date: "0530")
-         PersistenceManager.shared.insertStory(story: storyOne)
-        NotificationCenter.default.post(name: NSNotification.Name("ReloadData"), object: nil)
+        if indexPath == -1 {
+            let storyOne = Story(title: text, detail: detailTextView.text ?? "", date: "0530")
+             PersistenceManager.shared.insertStory(story: storyOne)
+            
+            NotificationCenter.default.post(name: NSNotification.Name("ReloadData"), object: nil)
+        } else {
+            let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
+            let updateStory = Story(title: text, detail: detailTextView.text ?? "", date: "0530")
+            PersistenceManager.shared.updateStory(reqeust: request, index: indexPath, story: updateStory)
+            
+            NotificationCenter.default.post(name: NSNotification.Name("ReloadData"), object: nil)
+        }
+        self.dismiss(animated: true, completion: nil)
+        
     }
 }

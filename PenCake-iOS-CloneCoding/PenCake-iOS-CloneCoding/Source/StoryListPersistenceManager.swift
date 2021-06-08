@@ -1,17 +1,17 @@
 //
-//  PersistenceManager.swift
+//  StoryListPersistenceManager.swift
 //  PenCake-iOS-CloneCoding
 //
-//  Created by kimhyungyu on 2021/05/30.
+//  Created by kimhyungyu on 2021/06/08.
 //
 
 import Foundation
 import CoreData
 
-class PersistenceManager {
-    static var shared: PersistenceManager = PersistenceManager()
+class StoryListPersistenceManager {
+    static var shared: StoryListPersistenceManager = StoryListPersistenceManager()
     
-    lazy var persistentContainer: NSPersistentContainer = {
+    lazy var storyListPersistenceManager: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -22,7 +22,7 @@ class PersistenceManager {
     }()
     
     var context: NSManagedObjectContext {
-        return self.persistentContainer.viewContext
+        return self.storyListPersistenceManager.viewContext
     }
     
     // fetch
@@ -36,16 +36,18 @@ class PersistenceManager {
         }
     }
     
-    //insert data
+    // insert data
      @discardableResult
-    func insertStory(story: Story) -> Bool {
-        let entity = NSEntityDescription.entity(forEntityName: "StoryModel", in: self.context)
+    func insertStory(list: List) -> Bool {
+        let entity = NSEntityDescription.entity(forEntityName: "StoryList", in: self.context)
         if let entity = entity {
             let managedObject = NSManagedObject(entity: entity, insertInto: self.context)
             
-            managedObject.setValue(story.title, forKey: "title")
-            managedObject.setValue(story.detail, forKey: "detail")
-            managedObject.setValue(story.date, forKey: "date")
+//            managedObject.setValue(story.title, forKey: "title")
+//            managedObject.setValue(story.detail, forKey: "detail")
+//            managedObject.setValue(story.date, forKey: "date")
+            managedObject.setValue(list.storyName, forKey: "storyName")
+            managedObject.setValue(list.storyDetail, forKey: "storyDetail")
             
             do {
                 try self.context.save()
@@ -93,29 +95,6 @@ class PersistenceManager {
             return nil
         }
     }
-    
-    // update
-    @discardableResult
-    func updateStory<T :NSManagedObject>(reqeust: NSFetchRequest<T>, index: Int, story: Story) -> Bool {
-        do{
-            let fetchResult = try self.context.fetch(reqeust)
-            let objectUpdate = fetchResult[index]
-            objectUpdate.setValue(story.title, forKey: "title")
-            objectUpdate.setValue(story.detail, forKey: "detail")
-            objectUpdate.setValue(story.date, forKey: "date")
-            
-            do {
-                try self.context.save()
-                return true
-            } catch {
-                print(error.localizedDescription)
-                return false
-            }
-        } catch {
-            print(error.localizedDescription)
-            return false
-        }
-    }
 }
 
 //count
@@ -143,4 +122,3 @@ class PersistenceManager {
 //fetch
 //let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
 //let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
-

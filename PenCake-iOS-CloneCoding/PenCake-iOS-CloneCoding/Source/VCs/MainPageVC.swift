@@ -13,7 +13,7 @@ class MainPageVC: UIPageViewController, UIGestureRecognizerDelegate {
     private var currentIndex = 0
     
     lazy var vcArray: [UIViewController] = {
-        return [self.vcInstance(name: "ViewController"),
+        return [self.vcInstance(name: "MainViewController"),
                 self.vcInstance(name: "AddVC")]
     }()
     
@@ -26,7 +26,7 @@ class MainPageVC: UIPageViewController, UIGestureRecognizerDelegate {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = .white
 //        self.transitionStyle = .scroll
         
         self.delegate = self

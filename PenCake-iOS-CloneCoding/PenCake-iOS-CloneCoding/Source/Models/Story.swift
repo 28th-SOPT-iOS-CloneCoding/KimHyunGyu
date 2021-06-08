@@ -11,5 +11,4 @@ struct Story {
     var title: String
     var detail: String
     var date: String
-
 }
