@@ -22,32 +22,35 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vuR-0z-ULK">
-                                <rect key="frame" x="205" y="302.5" width="4" height="18.5"/>
+                                <rect key="frame" x="205" y="322.5" width="4" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pyJ-YV-mU4">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem id="UvG-vY-E2A">
-                                        <barButtonItem key="leftBarButtonItem" title="취소" id="hY0-cS-Dk8">
-                                            <color key="tintColor" systemColor="systemGray2Color"/>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="완료" id="Sw4-Df-pca"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVY-t1-Oe0">
+                                <rect key="frame" x="20" y="44" width="30" height="30"/>
+                                <state key="normal" title="취소">
+                                    <color key="titleColor" systemColor="systemGray4Color"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissToMain:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="w8o-69-lYd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8t-Po-Ccs">
+                                <rect key="frame" x="364" y="44" width="30" height="30"/>
+                                <state key="normal" title="완료"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="pyJ-YV-mU4" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="0l1-dQ-IGq"/>
-                            <constraint firstItem="pyJ-YV-mU4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2In-7Z-wlF"/>
+                            <constraint firstItem="mVY-t1-Oe0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="9O5-x6-QJT"/>
+                            <constraint firstItem="mVY-t1-Oe0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="ICW-Jg-vrh"/>
                             <constraint firstItem="vuR-0z-ULK" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Ngz-aQ-260"/>
                             <constraint firstItem="D39-90-obA" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Q1X-wc-Jvm"/>
+                            <constraint firstItem="E8t-Po-Ccs" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="aQm-7S-N2k"/>
                             <constraint firstItem="D39-90-obA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="220" id="bDV-aG-NFU"/>
-                            <constraint firstItem="pyJ-YV-mU4" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="wZu-YS-MlJ"/>
-                            <constraint firstItem="vuR-0z-ULK" firstAttribute="top" secondItem="D39-90-obA" secondAttribute="bottom" constant="20" id="yqK-Ee-Qfv"/>
+                            <constraint firstItem="vuR-0z-ULK" firstAttribute="top" secondItem="D39-90-obA" secondAttribute="bottom" constant="40" id="yqK-Ee-Qfv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="E8t-Po-Ccs" secondAttribute="trailing" constant="20" id="zIZ-7l-a5j"/>
                         </constraints>
                     </view>
                     <connections>
@@ -64,8 +67,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

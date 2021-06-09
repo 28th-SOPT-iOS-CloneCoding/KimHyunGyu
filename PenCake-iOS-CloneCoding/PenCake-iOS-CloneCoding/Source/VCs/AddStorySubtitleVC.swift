@@ -13,7 +13,7 @@ class AddStorySubtitleVC: UIViewController {
     var titleText: String?
     var subtitleText: String?
 //    var storyList = [StoryList]()
-    var list: List?
+    var list = List(id: 1, storyDetail: "", storyName: "")
     
     //MARK: - @IBOutlet Properties
     @IBOutlet weak var subtitleTextField: UITextField!
@@ -31,9 +31,9 @@ class AddStorySubtitleVC: UIViewController {
             makeAlert(title: "", message: "소제목을 입력해주세요")
         } else {
             if let titleText = titleText, let subTitle = subtitleTextField.text {
-                list?.storyName = titleText
-                list?.storyDetail = subTitle
-                StoryListPersistenceManager.shared.insertStory(list: list!)
+                list.storyName = titleText
+                list.storyDetail = subTitle
+                PersistenceManager.shared.insertStoryList(list: list)
                 self.dismiss(animated: true, completion: nil)
             }
         }
