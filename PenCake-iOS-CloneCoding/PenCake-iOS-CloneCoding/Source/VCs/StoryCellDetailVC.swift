@@ -9,13 +9,13 @@ import UIKit
 import CoreData
 
 class StoryCellDetailVC: UIViewController {
-    //MARK: - Properties
+    // MARK: - Properties
     var titleText: String = ""
     var dateText: String = ""
     var detailText: String = ""
     var indexPath: Int = 0
     
-    //MARK: - @IBOutlet Properties
+    // MARK: - @IBOutlet Properties
     @IBOutlet weak var titleButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
@@ -26,8 +26,20 @@ class StoryCellDetailVC: UIViewController {
 
         // Do any additional setup after loading the view.
         setUI()
+        setNotification()
     }
-
+    
+    // MARK: - @objc Methods
+    @objc func reloadData() {
+        let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
+        let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
+        titleButton.setTitle(fetchResult[self.indexPath].title, for: .normal)
+        // 날짜 애교
+        detailLabel.text = fetchResult[self.indexPath].detail
+    }
+    
+    
+    // MARK: - Methods
     private func deleteStory() {
         let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
         let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
@@ -36,7 +48,10 @@ class StoryCellDetailVC: UIViewController {
         NotificationCenter.default.post(name: NSNotification.Name("ReloadData"), object: nil)
     }
     
-    //MARK: - Properties
+    private func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: NSNotification.Name("ReloadData"), object: nil)
+    }
+    
     private func setUI() {
         titleButton.setTitleColor(.black, for: .normal)
         titleButton.titleLabel?.font = UIFont.init(name: "NanumMyeongjoBold", size: 22)
@@ -46,19 +61,29 @@ class StoryCellDetailVC: UIViewController {
         
         let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
         let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
-       titleButton.setTitle(fetchResult[self.indexPath].title, for: .normal)
-       dateLabel.text = fetchResult[self.indexPath].date
-       detailLabel.text = fetchResult[self.indexPath].detail
+        titleButton.setTitle(fetchResult[self.indexPath].title, for: .normal)
+        
+        if let date = fetchResult[self.indexPath].date {
+            
+            // 2021년 6월 9일 수 오전 12:40
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy년 M월 d일 E a h:mm"
+            dateFormatter.locale = Locale(identifier: "ko_KR")
+            let dateStr = dateFormatter.string(from: date)
+            dateLabel.text = dateStr
+
+        }
+        detailLabel.text = fetchResult[self.indexPath].detail
     }
     
-    //MARK: - @IBAction Properties
+    // MARK: - @IBAction Properties
     @IBAction func eidtButtonClicked(_ sender: Any) {
         guard let nextVC = UIStoryboard.init(name: "SetStoryModal", bundle: nil).instantiateViewController(withIdentifier: "SetStoryModalVC") as? SetStoryModalVC else {
             return
         }
         
         nextVC.modalPresentationStyle = .overFullScreen
-        nextVC.indexPath = indexPath
+        nextVC.index = indexPath
         self.present(nextVC, animated: true, completion: nil)
     }
     @IBAction func popToMain(_ sender: Any) {
@@ -74,7 +99,7 @@ class StoryCellDetailVC: UIViewController {
             }
             
             nextVC.modalPresentationStyle = .overFullScreen
-            nextVC.indexPath = self.indexPath
+            nextVC.index = self.indexPath
             self.present(nextVC, animated: true, completion: nil)
         }
         let dismiss = UIAlertAction(title: "글 삭제", style: .destructive) {

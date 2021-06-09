@@ -10,5 +10,5 @@ import Foundation
 struct Story {
     var title: String
     var detail: String
-    var date: String
+    var date: Date
 }

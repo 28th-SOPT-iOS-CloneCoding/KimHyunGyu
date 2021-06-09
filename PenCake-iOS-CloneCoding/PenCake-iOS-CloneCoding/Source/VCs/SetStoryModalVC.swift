@@ -11,7 +11,7 @@ import CoreData
 class SetStoryModalVC: UIViewController {
     
     //MARK: - Properties
-    var indexPath : Int = -1
+    var index : Int = -1
     
     //MARK: - @IBOutlet Properties
     @IBOutlet weak var dismissButton: UIButton!
@@ -24,13 +24,13 @@ class SetStoryModalVC: UIViewController {
         super.viewDidLoad()
 
         setUI()
-        if indexPath == -1 {
+        if index == -1 {
             detailTextView.text = "내용을 입력하세요"
         } else {
              let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
              let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
-            titleTextField.text = fetchResult[indexPath].title
-            detailTextView.text = fetchResult[indexPath].detail
+            titleTextField.text = fetchResult[index].title
+            detailTextView.text = fetchResult[index].detail
         }
         
     }
@@ -61,16 +61,15 @@ class SetStoryModalVC: UIViewController {
         } else {
             text = titleTextField.text!
         }
-        if indexPath == -1 {
-            let storyOne = Story(title: text, detail: detailTextView.text ?? "", date: "0530")
+        if index == -1 {
+            let date = Date()
+            let storyOne = Story(title: text, detail: detailTextView.text ?? "", date: date)
              PersistenceManager.shared.insertStory(story: storyOne)
-            
             NotificationCenter.default.post(name: NSNotification.Name("ReloadData"), object: nil)
         } else {
             let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
-            let updateStory = Story(title: text, detail: detailTextView.text ?? "", date: "0530")
-            PersistenceManager.shared.updateStory(reqeust: request, index: indexPath, story: updateStory)
-            
+            let updateStory = Story(title: text, detail: detailTextView.text ?? "", date: Date())
+            PersistenceManager.shared.updateStory(reqeust: request, index: index, story: updateStory)
             NotificationCenter.default.post(name: NSNotification.Name("ReloadData"), object: nil)
         }
         self.dismiss(animated: true, completion: nil)

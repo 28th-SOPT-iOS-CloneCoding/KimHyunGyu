@@ -181,7 +181,7 @@ class MainViewController: UIViewController {
     
     private func fetchCoreData() {
         let listRequest: NSFetchRequest<StoryList> = StoryList.fetchRequest()
-        let fetchListResult = StoryListPersistenceManager.shared.fetch(reqeust: listRequest)
+        let fetchListResult = PersistenceManager.shared.fetch(reqeust: listRequest)
         list = fetchListResult
         print(list)
         
@@ -217,8 +217,15 @@ extension MainViewController: UITableViewDataSource {
         cell.titleLabel?.font = UIFont.init(name: "NanumMyeongjo", size: 17)
         cell.dateLabel.font = UIFont.init(name: "NanumMyeongjo", size: 12)
         cell.selectionStyle = .none
-
-        cell.setData(title: storyList[indexPath.row].title ?? "" , date: storyList[indexPath.row].date ?? "")
+        if let date = storyList[indexPath.row].date {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM.dd"
+            dateFormatter.locale = Locale(identifier: "ko_KR")
+            let dateStr = dateFormatter.string(from: date)
+            
+            cell.setData(title: storyList[indexPath.row].title ?? "" , date: dateStr)
+        }
+        
         return cell
     }
     

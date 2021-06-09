@@ -36,7 +36,7 @@ class PersistenceManager {
         }
     }
     
-    //insert data
+    //insert story
      @discardableResult
     func insertStory(story: Story) -> Bool {
         let entity = NSEntityDescription.entity(forEntityName: "StoryModel", in: self.context)
@@ -46,6 +46,29 @@ class PersistenceManager {
             managedObject.setValue(story.title, forKey: "title")
             managedObject.setValue(story.detail, forKey: "detail")
             managedObject.setValue(story.date, forKey: "date")
+            
+            do {
+                try self.context.save()
+                return true
+            } catch {
+                print(error.localizedDescription)
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+
+    // insert list
+     @discardableResult
+    func insertStoryList(list: List) -> Bool {
+        let entity = NSEntityDescription.entity(forEntityName: "StoryList", in: self.context)
+        if let entity = entity {
+            let managedObject = NSManagedObject(entity: entity, insertInto: self.context)
+
+            managedObject.setValue(list.storyName, forKey: "storyName")
+            managedObject.setValue(list.storyDetail, forKey: "storyDetail")
+//            managedObject.setValue(1, forKey: "id")
             
             do {
                 try self.context.save()
@@ -102,7 +125,7 @@ class PersistenceManager {
             let objectUpdate = fetchResult[index]
             objectUpdate.setValue(story.title, forKey: "title")
             objectUpdate.setValue(story.detail, forKey: "detail")
-            objectUpdate.setValue(story.date, forKey: "date")
+//            objectUpdate.setValue(story.date, forKey: "date")
             
             do {
                 try self.context.save()
@@ -144,3 +167,6 @@ class PersistenceManager {
 //let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
 //let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
 
+//update
+//let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
+//PersistenceManager.shared.updateStory(reqeust: request, index: index, story: story)
