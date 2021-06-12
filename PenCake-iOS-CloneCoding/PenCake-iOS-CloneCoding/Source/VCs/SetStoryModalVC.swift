@@ -24,18 +24,12 @@ class SetStoryModalVC: UIViewController {
         super.viewDidLoad()
 
         setUI()
-        if index == -1 {
-            detailTextView.text = "내용을 입력하세요"
-        } else {
-             let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
-             let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
-            titleTextField.text = fetchResult[index].title
-            detailTextView.text = fetchResult[index].detail
-        }
-        
     }
-
+    
+    // MARK: - Methods
     private func setUI() {
+        detailTextView.delegate = self
+        
         dismissButton.setTitle("취소", for: .normal)
         dismissButton.titleLabel?.font = UIFont.init(name: "NanumMyeongjo", size: 15)
         dismissButton.tintColor = .systemGray3
@@ -46,13 +40,29 @@ class SetStoryModalVC: UIViewController {
         
         titleTextField.font = UIFont.init(name: "NanumMyeongjoBold", size: 20)
         detailTextView.font = UIFont.init(name: "NanumMyeongjo", size: 15)
-        //텍필뷰 선택하면 네비타이틀로 제목이 올라감.
         detailTextView.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        
+        if index == -1 {
+            detailTextView.text = "내용을 입력하세요"
+        } else {
+             let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
+             let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
+            titleTextField.text = fetchResult[index].title
+            detailTextView.text = fetchResult[index].detail
+            detailTextView.textColor = .black
+        }
+    }
+    
+    private func setTextViewPlaceholder() {
+        if self.detailTextView.text == "내용을 입력하세요" {
+            detailTextView.text = ""
+            detailTextView.textColor = UIColor.black
+        }
     }
     
     @IBAction func dismissButtonClicked(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-        NotificationCenter.default.post(name: NSNotification.Name("ReloadData"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("ReloadMain"), object: nil)
     }
     @IBAction func completeButtonClicked(_ sender: Any) {
         let text: String
@@ -65,7 +75,7 @@ class SetStoryModalVC: UIViewController {
             let date = Date()
             let storyOne = Story(title: text, detail: detailTextView.text ?? "", date: date)
              PersistenceManager.shared.insertStory(story: storyOne)
-            NotificationCenter.default.post(name: NSNotification.Name("ReloadData"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name("ReloadMain"), object: nil)
         } else {
             let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
             let updateStory = Story(title: text, detail: detailTextView.text ?? "", date: Date())
@@ -74,5 +84,10 @@ class SetStoryModalVC: UIViewController {
         }
         self.dismiss(animated: true, completion: nil)
         
+    }
+}
+extension SetStoryModalVC: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        setTextViewPlaceholder()
     }
 }

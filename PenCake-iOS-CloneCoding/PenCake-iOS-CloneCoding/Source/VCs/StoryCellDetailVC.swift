@@ -45,7 +45,7 @@ class StoryCellDetailVC: UIViewController {
         let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
         PersistenceManager.shared.delete(object: fetchResult[self.indexPath])
         self.navigationController?.popViewController(animated: true)
-        NotificationCenter.default.post(name: NSNotification.Name("ReloadData"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("ReloadMain"), object: nil)
     }
     
     private func setNotification() {
@@ -88,6 +88,7 @@ class StoryCellDetailVC: UIViewController {
     }
     @IBAction func popToMain(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name("ReloadMain"), object: nil)
     }
     @IBAction func popupButtonClicked(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

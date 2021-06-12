@@ -42,7 +42,7 @@ class PersistenceManager {
         let entity = NSEntityDescription.entity(forEntityName: "StoryModel", in: self.context)
         if let entity = entity {
             let managedObject = NSManagedObject(entity: entity, insertInto: self.context)
-            
+
             managedObject.setValue(story.title, forKey: "title")
             managedObject.setValue(story.detail, forKey: "detail")
             managedObject.setValue(story.date, forKey: "date")
@@ -68,7 +68,6 @@ class PersistenceManager {
 
             managedObject.setValue(list.storyName, forKey: "storyName")
             managedObject.setValue(list.storyDetail, forKey: "storyDetail")
-//            managedObject.setValue(1, forKey: "id")
             
             do {
                 try self.context.save()
