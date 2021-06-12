@@ -99,7 +99,7 @@ class MainViewController: UIViewController {
             view.addSubview(infoLabel)
             infoLabel.snp.makeConstraints({ make in
                 make.centerX.equalTo(self.view)
-                make.centerY.equalTo(self.view).offset(-100)
+                make.centerY.equalTo(self.view).offset(-150)
             })
         } else {
             let subInfoLabel = self.view.viewWithTag(1)
@@ -121,11 +121,14 @@ class MainViewController: UIViewController {
     
     // MARK: - Methods
     private func setNotificationCenter() {
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name("ReloadData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name("ReloadMain"), object: nil)
     }
     
     private func setUI() {
         navigationController?.navigationBar.isHidden = true
+        
+        storyTitleButton.setTitle(list[0].storyName, for: .normal)
+        storySubtitleButton.setTitle(list[0].storyDetail, for: .normal)
         
         view.addSubview(customNavigationBar)
         customNavigationBar.addSubview(storyTitleButton)
@@ -157,12 +160,11 @@ class MainViewController: UIViewController {
         })
         
         if storyList.count == 0 {
-            //label 추가
             view.addSubview(infoLabel)
 
             infoLabel.snp.makeConstraints({ make in
                 make.centerX.equalTo(self.view)
-                make.centerY.equalTo(self.view).offset(-100)
+                make.centerY.equalTo(self.view).offset(-150)
             })
         }
     }
@@ -183,7 +185,7 @@ class MainViewController: UIViewController {
         let listRequest: NSFetchRequest<StoryList> = StoryList.fetchRequest()
         let fetchListResult = PersistenceManager.shared.fetch(reqeust: listRequest)
         list = fetchListResult
-        print(list)
+//        print(list)
         
         let request: NSFetchRequest<StoryModel> = StoryModel.fetchRequest()
         let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
@@ -217,13 +219,49 @@ extension MainViewController: UITableViewDataSource {
         cell.titleLabel?.font = UIFont.init(name: "NanumMyeongjo", size: 17)
         cell.dateLabel.font = UIFont.init(name: "NanumMyeongjo", size: 12)
         cell.selectionStyle = .none
+        
         if let date = storyList[indexPath.row].date {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM.dd"
-            dateFormatter.locale = Locale(identifier: "ko_KR")
-            let dateStr = dateFormatter.string(from: date)
+            var message : String = "" // 최종 결과값 담기위한 변수
+
+                let UTCDate = Date()
+                let formatter = DateFormatter()
+                formatter.timeZone = TimeZone(secondsFromGMT: 32400)
+                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                
+                let defaultTimeZoneStr = formatter.string(from: UTCDate)
             
-            cell.setData(title: storyList[indexPath.row].title ?? "" , date: dateStr)
+                let format = DateFormatter()
+                format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                format.locale = Locale(identifier: "ko_KR")
+                 // 한국 시각기준으로 측정합니다.
+            
+                let krTime = format.date(from: defaultTimeZoneStr)
+                
+            
+                let articleDate = format.string(from: date)
+                let useTime = Int(krTime!.timeIntervalSince(date))
+                
+                if useTime < 60
+                {
+                    message = "방금 전"
+                }
+                else if useTime < 3600
+                {
+                    message = String(useTime/60) + "분 전"
+                }
+                else if useTime < 86400
+                {
+                    message = String(useTime/3600) + "시간 전"
+                }
+                else
+                {
+                    let timeArray = articleDate.components(separatedBy: " ")
+                    let dateArray = timeArray[0].components(separatedBy: "-")
+
+                    message = dateArray[1] + "월 " + dateArray[2] + "일"
+                }
+            
+            cell.setData(title: storyList[indexPath.row].title ?? "" , date: message)
         }
         
         return cell
@@ -265,8 +303,4 @@ extension MainViewController: UIScrollViewDelegate {
         }
     }
 }
-//extension ViewController: UIGestureRecognizerDelegate {
-//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-//        return true
-//    }
-//}
+

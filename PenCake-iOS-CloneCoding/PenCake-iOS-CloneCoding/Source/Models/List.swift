@@ -8,7 +8,6 @@
 import Foundation
 
 struct List {
-    var id: Int
     var storyDetail: String
     var storyName: String
 }

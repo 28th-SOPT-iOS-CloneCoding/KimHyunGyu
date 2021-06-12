@@ -6,15 +6,15 @@
 //
 
 import UIKit
+import CoreData
 
 class MainPageVC: UIPageViewController, UIGestureRecognizerDelegate {
 
     // MARK: - Properties
-    private var currentIndex = 0
-    
+//    private var currentIndex = 0
+    var storyList = [StoryList]()
     lazy var vcArray: [UIViewController] = {
-        return [self.vcInstance(name: "MainViewController"),
-                self.vcInstance(name: "AddVC")]
+        return [self.vcInstance(name: "AddVC")]
     }()
     
     private func vcInstance(name: String) -> UIViewController {
@@ -27,16 +27,40 @@ class MainPageVC: UIPageViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-//        self.transitionStyle = .scroll
         
         self.delegate = self
         self.dataSource = self
-        if let firstVC = vcArray.first {
-            setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
-        }
+
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         
+        setNotification()
+        fetchCoreData()
+    }
+    //MARK: - @objc Methods
+    @objc
+    func reloadStorylist() {
+        fetchCoreData()
+    }
+    
+    //MARK: - Methods
+    private func fetchCoreData() {
+        let request: NSFetchRequest<StoryList> = StoryList.fetchRequest()
+        let fetchResult = PersistenceManager.shared.fetch(reqeust: request)
+        storyList = fetchResult
+        let pageCount = storyList.count
+        
+        for _ in (0..<pageCount) {
+            vcArray.append(vcInstance(name: "MainViewController"))
+        }
+        vcArray.reverse()
+        if let firstVC = vcArray.first {
+            setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
+        }
+    }
+    
+    private func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadStorylist), name: NSNotification.Name("ReloadStoryList"), object: nil)
     }
 }
 

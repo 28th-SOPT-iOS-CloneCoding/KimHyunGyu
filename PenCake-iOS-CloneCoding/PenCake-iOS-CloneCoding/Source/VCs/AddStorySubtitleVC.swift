@@ -12,8 +12,7 @@ class AddStorySubtitleVC: UIViewController {
     // MARK: - Properties
     var titleText: String?
     var subtitleText: String?
-//    var storyList = [StoryList]()
-    var list = List(id: 1, storyDetail: "", storyName: "")
+    var list = List(storyDetail: "", storyName: "")
     
     //MARK: - @IBOutlet Properties
     @IBOutlet weak var subtitleTextField: UITextField!
@@ -23,6 +22,7 @@ class AddStorySubtitleVC: UIViewController {
         super.viewDidLoad()
     }
 
+    // MARK: - @IBAction Methods
     @IBAction func dismissToTitle(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -34,6 +34,7 @@ class AddStorySubtitleVC: UIViewController {
                 list.storyName = titleText
                 list.storyDetail = subTitle
                 PersistenceManager.shared.insertStoryList(list: list)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ReloadStoryList"), object: nil)
                 self.dismiss(animated: true, completion: nil)
             }
         }
